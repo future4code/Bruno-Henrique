@@ -1,0 +1,87 @@
+/* Sentando margin, padding e boxsizing*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+}
+
+/* Tratando as imagens
+Definindo tamanho e espaçamento das imagens
+*/
+img{
+    max-width: 100px;
+    margin: 10px;
+    padding: 10px;
+}
+
+/* Tratando as imagens
+Estilo hover*/
+
+.face:hover{
+    background-color:#120078;
+}
+
+.inst:hover{
+    background-color: #ec5858 ;
+}
+
+.twt:hover{
+    background-color:#93abd3;
+}
+
+/*Tratando o cabeçalho*/
+
+.nome_loja > h1{
+    color:#fbf6f0;
+    font-size: 40px;
+}
+.nome_loja{
+    margin: 16px 30px;
+    margin-left: 10px;
+}
+
+.nome_loja p{
+    font-weight: bold;
+}
+
+/*Tratando links de naveganção*/
+
+.links{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    margin: 16px;
+}
+
+.links a{
+    text-decoration: none;
+    padding: 8px;
+}
+
+/*Tratando Texto descritivo da loja*/
+
+.descricao_loja p{
+   color: #fbf6f0;
+   font-size: 20px;
+   margin: 25px;
+}
+
+/*Tratando o rodapé*/
+
+.rodape{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.center{
+    position: absolute;
+    top: 300px
+    
+}
+
+

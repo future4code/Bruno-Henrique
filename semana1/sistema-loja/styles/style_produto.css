@@ -1,0 +1,59 @@
+/* Sentando margin, padding e boxsizing*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+}
+
+/*Tratando o cabeçalho*/
+
+.nome_loja > h1{
+    color:#fbf6f0;
+    font-size: 40px;
+}
+.nome_loja{
+    margin: 16px 30px;
+    margin-left: 10px;
+}
+
+.nome_loja p{
+    font-weight: bold;
+}
+
+/*Tratando links de naveganção*/
+
+.links{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    margin: 16px;
+}
+
+.links a{
+    text-decoration: none;
+    padding: 8px;
+}
+
+
+/* Trantando formulario*/
+
+h2{
+    font-size: 30px;
+    margin: 20px 0 30px 8px ;
+}
+
+.tamanho{
+    position: absolute;
+    right: 16px;
+    margin-top: 20px;
+}
+
+.rodape{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;   
+}
