@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.nav_right{
+    position: absolute;
+    top: 0; right: 60px;
+}
+
+.nav_right ul li{
+    float: left;
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.logo{
+    margin: 8px 20px;
+}
+
+.apresentacao{
+    border: 1px solid red;
+    text-align: center;
+    margin: 30px 16px;
+}
+
+.imagens img{
+    max-width: 300px;
+    margin: 20px 10px;
+}
