@@ -17,3 +17,12 @@
 .logo{
     margin: 8px 20px;
 }
+
+.formulario{
+    width: 800px;
+    display: block;
+}
+
+.formulario input{
+    width: 30%;
+    
