@@ -1,28 +1,59 @@
 *{
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+body{
+    background-color:#f1f6f993;
+}
+
+/* Barra de navegação superior */
+
 .nav_right{
     position: absolute;
-    top: 0; right: 60px;
+    top: 0; right: 30px;
 }
 
-.nav_right ul li{
+.nav_right li{
     float: left;
+    padding: 8px;
     list-style: none;
-    padding: 10px 20px;
 }
 
-.logo{
-    margin: 8px 20px;
+.nav_right a{
+    text-decoration: none;
 }
 
-.formulario{
-    width: 800px;
-    display: block;
+/* Conteudo princiapl */
+
+main>h1{
+    margin: 30px;
 }
 
-.formulario input{
-    width: 30%;
-    
+.form{
+    margin: 0 12px;
+}
+
+.form input{
+    margin: 12px 8px;
+    padding: 0 10px;
+}
+
+/*Rodapé*/
+
+.rodape{
+    background-color: #393e46;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    top: 220px;
+}
+
+.nav_socialMedia{
+    display: inline;
+}
+
+.nav_socialMedia img{
+    width: 40px;
+}
