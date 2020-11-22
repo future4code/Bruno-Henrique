@@ -8,7 +8,7 @@ body{
     background-color:#f1f6f993;
 }
 
-/* Barra de navegação */
+/* Barra de navegação superior */
 
 .nav_right{
     position: absolute;
@@ -56,22 +56,44 @@ body{
     text-align: right;
 }
 
+.info_projetos p{
+    font-size: 20px;
+}
+
 .info_projetos a{
+    background-color: #8db596;
     display: inline-block;
     position: absolute;
     top: 600px; right: 100px;
     text-align: right;
 }
 
-.info_projetos p{
-    font-size: 20px;
-}
-
-.info_projetos a:link, a:visited{
-    background-color: #8db596;
-    /* color: white; */
+.info_projetos a:link, .info_projetos a:visited{    
+    color: #f4f4f4;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
+}
 
+.info_projetos a:hover{
+    background-color:#5aac6d ;
+    font-weight: bolder;
+
+}
+
+/*Rodapé*/
+
+.rodape{
+    background-color: #393e46;
+    text-align: center;
+    color: #fff;
+}
+
+
+.nav_socialMedia{
+    display: inline;
+}
+
+.nav_socialMedia img{
+    width: 40px;
 }

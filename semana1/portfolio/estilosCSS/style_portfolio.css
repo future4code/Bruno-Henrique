@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#f1f6f993;
+}
+
+/* Barra de navegação superior*/
+
+.nav_right{
+    position: absolute;
+    top: 0; right: 30px;
+}
+
+.nav_right li{
+    float: left;
+    padding: 8px;
+    list-style: none;
+}
+
+.nav_right a{
+    text-decoration: none;
+}
+
+/* Conteudo Principal - Portfolio*/
+
+.main_conteiner{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.projetos{
+    background-color: #9ba4b417;
+}
+
+.card_projeto{
+    width: 300px;
+    display: inline-block;
+}
+
+/*Rodapé*/
+
+.rodape{
+    background-color: #393e46;
+    text-align: center;
+    color: #fff;
+}
+
+.nav_socialMedia{
+    display: inline;
+}
+
+.nav_socialMedia img{
+    width: 40px;
+}
