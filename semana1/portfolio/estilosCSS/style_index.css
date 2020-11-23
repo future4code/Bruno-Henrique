@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#f1f6f993;
+}
+
+/* Barra de navegação superior */
+
+.nav_right{
+    position: absolute;
+    top: 0; right: 30px;
+}
+
+.nav_right li{
+    float: left;
+    padding: 8px;
+    list-style: none;
+}
+
+.nav_right a{
+    text-decoration: none;
+}
+
+/* Cabeçalho - Titulo */
+
+.header_conteiner{
+    text-align: justify;
+    padding: 30px 60px;
+}
+
+.titulo{
+    text-align: center;
+}
+
+/* Conteudo principal */
+
+.main_conteiner{
+    background-color:#9ba4b417;
+    width: 90%;
+    margin: auto;
+    padding-left: 60px;
+}
+
+.main_conteiner img{
+    width: 600px;
+}
+
+.info_projetos p{
+    display: inline-block;
+    position: absolute;
+    top: 350px; right: 100px;
+    text-align: right;
+}
+
+.info_projetos p{
+    font-size: 20px;
+}
+
+.info_projetos a{
+    background-color: #8db596;
+    display: inline-block;
+    position: absolute;
+    top: 600px; right: 100px;
+    text-align: right;
+}
+
+.info_projetos a:link, .info_projetos a:visited{    
+    color: #f4f4f4;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.info_projetos a:hover{
+    background-color:#5aac6d ;
+    font-weight: bolder;
+
+}
+
+/*Rodapé*/
+
+.rodape{
+    background-color: #393e46;
+    text-align: center;
+    color: #fff;
+}
+
+
+.nav_socialMedia{
+    display: inline;
+}
+
+.nav_socialMedia img{
+    width: 40px;
+}
