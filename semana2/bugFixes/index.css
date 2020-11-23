@@ -46,6 +46,7 @@ div img {
     color: white;
 }
 
+
 .botao-amarelo:hover {
     background-color: #c44f00;
 }
@@ -122,6 +123,14 @@ td button {
     color: black;
 }
 
+td button:hover {
+    background-color: #dab71e;
+}
+
+td button:active {
+    color: white;
+}
+
 .centralizar{
     text-align: center;
 }
@@ -145,3 +154,4 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
+
