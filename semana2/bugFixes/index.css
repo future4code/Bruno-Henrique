@@ -4,9 +4,13 @@
   *
   **/
 
-* {
+  * {
     margin: 0;
     padding: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
 }
 
 h2 {
@@ -46,7 +50,6 @@ div img {
     color: white;
 }
 
-
 .botao-amarelo:hover {
     background-color: #c44f00;
 }
@@ -57,9 +60,16 @@ div img {
   }
 
 .icone {
-    width: 25px;
+    width: 25px;    
 }
 
+.icone:hover{
+    opacity: 0.5;    
+}
+
+.icone:active{
+    opacity: 1;    
+}
 
 /** 
   *
@@ -79,9 +89,10 @@ div img {
     margin: 0 auto;
 }
 
-
 #container-de-descricao>ol {
     padding: 15px 0px;
+    width: 280px;
+    margin: auto;
 }
 
 #container-para-comprar {
@@ -129,6 +140,7 @@ td button:hover {
 
 td button:active {
     color: white;
+    border: none;
 }
 
 .centralizar{
@@ -140,6 +152,11 @@ td button:active {
     height: 100px;
 }
 
+.container-do-search input[type=text]{
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+}
 
 #back-button {
     background-color: white;
@@ -154,4 +171,3 @@ td button:active {
 #back-button:hover {
     background-color: #635a3d
 }
-
