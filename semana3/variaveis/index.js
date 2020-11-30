@@ -51,7 +51,7 @@ console.log(comidasFavoritas); */
 
 //Exercicio6
 
-let trivia = ['Vc conhece Elon Musk?', 'Vc gosta da NFL?', 'Vc acredita em atividade paranormal?'];
+let trivia = ['Vc conhece Elon Musk?', 'Vc assiste a NFL?', 'Vc acredita em atividade paranormal?'];
 let respostasTrivia = [false, true, false];
 
 console.log(trivia[0],respostasTrivia[0]);
