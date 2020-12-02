@@ -108,49 +108,49 @@ switch(tipoDeJogo){
 
                     valorTotalDT = quantidadeIngressos*valorIngressoDT[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo: Nacional`);
+                    console.log(`Etapa do Jogo:  Disputa de Terceiro lugar`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoDT[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalDT}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoDT[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalDT}`);
 
                 }else if(categoria === 2){
 
                     valorTotalDT = quantidadeIngressos*valorIngressoDT[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo: Nacional`);
+                    console.log(`Etapa do Jogo:  Disputa de Terceiro lugar`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoDT[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalDT}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoDT[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalDT}`);
 
                 } else if(categoria === 3){
                 
                     valorTotalDT = quantidadeIngressos*valorIngressoDT[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo: Nacional`);
+                    console.log(`Etapa do Jogo:  Disputa de Terceiro lugar`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoDT[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalDT}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoDT[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalDT}`);
 
                 }else if(categoria === 4){
 
                     valorTotalDT = quantidadeIngressos*valorIngressoDT[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo: Nacional`);
+                    console.log(`Etapa do Jogo:  Disputa de Terceiro lugar`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoDT[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalDT}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoDT[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalDT}`);
 
                 }else{
                     console.log(`Categoria ${categoria} inválida!`)
@@ -165,49 +165,49 @@ switch(tipoDeJogo){
 
                     valorTotalSF = quantidadeIngressos*valorIngressoSF[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Nacional`);
+                    console.log(`Etapa do Jogo:  Semi-Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoSF[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalSF}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoSF[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalSF}`);
 
                 }else if(categoria === 2){
 
                     valorTotalSF = quantidadeIngressos*valorIngressoSF[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Nacional`);
+                    console.log(`Etapa do Jogo:  Semi-Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoSF[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalSF}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoSF[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalSF}`);
 
                 } else if(categoria === 3){
                 
                     valorTotalSF = quantidadeIngressos*valorIngressoSF[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Nacional`);
+                    console.log(`Etapa do Jogo:  Semi-Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoSF[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalSF}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoSF[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalSF}`);
 
                 }else if(categoria === 4){
 
                     valorTotalSF = quantidadeIngressos*valorIngressoSF[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Nacional`);
+                    console.log(`Etapa do Jogo:  Semi-Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoSF[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalSF}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoSF[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalSF}`);
 
                 }else{
                     console.log(`Categoria ${categoria} inválida!`)
@@ -222,55 +222,59 @@ switch(tipoDeJogo){
 
                     valorTotalFI = quantidadeIngressos*valorIngressoFI[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Nacional`);
+                    console.log(`Etapa do Jogo:  Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoFI[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalFI}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoFI[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalFI}`);
 
                 }else if(categoria === 2){
 
                     valorTotalFI = quantidadeIngressos*valorIngressoFI[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Nacional`);
+                    console.log(`Etapa do Jogo:  Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoFI[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalFI}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoFI[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalFI}`);
 
                 } else if(categoria === 3){
                 
                     valorTotalFI = quantidadeIngressos*valorIngressoFI[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Nacional`);
+                    console.log(`Etapa do Jogo:  Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoFI[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalFI}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoFI[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalFI}`);
 
                 }else if(categoria === 4){
 
                     valorTotalFI = quantidadeIngressos*valorIngressoFI[categoria-1];
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Nacional`);
+                    console.log(`Etapa do Jogo:  Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoFI[categoria-1]}`);
-                    console.log(`Valor Total:  ${valorTotalFI}`);
+                    console.log(`Valor do ingresso: R$ ${valorIngressoFI[categoria-1]}`);
+                    console.log(`Valor Total: R$ ${valorTotalFI}`);
 
                 }else{
                     console.log(`Categoria ${categoria} inválida!`)
                 }       
             break;
-        }
+            
+            default:
+                console.log(`Etapa do jogo ${etapaJogo} inválido`);
+            break;
+        }   
     break;
     
     case "IN":
@@ -283,49 +287,49 @@ switch(tipoDeJogo){
 
                     valorTotalDT = quantidadeIngressos*valorIngressoDT[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo:  Disputa de Terceiro lugar`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoDT[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalDT}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoDT[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalDT}`);
 
                 }else if(categoria === 2){
 
                     valorTotalDT = quantidadeIngressos*valorIngressoDT[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo:  Disputa de Terceiro lugar`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoDT[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalDT}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoDT[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalDT}`);
 
                 } else if(categoria === 3){
                 
                     valorTotalDT = quantidadeIngressos*valorIngressoDT[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo:  Disputa de Terceiro lugar`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoDT[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalDT}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoDT[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalDT}`);
 
                 }else if(categoria === 4){
 
                     valorTotalDT = quantidadeIngressos*valorIngressoDT[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo:  Disputa de Terceiro lugar`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoDT[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalDT}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoDT[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalDT}`);
 
                 }else{
                     console.log(`Categoria ${categoria} inválida!`)
@@ -340,49 +344,49 @@ switch(tipoDeJogo){
 
                     valorTotalSF = quantidadeIngressos*valorIngressoSF[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo:  Semi-Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoSF[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalSF}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoSF[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalSF}`);
 
                 }else if(categoria === 2){
 
                     valorTotalSF = quantidadeIngressos*valorIngressoSF[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo:  Semi-Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoSF[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalSF}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoSF[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalSF}`);
 
                 } else if(categoria === 3){
                 
                     valorTotalSF = quantidadeIngressos*valorIngressoSF[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo:  Semi-Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoSF[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalSF}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoSF[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalSF}`);
 
                 }else if(categoria === 4){
 
                     valorTotalSF = quantidadeIngressos*valorIngressoSF[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo:  Semi-Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoSF[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalSF}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoSF[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalSF}`);
 
                 }else{
                     console.log(`Categoria ${categoria} inválida!`)
@@ -397,55 +401,62 @@ switch(tipoDeJogo){
 
                     valorTotalFI = quantidadeIngressos*valorIngressoFI[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo: Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoFI[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalFI}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoFI[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalFI}`);
 
                 }else if(categoria === 2){
 
                     valorTotalFI = quantidadeIngressos*valorIngressoFI[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo: Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoFI[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalFI}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoFI[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalFI}`);
 
                 } else if(categoria === 3){
                 
                     valorTotalFI = quantidadeIngressos*valorIngressoFI[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo: Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoFI[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalFI}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoFI[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalFI}`);
 
                 }else if(categoria === 4){
 
                     valorTotalFI = quantidadeIngressos*valorIngressoFI[categoria-1]*4.1;
                     console.log(`Nome do cliente:  ${cliente}`);
-                    console.log(`Tipo de Jogo:  ${tipoDeJogo}`);
-                    console.log(`Etapa do Jogo:  ${etapaJogo}`);
+                    console.log(`Tipo de Jogo:  Internacional`);
+                    console.log(`Etapa do Jogo: Final`);
                     console.log(`Categoria:  ${categoria}`);
                     console.log(`Quantidade de ingressos:  ${quantidadeIngressos}`);
 
-                    console.log(`Valor do ingresso:  ${valorIngressoFI[categoria-1]*4.1}`);
-                    console.log(`Valor Total:  ${valorTotalFI}`);
+                    console.log(`Valor do ingresso: U$ ${valorIngressoFI[categoria-1]*4.1}`);
+                    console.log(`Valor Total: U$ ${valorTotalFI}`);
 
                 }else{
                     console.log(`Categoria ${categoria} inválida!`)
                 }       
             break;
+                
+            default:
+                console.log(`Etapa do jogo ${etapaJogo} inválido`);
+            break;    
         }
     break; 
-
+    
+    default:
+        console.log(`Tipo de jogo ${tipoDeJogo} inválido`);
+    break;
 }
