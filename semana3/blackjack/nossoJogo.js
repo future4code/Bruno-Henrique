@@ -34,20 +34,13 @@ if (confirm("Iniciar rodada?")) {
    console.log(`Computador - cartas: ${computador[0]} ${computador[1]} pontuação: ${somaC}`);
 
    //Verificação de vencedor
-   let verificarVencedor = true;
-   while (verificarVencedor) {
-      if (somaJ > somaC && somaJ <= 21) {
-         console.log("Jogador venceu");
-         verificarVencedor = false;
-      } else if (somaC > somaJ && somaC <= 21) {
-         console.log("Computador venceu");
-         verificarVencedor = false;
-      } else if (somaJ === somaC && somaJ <= 21) {
-         console.log("Deu empate")
-         verificarVencedor = false;
-      } else {
-         verificarVencedor = false;
-      }
+
+   if (somaJ > somaC && somaJ <= 21) {
+      console.log("Jogador venceu");
+   } else if (somaC > somaJ && somaC <= 21) {
+      console.log("Computador venceu");     
+   } else if (somaJ === somaC && somaJ <= 21) {
+      console.log("Deu empate")
    }
 
 } else {
