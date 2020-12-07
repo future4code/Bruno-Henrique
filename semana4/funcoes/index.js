@@ -58,7 +58,7 @@
 // imprimi10Vezes("Clonando ovelhas paraquedistas!");
 
 //Exercicio6
-const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22];
+//const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22];
 
 //a.
 // const tamanhoDoArray = (array) => {
@@ -104,5 +104,65 @@ const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22];
 //     return quantidade;
 // }
 // console.log("Tem ", quantidadeDeNumerosPares(array), "numeros pares nesse array")
+
+//Desafios
+//Exercicio1
+// const imprimiParametro = (numero) => {
+//     console.log(numero);
+// }
+
+// let imprimi2Valores = (valor1, valor2) => {
+//     let soma = valor1 + valor2;
+//     imprimiParametro(soma);
+// }
+// imprimi2Valores(23, 7);
+
+//Exercicio2
+const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13];
+
+//a. 
+//function dobroNumerosPares (array){
+//     let novoArray = [];
+//     for(let i of array){
+//         if(i%2 === 0){
+//             novoArray.push(i*2);
+//         }
+//     }
+//     return novoArray;
+// }
+// const meuArray = dobroNumerosPares(numeros);
+// console.log(meuArray)
+
+//b.
+// function maiorNumero (array){
+//     let maiorDentroDoArray = 0;
+//     for (let i = 0; i < array.length; i++){
+//         if(maiorDentroDoArray < array[i]){
+//             maiorDentroDoArray = array[i];
+//         }
+//     }
+//     return maiorDentroDoArray;
+// }
+// const meuArray = maiorNumero(numeros);
+// console.log(meuArray)
+
+
+//c.
+// function maiorNumeroIndice (array){
+//     let maiorDentroDoArray = 0;
+//     let maiorIndice = 0;
+//     for (let i = 0; i < array.length; i++){
+//         if(maiorDentroDoArray < array[i]){
+//             maiorDentroDoArray = array[i];
+//             maiorIndice = i;
+//         }
+//     }
+//     return maiorIndice;
+// }
+// const meuArray = maiorNumeroIndice(numeros);
+// console.log("O maior numero esta no indice ", meuArray);
+
+
+
 
 
