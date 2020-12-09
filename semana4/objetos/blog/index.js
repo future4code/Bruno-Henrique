@@ -38,14 +38,12 @@ function addPost() {
         author.value = ""
         textAreaPost.value = ""
 
+        //conteudoPostagem.innerHTML += `<article class="post-style">${post}</article>`
         console.log(conteudoPostagem)
-        
-        // conteudoPostagem.innerHTML +=`<article class="post-style">${post}</article>`
-
     } else {
         alert("Dados invalidos!")
     }
-    
+
 }
 
 
