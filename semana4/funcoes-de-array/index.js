@@ -11,7 +11,7 @@ function imprimirDespesas(despesas){
     // AQUI VEM A IMPLEMENTAÇÃO
 
     despesas.map(gasto => {
-        divDespesas.innerHTML += `<p><u>Valor:R$ ${gasto.valor} | Tipo: ${gasto.tipo} | Descrição: ${gasto.descricao} </u></p>`
+        return divDespesas.innerHTML += `<p><u>Valor:R$ ${gasto.valor} | Tipo: ${gasto.tipo} | Descrição: ${gasto.descricao} </u></p>`
     });    
 
 }
@@ -86,8 +86,19 @@ function filtrarDespesas(){
     let valorMin = Number(document.getElementById('valorFiltroMin').value)
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
+    // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
 
-    let despesasFiltradas // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+    const funcao = (valores) =>{
+        if(tipoFiltro === valores.tipo && valores.valor >= valorMin && valores.valor <= valorMax){
+            return true
+        }else if(tipoFiltro === "todos" && valores.valor >= valorMin && valores.valor <= valorMax){
+            return true
+        }else{            
+            return false
+        }        
+    }
+    let despesasFiltradas = arrDespesas.filter(funcao)
+
 
     imprimirDespesas(despesasFiltradas)
 }
