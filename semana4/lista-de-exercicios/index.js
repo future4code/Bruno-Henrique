@@ -126,6 +126,12 @@ entrariamos em um loop while infinito. */
 
 /*********************** Exercícios de Funções ***********************/
 //Exercicio 1
+const arrNumeros = [5,9,30,23,27,12];
+
+function segundoMaiorEMenor(array){
+
+
+}
 
 
 
