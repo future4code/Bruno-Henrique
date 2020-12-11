@@ -1,60 +1,15 @@
-// //Metodo 1
-// function comparaValor(numero){
-// 	if(numero > 10){
-// 		console.log(`(Metodo1)Numero informado é maior que 10`)
-// 	}else if(numero < 10){
-// 		console.log(`(Metodo1)Numero informado é menor que 10`)
-// 	}else{
-// 		console.log(`(Metodo1)Numero informado é igual a 10`)
-// 	}
-// }
+/********************** Exercícios de interpretação de código ***********************/
+//Exercico 1
+/* Após a função ser chamada com o valor de 100, essa função será executada. Primeiro ela irá pedir que o usuario
+digite a cotação atual da moeda dolar. Ela retornará o valor multiplicado pela cotação informada que ficará armazenada
+na variavel meuDinheiro. O console.log vai imprimir no console o valor da variavel meuDinheiro.  */ 
 
-// const valor = Number(prompt("Digite o valor a ser comparado"));
-// comparaValor(valor);
+//Exercico 2
+/* A função investeDinheiro, recebe dois parametros de entrada que deve ser informados no momento da chamada
+da função. Após a chamada passando os dois valores de parametros(tipoDeInvestimento e valor) para ela, a função 
+delara uma variavel que irá receber após as verificações condicionais(swich/case) o rendimento do valor aplicado
+de acordo com o tipoDeInvestimento informado na chamada. O retorno da função será a variavel declarada no iníco.
+Serão impressos no console, o valor de 165 referente a variavel novoMontante e undefined referente a variavel
+segundoValor pois o tipoDeInvestimento foi informado errado, então a função exibe um alerta e como não há valor
+dentro da variavel de retorno, no console se´r exibido undefined. */
 
-// //Metodo 2
-// const comparaValor2 = () => {
-// 	const valor2 = Number(prompt("Digite o valor a ser comparado"));
-// 	if(valor2 > 10){
-// 		console.log(`(Metodo2)Numero informado é maior que 10`)
-// 	}else if(valor2 < 10){
-// 		console.log(`(Metodo2)Numero informado é menor que 10`)
-// 	}else{
-// 		console.log(`(Metodo2)Numero informado é igual a 10`)
-// 	}
-// }
-// comparaValor2();
-
-// //Metodo 3
-// const comparaValor3 = (valor3, imprimi) => {
-//     if (valor3 > 10) {
-//         imprimi(`(Metodo3)Numero informado é maior que 10`)
-//     } else if (valor3 < 10) {
-//         imprimi(`(Metodo3)Numero informado é menor que 10`)
-//     } else {
-//         imprimi(`(Metodo3)Numero informado é igual a 10`)
-//     }
-// }
-
-// const imprimiConsole = (mensagem) => { 
-//     console.log(mensagem);
-// }
-
-// const numero = Number(prompt("Digite o valor a ser comparado"));
-// comparaValor3(numero,imprimiConsole)
-
-//Metodo 4
-const comparaValor4 = (valor4, imprimi) => {
-    if (valor4 > 10) {
-        imprimi(`(Metodo4)Numero informado é maior que 10`)
-    } else if (valor4 < 10) {
-        imprimi(`(Metodo4)Numero informado é menor que 10`)
-    } else {
-        imprimi(`(Metodo4)Numero informado é igual a 10`)
-    }
-}
-
-const numero = Number(prompt("Digite o valor a ser comparado"));
-comparaValor4(numero, (mensagem) => { 
-    console.log(mensagem);
-});
