@@ -28,3 +28,32 @@ com as variaveis numero1 e numero2. SE o item na primeira posição do array eh 
 o desse item, ou seja armazenando sempre o menor durante a interação. O inverso acontece com a variavel numero2
 onde somente os itens do array que forem maiores que a variavel numero2 serão colocados na propria variavel
 numero2. */
+
+
+/*********************** Exercícios de Lógica de Programação ***********************/
+//Exercicio 1
+/* Podemos usar o loop FOR para fazer as interações para percorrer o array/lista, o forEach, o forOf
+entre outras.*/
+
+/* const arrayNumeros = [10, 12, 20, 30, 50];
+const arrayExemplo = [];
+//Exemplo usando o FOR "puro"
+// for(let i = 0; i < arrayNumeros.length; i++){
+//     if(arrayNumeros[i] < 40){
+//         arrayExemplo.push(arrayNumeros[i]);
+//     } 
+// }
+// //Exemplo usando o FOR/OF
+// for(let item of arrayNumeros){
+//     if(arrayNumeros[i] > 15){
+//         arrayExemplo.push(arrayNumeros[i]);
+//     } 
+// }
+console.log(arrayExemplo); */
+
+//Exercicio 2
+//a. false
+//b. true
+//c. true
+//d. true
+//e. true 
