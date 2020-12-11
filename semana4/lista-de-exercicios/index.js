@@ -2,7 +2,7 @@
 //Exercico 1
 /* Após a função ser chamada com o valor de 100, essa função será executada. Primeiro ela irá pedir que o usuario
 digite a cotação atual da moeda dolar. Ela retornará o valor multiplicado pela cotação informada que ficará armazenada
-na variavel meuDinheiro. O console.log vai imprimir no console o valor da variavel meuDinheiro.  */ 
+na variavel meuDinheiro. O console.log vai imprimir no console o valor da variavel meuDinheiro.  */
 
 //Exercico 2
 /* A função investeDinheiro, recebe dois parametros de entrada que deve ser informados no momento da chamada
@@ -49,11 +49,83 @@ const arrayExemplo = [];
 //         arrayExemplo.push(arrayNumeros[i]);
 //     } 
 // }
-console.log(arrayExemplo); */
+*/
 
 //Exercicio 2
 //a. false
 //b. true
 //c. true
 //d. true
-//e. true 
+//e. true
+
+//Exercicio 3
+/* Este codigo do jeito que está não executa o pedido pois o valor dda variavel i nunca muda com isso 
+entrariamos em um loop while infinito. */
+
+// const quantidadeDeNumerosPares = 4;
+// let i = 1;
+// while(i <= quantidadeDeNumerosPares) {
+//   //console.log(i*2)
+//   i++;
+// }
+
+/* Alterado o codigo desconsiderando o numero 0 (zero) como par */
+
+//Exercicio 4
+// function verificaTriangulo(ladoA, ladoB, ladoC){
+//     if(ladoA === ladoB && ladoA === ladoC){
+//         alert("Esse triangulo é equilatero")
+//     }else if(ladoA === ladoB || ladoA === ladoC || ladoB ===ladoC){
+//         alert("Esse triangulo é isoceles")
+//     }else{
+//         alert("Esse triangulo é escaleno")
+
+//     }
+// }
+// verificaTriangulo(3,3,3);
+// verificaTriangulo(3,3,4);
+// verificaTriangulo(3,4,6);
+
+//Exercicio 5
+// function verifica2Numeros(numero1, numero2, divisivel, diferenca) {
+//     let maior;
+//     if (numero1 > numero2) {
+//         maior = numero1
+//     } else {
+//         maior = numero2
+//     }
+//     //console.log(`O maior é: ${maior}`)
+
+//     // Verificação de divisibilidade
+//     divisivel(numero1, numero2);
+    
+//     // Verificação de diferença
+//     diferenca(numero1, numero2);
+    
+// }
+// const divisibilidade = (num1, num2) => {
+//     if (num1 % num2 === 0) {
+//         // console.log(`O numero ${num1} é divisivel por ${num2}`)
+//         // console.log(`O numero ${num2} não é divisivel por ${num1}`)
+//         return true       
+//     } else if (num2 % num1 === 0) {
+//         // console.log(`O numero ${num2} é divisivel por ${num1}`)
+//         // console.log(`O numero ${num1} não é divisivel por ${num2}`)
+//         return true
+//     }
+//     return false
+// }
+
+// const diferencaEntre = (num1, num2) => {
+//     let diferenca = Math.abs(num1 - num2)
+//     return diferenca
+// }
+
+// const inputAleatorio = verifica2Numeros(15, 30, divisibilidade, diferencaEntre);
+
+
+/*********************** Exercícios de Funções ***********************/
+//Exercicio 1
+
+
+
