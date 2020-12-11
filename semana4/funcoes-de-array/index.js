@@ -4,7 +4,7 @@ imprimirExtrato(arrDespesas)
 
 
 // PRIMEIRO
-function imprimirDespesas(despesas){
+function imprimirDespesas(despesas) {
     let divDespesas = document.getElementById('despesas')
     divDespesas.innerHTML = '<p><u>Despesas Detalhadas</u></p>'
 
@@ -12,13 +12,13 @@ function imprimirDespesas(despesas){
 
     despesas.map(gasto => {
         return divDespesas.innerHTML += `<p><u>Valor:R$ ${gasto.valor} | Tipo: ${gasto.tipo} | Descrição: ${gasto.descricao} </u></p>`
-    });    
+    });
 
 }
 
 
 // SEGUNDO 
-function imprimirExtrato(extratos){
+function imprimirExtrato(extratos) {
     let divExtrato = document.getElementById('extrato')
     let gastoTotal = 0
     let gastoAlimentacao = 0
@@ -26,18 +26,18 @@ function imprimirExtrato(extratos){
     let gastoViagem = 0
 
     // AQUI VEM A IMPLEMENTAÇÃO
-    
+
     extratos.forEach((soma) => {
-        if(soma.tipo === "alimentação"){
+        if (soma.tipo === "alimentação") {
             gastoAlimentacao += soma.valor;
-        }else if(soma.tipo === "utilidades"){
+        } else if (soma.tipo === "utilidades") {
             gastoUtilidades += soma.valor;
-        }else if(soma.tipo === "viagem"){
+        } else if (soma.tipo === "viagem") {
             gastoViagem += soma.valor;
         }
     });
     gastoTotal = gastoAlimentacao + gastoUtilidades + gastoViagem;
-    
+
     divExtrato.innerHTML = `<p>Extrato: Gasto Total: R$${gastoTotal} | Alimentação: R$${gastoAlimentacao} | 
                                         Utilidades: R$${gastoUtilidades} | Viagem: R$${gastoViagem}</p>`
 }
@@ -51,12 +51,12 @@ function limparFiltros() {
 
 
 
-function adicionarDespesa(){
+function adicionarDespesa() {
     let valorCdt = document.getElementById('valorCadastro')
     let tipoCtd = document.getElementById('tipoCadastro')
     let descricaoCtd = document.getElementById('descricaoCadastro')
 
-    if(validarValor(valorCdt) && validarTipo(tipoCtd) && validarDescricao(descricaoCtd)){
+    if (validarValor(valorCdt) && validarTipo(tipoCtd) && validarDescricao(descricaoCtd)) {
         let novaDespesa = {
             valor: Number(valorCdt.value),
             tipo: tipoCtd.value,
@@ -64,12 +64,12 @@ function adicionarDespesa(){
         }
 
         arrDespesas.push(novaDespesa)
-        
+
         valorCdt.value = ""
         tipoCtd.value = ""
         descricaoCtd.value = ""
 
-        
+
         limparFiltros()
         imprimirDespesas(arrDespesas)
         imprimirExtrato(arrDespesas)
@@ -78,57 +78,93 @@ function adicionarDespesa(){
     }
 }
 
+function ordenarValoresMaior() {    
+    arrDespesas.sort(function (a, b) {
+       if(a.valor > b.valor){
+        return -1
+       }
+
+       if(a.valor < b.valor){
+        return 1
+       }
+
+       return 0
+    });
+
+    imprimirDespesas(arrDespesas);
+}
+
+function ordenarValoresMenor() {    
+    arrDespesas.sort(function (a, b) {
+       if(a.valor > b.valor){
+        return 1
+       }
+
+       if(a.valor < b.valor){
+        return -1
+       }
+
+       return 0
+    });
+
+    imprimirDespesas(arrDespesas);
+}
+
+const btnMenor = document.getElementById("btn-ordenarMenorMaior")
+btnMenor.addEventListener("click", ordenarValoresMenor)
+
 
 
 // TERCEIRO
-function filtrarDespesas(){
+function filtrarDespesas() {
+
     let tipoFiltro = document.getElementById('tipoFiltro').value
     let valorMin = Number(document.getElementById('valorFiltroMin').value)
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
     // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
-
-    const funcao = (valores) =>{
-        if(tipoFiltro === valores.tipo && valores.valor >= valorMin && valores.valor <= valorMax){
-            return true
-        }else if(tipoFiltro === "todos" && valores.valor >= valorMin && valores.valor <= valorMax){
-            return true
-        }else{            
-            return false
-        }        
+    // DESAFIO - VERIFICA SE OS VALORES DE FILTRO SÃO POSITIVOS E SE MIN É MENOR QUE MAX
+    const validacao = (minValue, maxValue) => {
+        if (minValue < 0 || maxValue < 0 || minValue > maxValue) {
+            alert("Valores inválidos. Por favor insira novos valores!")
+        } else {
+            let despesasFiltradas = arrDespesas.filter((valores) => {
+                if (tipoFiltro === valores.tipo && valores.valor >= valorMin && valores.valor <= valorMax) {
+                    return true
+                } else if (tipoFiltro === "todos" && valores.valor >= valorMin && valores.valor <= valorMax) {
+                    return true
+                } else {
+                    return false
+                }
+            });
+            imprimirDespesas(despesasFiltradas)
+        }
     }
-    let despesasFiltradas = arrDespesas.filter(funcao)
 
-
-    imprimirDespesas(despesasFiltradas)
+    validacao(valorMin, valorMax);
 }
-
-
-
-
-
 
 
 // FunÇoes que fazem validaÇoes dos inputs de criaÇao de despesas 
 
 // NÃO SE PREOCUPEM EM ENTENDER ESSAS FUNÇÕES
 
-function validarValor(valor){
-    if(valor.value.length > 0 && parseInt(valor.value) > 0){
+function validarValor(valor) {
+    if (valor.value.length > 0 && parseInt(valor.value) > 0) {
         return true
     }
     return false
 }
 
-function validarTipo(tipo){
-    if(tipo.value !== ""){
+function validarTipo(tipo) {
+    if (tipo.value !== "") {
         return true
     }
     return false
 }
 
-function validarDescricao(texto){
-    if(texto.value.replace(/ /g,"").length !== 0){
+function validarDescricao(texto) {
+    if (texto.value.replace(/ /g, "").length !== 0) {
         return true
     }
     return false
