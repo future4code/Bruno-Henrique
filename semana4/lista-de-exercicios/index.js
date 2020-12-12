@@ -94,7 +94,7 @@ entrariamos em um loop while infinito. */
 //     } else {
 //         maior = numero2
 //     }
-//     //console.log(`O maior é: ${maior}`)
+//     // console.log(`O maior é: ${maior}`)
 
 //     // Verificação de divisibilidade
 //     divisivel(numero1, numero2);
@@ -117,8 +117,9 @@ entrariamos em um loop while infinito. */
 // }
 
 // const diferencaEntre = (num1, num2) => {
-//     let diferenca = Math.abs(num1 - num2)
-//     return diferenca
+//     let dif = Math.abs(num1 - num2)
+//     // console.log(`A diferença entre os dois numeros é ${dif}`);
+//     return dif
 // }
 
 // const inputAleatorio = verifica2Numeros(15, 30, divisibilidade, diferencaEntre);
@@ -126,12 +127,50 @@ entrariamos em um loop while infinito. */
 
 /*********************** Exercícios de Funções ***********************/
 //Exercicio 1
-const arrNumeros = [5,9,30,23,27,12];
+// const arrNumeros = [5,9,30,23,27,12];
+// segundoMaiorEMenor(arrNumeros);
 
-function segundoMaiorEMenor(array){
+// function segundoMaiorEMenor(array){
+//     let menorNumero = Infinity;
+//     let segundoMenorNumero = Infinity;
+
+//     let maiorNumero = 0;
+//     let segundoMaiorNumero = 0;
+
+//     for(let i = 0; i < array.length; i++){
+//         if(array[i] < menorNumero){
+//             menorNumero = array[i];
+//         }
+
+//         if(array[i] > maiorNumero){
+//             maiorNumero = array[i];
+//         }        
+//     }
+
+//     for (let num of array){
+//         if(num < segundoMenorNumero && num > menorNumero){
+//             segundoMenorNumero = num;
+//         }
+
+//         if(num > segundoMaiorNumero && num < maiorNumero){
+//             segundoMaiorNumero = num;
+//         }
+//     }
+
+//     // console.log(`O menor numero do array é ${menorNumero} e o segundo menor é ${segundoMenorNumero}`);
+//     // console.log(`O maior numero do array é ${maiorNumero} e o segundo maior é ${segundoMaiorNumero}`);
+// }
+
+//Exercico 2
+// const mensagemAlert = () =>{
+//     alert("Hello Labenu")
+// }
+//  mensagemAlert()
 
 
-}
+
+
+
 
 
 
