@@ -98,10 +98,10 @@ entrariamos em um loop while infinito. */
 
 //     // Verificação de divisibilidade
 //     divisivel(numero1, numero2);
-    
+
 //     // Verificação de diferença
 //     diferenca(numero1, numero2);
-    
+
 // }
 // const divisibilidade = (num1, num2) => {
 //     if (num1 % num2 === 0) {
@@ -166,6 +166,58 @@ entrariamos em um loop while infinito. */
 //     alert("Hello Labenu")
 // }
 //  mensagemAlert()
+
+/*********************** Exercícios de Objetos ***********************/
+//Exercicio 1
+/* Os Arrays são uma maneira simples de guardar uma sequencias de dados de maneira organizada. Essa estrutura 
+pode guardar desdes dados simples como uma sequencia de numeros ou nomes ou até mesmo estruturas mais complexas
+com objetos.
+A ideia principal dos Objetos é criar uma estrutura mais organizada e complexa de informações. Devemos utilizar
+essa estrutura em informações de perfil de usuario, onde podemos agrupar todas as informações do usuario dentro
+de um unico objeto. */
+
+//Exercicio 2
+// const criaRetangulo = (ladoA, ladoB) => {
+//     let retangulo = {};
+
+//     retangulo.lado1 = ladoA
+//     retangulo.lado2 = ladoB
+//     retangulo.perimetro = 2*(ladoA + ladoB)
+//     retangulo.area = ladoA * ladoB
+
+//     return retangulo;
+// }
+// let medidas = criaRetangulo(10,20);
+
+//Exercicio 3
+// const filmeFavorito = {
+//     tituloOriginal: "Inception",
+//     tituloAdaptadoPt: "A Origem",
+//     ano: "2010",
+//     diretor: "Christopher Nolan",
+//     atores: ["Leonardo DiCaprio", "Ken Watanabe", "Joseph Gordon-Levitt", "Marion Cotillard", "Elliot Page"]
+// }
+// alert(`Venha assistir ao ${filmeFavorito.tituloAdaptadoPt}(${filmeFavorito.tituloOriginal}), de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor} e estrelado por ${filmeFavorito.atores}`);
+
+//Exercicio 4
+// const usuario = {
+//     nome: "Bruno Silva",
+//     idade: 37,
+//     email: "brunohcsilva@gmail.com",
+//     endereco: "Itabira/MG"
+// }
+
+// const anomizarPessoa = (user) => {
+//     let usuarioAnonimo = {
+//         ...user
+//     }
+//     usuarioAnonimo.nome = "ANÔNIMO";
+//     console.log(usuarioAnonimo);
+    
+//     return usuarioAnonimo;
+// }
+
+// anomizarPessoa(usuario)
 
 
 
