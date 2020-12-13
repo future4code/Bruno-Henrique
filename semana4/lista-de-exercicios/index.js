@@ -213,16 +213,62 @@ de um unico objeto. */
 //     }
 //     usuarioAnonimo.nome = "ANÔNIMO";
 //     console.log(usuarioAnonimo);
-    
+
 //     return usuarioAnonimo;
 // }
 
 // anomizarPessoa(usuario)
 
+/*********************** Exercícios de Funções de array ***********************/
+//Exercicio 1
+// const dadosUsuario = [
+//     { nome: "Pedro", idade: 20 },
+//     { nome: "João", idade: 10 },
+//     { nome: "Paula", idade: 12 },
+//     { nome: "Artur", idade: 89 }
+// ]
 
+/* ****************************** Metodo 1 ****************************** */
+// //a.
+// const somenteAdultos = (arrUsuarios) => {
+//     const arrAdultos = []
+//     for (let item of arrUsuarios) {
+//         if(item.idade >= 20){
+//             arrAdultos.push(item)
+//         }
+//     }
+//     return arrAdultos;
+// }
+// //console.log(somenteAdultos(dadosUsuario));
 
+// //b.
+// const criancasAdolecentes = (arrUsuarios) => {
+//     const arrNovoArray = []
+//     for (let item of arrUsuarios) {
+//         if (item.idade < 20) {
+//             arrNovoArray.push(item)
+//         }
+//     }
+//     return arrNovoArray;
+// }
+// //console.log(criancasAdolecentes(dadosUsuario));
 
+/* ****************************** Metodo 2 ****************************** */
 
+// //a. Usando função filter()
+// const arrAdultos = dadosUsuario.filter((usuario) => {
+//     if (usuario.idade >= 20) {
+//         return true
+//     }
+// });
+// // console.log(arrAdultos);
 
+// //b. Usando função filter()
+// const arrCriancasAdolecentes = dadosUsuario.filter((usuario) => {
+//     if (usuario.idade < 20) {
+//         return true
+//     }
+// });
+// //console.log(arrCriancasAdolecentes);
 
 
