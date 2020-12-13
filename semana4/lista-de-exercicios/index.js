@@ -357,4 +357,52 @@ de um unico objeto. */
 // })
 
 //Exercicio 4
+// const consultas = [
+//     { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+//     { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+//     { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+//     { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// ]
 
+// const confirmarConsultas = consultas.map(cliente => {
+//     if (cliente.cancelada === false) {
+//         if (cliente.genero === "masculino") {
+//             // console.log(`Olá, Sr. ${cliente.nome}. Estamos enviando esta mensagem para
+//             // lembrá-lo da sua consulta no dia ${cliente.dataDaConsulta}. Por favor, acuse
+//             // o recebimento deste e-mail.`)
+//         } else {
+//             // console.log(`Olá, Sra. ${cliente.nome}. Estamos enviando esta mensagem para
+//             // lembrá-la da sua consulta no dia ${cliente.dataDaConsulta}. Por favor, acuse
+//             // o recebimento deste e-mail.`)
+//         }
+//     } else {
+//         if (cliente.genero === "masculino") {
+//             // console.log(`Olá, Sr. ${cliente.nome}. Infelizmente, sua consulta marcada
+//             // para o dia ${cliente.dataDaConsulta} foi cancelada.Se quiser, pode entrar em
+//             // contato conosco para remarcá - la`)
+//         } else {
+//             // console.log(`Olá, Sra. ${cliente.nome}. Infelizmente, sua consulta marcada
+//             // para o dia ${cliente.dataDaConsulta} foi cancelada.Se quiser, pode entrar em
+//             // contato conosco para remarcá - la`)
+//         }
+//     }
+//     return cliente
+// });
+
+//Exercicio 5
+// const contas = [
+//     { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+//     { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+//     { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+//     { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+//     { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+//     { cliente: "Soter", saldoTotal: 1200, compras: [] }
+// ]
+
+// contas.forEach((cliente, indice, arrConta) => {
+//     let totalCompras = 0;
+//     for(let compra of cliente.compras){
+//         totalCompras += compra
+//     }     
+//     return cliente.saldoTotal -= totalCompras
+// });
