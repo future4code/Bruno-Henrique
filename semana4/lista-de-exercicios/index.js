@@ -271,4 +271,90 @@ de um unico objeto. */
 // });
 // //console.log(arrCriancasAdolecentes);
 
+//Exercicio 2
+//const array = [1, 2, 3, 4, 5, 6];
+
+/* ****************************** Metodo 1 ****************************** */
+// //a.
+// const multiplicadosPor2 = (numeros) => {
+//     let arrMultiplicado = [];
+//     for (let num of numeros) {
+//         arrMultiplicado.push(num * 2);
+//     }
+//     return arrMultiplicado;
+// }
+//multiplicadosPor2(array)
+
+// //b.
+// const multiplicadosPor3 = (numeros) => {
+//     let arrMultiplicado = [];
+//     for (let num of numeros) {
+//         // arrMultiplicado.push(`${num * 3}`);
+//         arrMultiplicado.push((num * 3).toString());
+//     }
+//     return arrMultiplicado;
+// }
+//multiplicadosPor3(array)
+
+// //c. 
+// const paridade = (numeros) => {
+//     const arrParidade = []
+//     for (let item of numeros) {
+//         if (item % 2 === 0){
+//             arrParidade.push(`${item} é par`);
+//         }else{
+//             arrParidade.push(`${item} é impar`);
+//         }
+//     }
+//     return arrParidade;
+// }
+// paridade(array)
+
+/* ****************************** Metodo 2 ****************************** */
+// //a. Usando a função map()
+// const multiplicadosPor2 = array.map((item) => {
+//     return item * 2;
+// });
+
+// //b. Usando a função map()
+// const multiplicadosPor3 = array.map((item) => {
+//     // return (item * 3).toString();
+//     return `${item * 3}`
+// });
+
+// //c.
+// const paridade = array.map((item) => {
+//     if (item % 2 === 0){
+//         return (`${item} é par`)
+//     }
+//         return (`${item} é impar`)
+// });
+
+//Exercicio 3
+// const pessoas = [
+//     { nome: "Paula", idade: 12, altura: 1.8 },
+//     { nome: "João", idade: 20, altura: 1.3 },
+//     { nome: "Pedro", idade: 15, altura: 1.9 },
+//     { nome: "Luciano", idade: 22, altura: 1.8 },
+//     { nome: "Artur", idade: 10, altura: 1.2 },
+//     { nome: "Soter", idade: 70, altura: 1.9 }
+// ]
+
+// //a. 
+// const permitidoEntrar = pessoas.filter((pessoa) => {
+//     if (pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60) {
+//         return true
+//     }
+//     return false
+// });
+
+// //b. 
+// const proibidoEntrar = pessoas.filter((pessoa) => {
+//     if (pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60) {
+//         return false
+//     }
+//     return true
+// })
+
+//Exercicio 4
 
