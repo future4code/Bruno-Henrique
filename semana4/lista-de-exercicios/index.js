@@ -95,7 +95,8 @@ entrariamos em um loop while infinito. */
 //         maior = numero2
 //     }
 //     //console.log(`O maior é: ${maior}`)
-
+=======
+//     // console.log(`O maior é: ${maior}`)
 //     // Verificação de divisibilidade
 //     divisivel(numero1, numero2);
 
@@ -119,6 +120,10 @@ entrariamos em um loop while infinito. */
 // const diferencaEntre = (num1, num2) => {
 //     let diferenca = Math.abs(num1 - num2)
 //     return diferenca
+=======
+//     let dif = Math.abs(num1 - num2)
+//     // console.log(`A diferença entre os dois numeros é ${dif}`);
+//     return dif
 // }
 
 // const inputAleatorio = verifica2Numeros(15, 30, divisibilidade, diferencaEntre);
@@ -153,3 +158,284 @@ entrariamos em um loop while infinito. */
 
 // const arrNumeros = [12, 20, 7, 30, 11, 43, 2];
 // segundoMaiorEMenor(arrNumeros);
+=======
+// const arrNumeros = [5,9,30,23,27,12];
+// segundoMaiorEMenor(arrNumeros);
+
+// function segundoMaiorEMenor(array){
+//     let menorNumero = Infinity;
+//     let segundoMenorNumero = Infinity;
+
+//     let maiorNumero = 0;
+//     let segundoMaiorNumero = 0;
+
+//     for(let i = 0; i < array.length; i++){
+//         if(array[i] < menorNumero){
+//             menorNumero = array[i];
+//         }
+
+//         if(array[i] > maiorNumero){
+//             maiorNumero = array[i];
+//         }        
+//     }
+
+//     for (let num of array){
+//         if(num < segundoMenorNumero && num > menorNumero){
+//             segundoMenorNumero = num;
+//         }
+
+//         if(num > segundoMaiorNumero && num < maiorNumero){
+//             segundoMaiorNumero = num;
+//         }
+//     }
+
+//     // console.log(`O menor numero do array é ${menorNumero} e o segundo menor é ${segundoMenorNumero}`);
+//     // console.log(`O maior numero do array é ${maiorNumero} e o segundo maior é ${segundoMaiorNumero}`);
+// }
+
+//Exercico 2
+// const mensagemAlert = () =>{
+//     alert("Hello Labenu")
+// }
+//  mensagemAlert()
+
+/*********************** Exercícios de Objetos ***********************/
+//Exercicio 1
+/* Os Arrays são uma maneira simples de guardar uma sequencias de dados de maneira organizada. Essa estrutura 
+pode guardar desdes dados simples como uma sequencia de numeros ou nomes ou até mesmo estruturas mais complexas
+com objetos.
+A ideia principal dos Objetos é criar uma estrutura mais organizada e complexa de informações. Devemos utilizar
+essa estrutura em informações de perfil de usuario, onde podemos agrupar todas as informações do usuario dentro
+de um unico objeto. */
+
+//Exercicio 2
+// const criaRetangulo = (ladoA, ladoB) => {
+//     let retangulo = {};
+
+//     retangulo.lado1 = ladoA
+//     retangulo.lado2 = ladoB
+//     retangulo.perimetro = 2*(ladoA + ladoB)
+//     retangulo.area = ladoA * ladoB
+
+//     return retangulo;
+// }
+// let medidas = criaRetangulo(10,20);
+
+//Exercicio 3
+// const filmeFavorito = {
+//     tituloOriginal: "Inception",
+//     tituloAdaptadoPt: "A Origem",
+//     ano: "2010",
+//     diretor: "Christopher Nolan",
+//     atores: ["Leonardo DiCaprio", "Ken Watanabe", "Joseph Gordon-Levitt", "Marion Cotillard", "Elliot Page"]
+// }
+// alert(`Venha assistir ao ${filmeFavorito.tituloAdaptadoPt}(${filmeFavorito.tituloOriginal}), de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor} e estrelado por ${filmeFavorito.atores}`);
+
+//Exercicio 4
+// const usuario = {
+//     nome: "Bruno Silva",
+//     idade: 37,
+//     email: "brunohcsilva@gmail.com",
+//     endereco: "Itabira/MG"
+// }
+
+// const anomizarPessoa = (user) => {
+//     let usuarioAnonimo = {
+//         ...user
+//     }
+//     usuarioAnonimo.nome = "ANÔNIMO";
+//     console.log(usuarioAnonimo);
+
+//     return usuarioAnonimo;
+// }
+
+// anomizarPessoa(usuario)
+
+/*********************** Exercícios de Funções de array ***********************/
+//Exercicio 1
+// const dadosUsuario = [
+//     { nome: "Pedro", idade: 20 },
+//     { nome: "João", idade: 10 },
+//     { nome: "Paula", idade: 12 },
+//     { nome: "Artur", idade: 89 }
+// ]
+
+/* ****************************** Metodo 1 ****************************** */
+// //a.
+// const somenteAdultos = (arrUsuarios) => {
+//     const arrAdultos = []
+//     for (let item of arrUsuarios) {
+//         if(item.idade >= 20){
+//             arrAdultos.push(item)
+//         }
+//     }
+//     return arrAdultos;
+// }
+// //console.log(somenteAdultos(dadosUsuario));
+
+// //b.
+// const criancasAdolecentes = (arrUsuarios) => {
+//     const arrNovoArray = []
+//     for (let item of arrUsuarios) {
+//         if (item.idade < 20) {
+//             arrNovoArray.push(item)
+//         }
+//     }
+//     return arrNovoArray;
+// }
+// //console.log(criancasAdolecentes(dadosUsuario));
+
+/* ****************************** Metodo 2 ****************************** */
+
+// //a. Usando função filter()
+// const arrAdultos = dadosUsuario.filter((usuario) => {
+//     if (usuario.idade >= 20) {
+//         return true
+//     }
+// });
+// // console.log(arrAdultos);
+
+// //b. Usando função filter()
+// const arrCriancasAdolecentes = dadosUsuario.filter((usuario) => {
+//     if (usuario.idade < 20) {
+//         return true
+//     }
+// });
+// //console.log(arrCriancasAdolecentes);
+
+//Exercicio 2
+//const array = [1, 2, 3, 4, 5, 6];
+
+/* ****************************** Metodo 1 ****************************** */
+// //a.
+// const multiplicadosPor2 = (numeros) => {
+//     let arrMultiplicado = [];
+//     for (let num of numeros) {
+//         arrMultiplicado.push(num * 2);
+//     }
+//     return arrMultiplicado;
+// }
+//multiplicadosPor2(array)
+
+// //b.
+// const multiplicadosPor3 = (numeros) => {
+//     let arrMultiplicado = [];
+//     for (let num of numeros) {
+//         // arrMultiplicado.push(`${num * 3}`);
+//         arrMultiplicado.push((num * 3).toString());
+//     }
+//     return arrMultiplicado;
+// }
+//multiplicadosPor3(array)
+
+// //c. 
+// const paridade = (numeros) => {
+//     const arrParidade = []
+//     for (let item of numeros) {
+//         if (item % 2 === 0){
+//             arrParidade.push(`${item} é par`);
+//         }else{
+//             arrParidade.push(`${item} é impar`);
+//         }
+//     }
+//     return arrParidade;
+// }
+// paridade(array)
+
+/* ****************************** Metodo 2 ****************************** */
+// //a. Usando a função map()
+// const multiplicadosPor2 = array.map((item) => {
+//     return item * 2;
+// });
+
+// //b. Usando a função map()
+// const multiplicadosPor3 = array.map((item) => {
+//     // return (item * 3).toString();
+//     return `${item * 3}`
+// });
+
+// //c.
+// const paridade = array.map((item) => {
+//     if (item % 2 === 0){
+//         return (`${item} é par`)
+//     }
+//         return (`${item} é impar`)
+// });
+
+//Exercicio 3
+// const pessoas = [
+//     { nome: "Paula", idade: 12, altura: 1.8 },
+//     { nome: "João", idade: 20, altura: 1.3 },
+//     { nome: "Pedro", idade: 15, altura: 1.9 },
+//     { nome: "Luciano", idade: 22, altura: 1.8 },
+//     { nome: "Artur", idade: 10, altura: 1.2 },
+//     { nome: "Soter", idade: 70, altura: 1.9 }
+// ]
+
+// //a. 
+// const permitidoEntrar = pessoas.filter((pessoa) => {
+//     if (pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60) {
+//         return true
+//     }
+//     return false
+// });
+
+// //b. 
+// const proibidoEntrar = pessoas.filter((pessoa) => {
+//     if (pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60) {
+//         return false
+//     }
+//     return true
+// })
+
+//Exercicio 4
+// const consultas = [
+//     { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+//     { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+//     { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+//     { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// ]
+
+// const confirmarConsultas = consultas.map(cliente => {
+//     if (cliente.cancelada === false) {
+//         if (cliente.genero === "masculino") {
+//             // console.log(`Olá, Sr. ${cliente.nome}. Estamos enviando esta mensagem para
+//             // lembrá-lo da sua consulta no dia ${cliente.dataDaConsulta}. Por favor, acuse
+//             // o recebimento deste e-mail.`)
+//         } else {
+//             // console.log(`Olá, Sra. ${cliente.nome}. Estamos enviando esta mensagem para
+//             // lembrá-la da sua consulta no dia ${cliente.dataDaConsulta}. Por favor, acuse
+//             // o recebimento deste e-mail.`)
+//         }
+//     } else {
+//         if (cliente.genero === "masculino") {
+//             // console.log(`Olá, Sr. ${cliente.nome}. Infelizmente, sua consulta marcada
+//             // para o dia ${cliente.dataDaConsulta} foi cancelada.Se quiser, pode entrar em
+//             // contato conosco para remarcá - la`)
+//         } else {
+//             // console.log(`Olá, Sra. ${cliente.nome}. Infelizmente, sua consulta marcada
+//             // para o dia ${cliente.dataDaConsulta} foi cancelada.Se quiser, pode entrar em
+//             // contato conosco para remarcá - la`)
+//         }
+//     }
+//     return cliente
+// });
+
+//Exercicio 5
+// const contas = [
+//     { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+//     { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+//     { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+//     { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+//     { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+//     { cliente: "Soter", saldoTotal: 1200, compras: [] }
+// ]
+
+// contas.forEach((cliente, indice, arrConta) => {
+//     let totalCompras = 0;
+//     for(let compra of cliente.compras){
+//         totalCompras += compra
+//     }     
+//     return cliente.saldoTotal -= totalCompras
+// });
+
