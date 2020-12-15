@@ -1,0 +1,11 @@
+.small-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: #eff8ff;
+    border: 1px solid black;
+    border-radius: 3px;
+        
+}
