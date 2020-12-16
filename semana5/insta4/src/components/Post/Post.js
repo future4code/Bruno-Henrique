@@ -8,7 +8,9 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import iconeFavoritoVazio from '../../img/bookmark-vazio.svg'
 import iconeFavoritoSalvo from '../../img/bookmark-salvo.svg'
+import iconeShare from '../../img/share.svg'
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
+import { SecaoCompartilhar } from '../SecaoCompartilhar/SecaoCompartilhar'
 
 class Post extends React.Component {
   state = {
@@ -16,7 +18,15 @@ class Post extends React.Component {
     numeroCurtidas: 0,
     comentando: false,
     numeroComentarios: 0,
-    favorito: false
+
+    favorito: false,
+    compartilhar: false
+  }
+
+  onClickFavoritar = () => {
+    this.setState({
+      favorito: !this.state.favorito
+    })
   }
 
   onClickCurtida = () => {
@@ -36,6 +46,12 @@ class Post extends React.Component {
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
+    })
+  }
+
+  onClickCompartilhar = () => {
+    this.setState({
+      compartilhar: !this.state.compartilhar
     })
   }
 
@@ -63,6 +79,12 @@ class Post extends React.Component {
       iconeCurtida = iconeCoracaoBranco
     }
 
+    let componenteCompartilhar
+
+    if (this.state.compartilhar) {
+      componenteCompartilhar = <SecaoCompartilhar />
+    }
+
     let componenteComentario
 
     if (this.state.comentando) {
@@ -73,7 +95,7 @@ class Post extends React.Component {
       <div className={'post-header'}>
         <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{this.props.nomeUsuario}</p>
-        <img className={'favoritar'} src={iconeFavorito}/>
+        <img className={'favoritar'} src={iconeFavorito} onClick={this.onClickFavoritar} />
       </div>
 
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'} />
@@ -84,6 +106,9 @@ class Post extends React.Component {
           onClickIcone={this.onClickCurtida}
           valorContador={this.state.numeroCurtidas}
         />
+        <div>
+        <img alt={'Icone'} src={iconeShare} onClick={this.onClickCompartilhar}/>
+        </div>
 
         <IconeComContador
           icone={iconeComentario}
@@ -92,6 +117,7 @@ class Post extends React.Component {
         />
       </div>
       {componenteComentario}
+      {componenteCompartilhar}
     </div>
   }
 }
