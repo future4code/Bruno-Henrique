@@ -6,6 +6,8 @@ import { IconeComContador } from '../IconeComContador/IconeComContador'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
+import iconeFavoritoVazio from '../../img/bookmark-vazio.svg'
+import iconeFavoritoSalvo from '../../img/bookmark-salvo.svg'
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
 
 class Post extends React.Component {
@@ -13,7 +15,8 @@ class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    favorito: false
   }
 
   onClickCurtida = () => {
@@ -44,6 +47,14 @@ class Post extends React.Component {
   }
 
   render() {
+    let iconeFavorito
+
+    if (this.state.favorito) {
+      iconeFavorito = iconeFavoritoSalvo
+    } else {
+      iconeFavorito = iconeFavoritoVazio
+    }
+
     let iconeCurtida
 
     if (this.state.curtido) {
@@ -62,6 +73,7 @@ class Post extends React.Component {
       <div className={'post-header'}>
         <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{this.props.nomeUsuario}</p>
+        <img className={'favoritar'} src={iconeFavorito}/>
       </div>
 
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'} />
