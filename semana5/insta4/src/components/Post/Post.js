@@ -23,12 +23,16 @@ class Post extends React.Component {
     compartilhar: false
   }
 
+  //----------------------------------------------------------------------------
+  //Funcionalidade de Marcar
   onClickFavoritar = () => {
     this.setState({
       favorito: !this.state.favorito
     })
   }
 
+  //----------------------------------------------------------------------------
+  //Funcionalidade de Marcar
   onClickCurtida = () => {
     this.setState({
       curtido: !this.state.curtido
@@ -43,18 +47,24 @@ class Post extends React.Component {
     }
   }
 
+  //----------------------------------------------------------------------------
+  //Funcionalidade de Comentario
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
     })
   }
-
+  
+  //----------------------------------------------------------------------------
+  //Funcionalidade de Compartilhar
   onClickCompartilhar = () => {
     this.setState({
       compartilhar: !this.state.compartilhar
     })
   }
 
+  //----------------------------------------------------------------------------
+  //Funcionalidade de enviar Comentario
   aoEnviarComentario = () => {
     this.setState({
       comentando: false,
@@ -63,6 +73,8 @@ class Post extends React.Component {
   }
 
   render() {
+  //----------------------------------------------------------------------------
+  //Funcionalidade de icones marcar, compartilhar, curtir, comentar, adicionar  novo post
     let iconeFavorito
 
     if (this.state.favorito) {
@@ -106,6 +118,8 @@ class Post extends React.Component {
           onClickIcone={this.onClickCurtida}
           valorContador={this.state.numeroCurtidas}
         />
+
+        {/* Funcionalidade para compartilhar */}
         <div>
         <img alt={'Icone'} src={iconeShare} onClick={this.onClickCompartilhar}/>
         </div>
