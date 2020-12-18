@@ -9,6 +9,7 @@ import iconeComentario from '../../img/comment_icon.svg'
 import iconeFavoritoVazio from '../../img/bookmark-vazio.svg'
 import iconeFavoritoSalvo from '../../img/bookmark-salvo.svg'
 import iconeShare from '../../img/share.svg'
+
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
 import { SecaoCompartilhar } from '../SecaoCompartilhar/SecaoCompartilhar'
 
@@ -32,7 +33,7 @@ class Post extends React.Component {
   }
 
   //----------------------------------------------------------------------------
-  //Funcionalidade de Marcar
+  //Funcionalidade de Curtir
   onClickCurtida = () => {
     this.setState({
       curtido: !this.state.curtido

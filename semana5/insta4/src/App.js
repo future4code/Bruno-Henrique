@@ -25,8 +25,13 @@ class App extends React.Component {
         nomeUsuario: 'rafael',
         fotoUsuario: 'https://picsum.photos/id/1062/50/50',
         fotoPost: 'https://picsum.photos/id/1041/200/150'
-      }
+      },
+
     ],
+
+    valorInputUsuario: "",
+    valorInputFotoAvatar: "",
+    valorInputFotoPost: "",
 
     novoPost: false
   }
@@ -38,8 +43,7 @@ class App extends React.Component {
       novoPost: !this.state.novoPost
     })
   }
-  //----------------------------------------------------------------------------
-  //Funcionalidade de Comentario
+
   aoCriarPost = () => {
     this.setState({
       novoPost: false
@@ -51,7 +55,12 @@ class App extends React.Component {
     let componenteNovoPost
 
     if (this.state.novoPost) {
-      componenteNovoPost = <SecaoNovaPostagem />
+      componenteNovoPost = (
+      <SecaoNovaPostagem 
+        nomeUsuario={this.state.valorInputUsuario}
+        fotoUsuario={this.state.valorInputFotoAvatar}
+        fotoPost={this.state.valorInputFotoPost}
+      />)
     }
 
     const componentePosts = this.state.posts.map((post) => {
@@ -71,7 +80,8 @@ class App extends React.Component {
           <p>Criar novo Post</p>
           <img alt={'Icone-Novo'} src={iconeAdd} onClick={this.onClickNovaPostagem} />
         </div>
-        { componentePosts}
+        {componenteNovoPost}
+        {componentePosts}
       </div>
     );
   }

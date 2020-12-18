@@ -18,7 +18,6 @@ export class SecaoCompartilhar extends React.Component {
             <img alt={'icone_instagram'} src={iconeIntsgram}></img>
             <img alt={'icone_twitter'} src={iconeTwitter}></img>
 		</div>
-
         
     }
 }
