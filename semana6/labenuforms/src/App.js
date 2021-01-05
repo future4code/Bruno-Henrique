@@ -8,37 +8,36 @@ class App extends React.Component {
     etapa: 1
   }
 
+  btnProximaEtapa = () => {
+    this.setState({ etapa: this.state.etapa + 1 })
+  }
+
+  renderizaEtapa = () => {
+    switch (this.state.etapa) {
+      case 1:
+        return <Etapa1 />
+        break;
+
+      case 2:
+        return <Etapa2 />
+        break;
+
+      case 3:
+        return <Etapa3 />
+        break;
+
+      default:
+        return <div></div>
+        break;
+
+    }
+  }
+
   render() {
-    let contador = this.state.etapa
-
-    const btnProximaEtapa = () =>{  
-      contador ++;
-      this.setState = ({etapa: contador})
-    }
-
-    const renderizaEtapa = () => {
-      switch (this.state.etapa) {
-        case 1:
-          return <Etapa1 />
-          break;
-
-        case 2:
-          return <Etapa2 />
-          break;
-
-        case 3:
-          return <Etapa3 />
-          break;
-
-        default:
-          alert(`Questionario ja foi respondido`)
-          break;
-      }
-    }
     return (
       <div className="App">
         <h1>Labenu Forms</h1>
-        {renderizaEtapa()}
+        {this.renderizaEtapa()}
         <button onClick={this.btnProximaEtapa}>Proxima etapa</button>
       </div>
     );
