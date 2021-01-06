@@ -27,7 +27,7 @@ class App extends React.Component {
 
   componentDidUpdate() {
     const listaTarefas = [...this.state.tarefas]
-    localStorage.setItem("tarefas", JSON.stringify(listaTarefas))    
+    localStorage.setItem("tarefas", JSON.stringify(listaTarefas))
   };
 
   componentDidMount() {
@@ -35,9 +35,9 @@ class App extends React.Component {
     const listaTarefasObjeto = JSON.parse(listaTarefasString)
     // console.log(listaTarefasObjeto)
 
-    if(listaTarefasObjeto){
-      this.setState({tarefas: listaTarefasObjeto})      
-    }    
+    if (listaTarefasObjeto) {
+      this.setState({ tarefas: listaTarefasObjeto })
+    }
   };
 
   onChangeInput = (event) => {
@@ -56,6 +56,16 @@ class App extends React.Component {
     this.setState({ tarefas: listaTarefas, inputValue: '' })
   }
 
+  excluirMensagem = (id) => {
+    // if (confirm("Deseja excluir essa tarefa?")){
+
+    // }
+    const novaLista = this.state.tarefas.filter((tarefa) => {
+      return id !== tarefa.id
+    })
+    this.setState({ tarefas: novaLista })
+  }
+
   selectTarefa = (id) => {
     const novaListaDeTarefas = this.state.tarefas.map((tarefa) => {
       if (id === tarefa.id) {
@@ -64,15 +74,15 @@ class App extends React.Component {
           completa: !tarefa.completa
         }
         return tarefaFeita
-      }else{
+      } else {
         return tarefa
       }
     })
-    this.setState({tarefas: novaListaDeTarefas})
+    this.setState({ tarefas: novaListaDeTarefas })
   }
 
   onChangeFilter = (event) => {
-    this.setState({filtro: event.target.value})
+    this.setState({ filtro: event.target.value })
   }
 
   render() {
@@ -110,6 +120,7 @@ class App extends React.Component {
               <Tarefa
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
+                onDoubleClick={() => this.excluirMensagem(tarefa.id)}
               >
                 {tarefa.texto}
               </Tarefa>
