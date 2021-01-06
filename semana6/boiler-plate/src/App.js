@@ -31,12 +31,13 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    // const listaTarefasString = localStorage.getItem('listaTarefas')
-    // const listaTarefasObjeto = JSON.parse(listaTarefasString)
+    const listaTarefasString = localStorage.getItem("tarefas")
+    const listaTarefasObjeto = JSON.parse(listaTarefasString)
+    // console.log(listaTarefasObjeto)
 
-    // if(listaTarefasObjeto){
-    //   const listaDeTarefas = [...this.state.tarefas, listaTarefasObjeto]
-    // }
+    if(listaTarefasObjeto){
+      this.setState({tarefas: listaTarefasObjeto})      
+    }    
   };
 
   onChangeInput = (event) => {
