@@ -66,6 +66,11 @@ class App extends React.Component {
     this.setState({ tarefas: novaLista })
   }
 
+  excluirTodas = () => {
+    const novaLista = []
+    this.setState({tarefas: novaLista})
+  }
+
   selectTarefa = (id) => {
     const novaListaDeTarefas = this.state.tarefas.map((tarefa) => {
       if (id === tarefa.id) {
@@ -103,6 +108,7 @@ class App extends React.Component {
         <InputsContainer>
           <input value={this.state.inputValue} onChange={this.onChangeInput} />
           <button onClick={this.criaTarefa}>Adicionar</button>
+          <button onClick={this.excluirTodas}>Excluir todas</button>
         </InputsContainer>
         <br />
 
