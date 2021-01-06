@@ -101,7 +101,9 @@ class App extends React.Component {
 
   //-----------------------------------------------------------------------
   //Funcionalidade de edição de tarefas (ainda não criada e implementada)
-  editarTarefa = (id) => {}
+  editarTarefa = (id) => {
+    console.log("Meu id eh: ", id)
+  }
 
   onChangeFilter = (event) => {
     this.setState({ filtro: event.target.value })
@@ -146,7 +148,7 @@ class App extends React.Component {
                 onDoubleClick={() => this.excluirMensagem(tarefa.id)}
               >
                 {tarefa.texto}
-                <button onClick={() => editarTarefa(id)}>Editar</button>
+                <button onClick={() => this.editarTarefa(tarefa.id)}>Editar</button>
               </Tarefa>
             )
           })}
