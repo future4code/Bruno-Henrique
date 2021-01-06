@@ -22,14 +22,19 @@ class App extends React.Component {
   state = {
     tarefas: [],
     inputValue: '',
-    filtro: ''
+    filtro: '',
+    editar: false
   }
 
+  //-----------------------------------------------------------------------
+  //Acessando e atualizando o localStorage para armazer dados
   componentDidUpdate() {
     const listaTarefas = [...this.state.tarefas]
     localStorage.setItem("tarefas", JSON.stringify(listaTarefas))
   };
 
+  //-----------------------------------------------------------------------
+  //Acessando o localStorage para buscar dados
   componentDidMount() {
     const listaTarefasString = localStorage.getItem("tarefas")
     const listaTarefasObjeto = JSON.parse(listaTarefasString)
@@ -44,6 +49,8 @@ class App extends React.Component {
     this.setState({ inputValue: event.target.value });
   }
 
+  //-----------------------------------------------------------------------
+  //Funcionalidade de criação de tarefas
   criaTarefa = () => {
     const adicionaTarefa = {
       id: Date.now(),
@@ -56,6 +63,8 @@ class App extends React.Component {
     this.setState({ tarefas: listaTarefas, inputValue: '' })
   }
 
+  //-----------------------------------------------------------------------
+  //Funcionalidade de exclusão de uma tarefa em específico
   excluirMensagem = (id) => {
     // if (confirm("Deseja excluir essa tarefa?")){
 
@@ -66,11 +75,15 @@ class App extends React.Component {
     this.setState({ tarefas: novaLista })
   }
 
+  //-----------------------------------------------------------------------
+  //Funcionalidade de exclusão de todas as tarefas criadas
   excluirTodas = () => {
     const novaLista = []
     this.setState({tarefas: novaLista})
   }
 
+  //-----------------------------------------------------------------------
+  //Funcionalidade de marcar e desmarcar tarefas completadas 
   selectTarefa = (id) => {
     const novaListaDeTarefas = this.state.tarefas.map((tarefa) => {
       if (id === tarefa.id) {
@@ -85,6 +98,10 @@ class App extends React.Component {
     })
     this.setState({ tarefas: novaListaDeTarefas })
   }
+
+  //-----------------------------------------------------------------------
+  //Funcionalidade de edição de tarefas (ainda não criada e implementada)
+  editarTarefa = (id) => {}
 
   onChangeFilter = (event) => {
     this.setState({ filtro: event.target.value })
@@ -129,6 +146,7 @@ class App extends React.Component {
                 onDoubleClick={() => this.excluirMensagem(tarefa.id)}
               >
                 {tarefa.texto}
+                <button onClick={() => editarTarefa(id)}>Editar</button>
               </Tarefa>
             )
           })}
