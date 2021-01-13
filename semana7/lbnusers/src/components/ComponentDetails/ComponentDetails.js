@@ -1,10 +1,18 @@
 import React from 'react';
+// import axios from 'axios'
 
 class ComponentDetails extends React.Component{
-    
+   
     render(){
+        const usuario = this.props.userInfo.map((info) => {
+            return (
+                <div>
+                    <p>{info.name} : {info.email}</p>
+                </div>
+            )
+        })
         return(
-            <button>Detalhes</button>
+            <div>{usuario}</div>
         )
     }
 };

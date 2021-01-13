@@ -6,9 +6,15 @@ class ComponentUsers extends React.Component {
 
     state = {
         users: [],
+        userEmail: "",
+        userName: ""
     }
 
     componentDidMount = () => {
+        this.getUsers();
+    }
+
+    componentDidUpdate = () => {
         this.getUsers();
     }
 
@@ -19,15 +25,14 @@ class ComponentUsers extends React.Component {
             }
         }).then((resposta) => {
             this.setState({ users: resposta.data });
-            this.getUsers()
         }).catch((erro) => {
             console.log(erro.message)
         })
     }
 
     deleteUser = (id, name) => {
-        const msg = window.confirm(`Deseja realmente exluir o usuario ${name}?`)
-        if (msg) {
+        const msgConfirm = window.confirm(`Deseja realmente exluir o usuario ${name}?`)
+        if (msgConfirm) {
             axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
                 headers: {
                     Authorization: "bruno-silva-epps"
@@ -41,13 +46,28 @@ class ComponentUsers extends React.Component {
         }
     }
 
+    showDetails = (id) => {
+        axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
+            headers: {
+                Authorization: "bruno-silva-epps"
+            }
+        }).then((resposta) => {
+            this.setState({ userName: resposta.data.name })
+            this.setState({ userEmail: resposta.data.email })
+
+            console.log(this.state.userEmail)
+        }).catch((erro) => {
+            alert('Não foi possivel encontar as informações!')
+        })
+    }
+
     render() {
 
         const lista = this.state.users.map((user) => {
             return (
                 <div>
                     {user.name}
-                    <ComponentDetails />
+                    <button onClick={() => this.showDetails(user.id)}>Detalhes</button>
                     <button onClick={() => this.deleteUser(user.id, user.name)}>Excluir</button>
                 </div>
             )
@@ -56,6 +76,9 @@ class ComponentUsers extends React.Component {
         return (
             <div>
                 {lista}
+                {/* <ComponentDetails 
+                    userInfo={this.state.details}
+                /> */}
             </div>
         )
     }
