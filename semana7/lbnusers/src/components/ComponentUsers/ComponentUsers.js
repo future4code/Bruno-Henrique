@@ -7,7 +7,8 @@ class ComponentUsers extends React.Component {
     state = {
         users: [],
         userEmail: "",
-        userName: ""
+        userName: "",
+        details: false
     }
 
     componentDidMount = () => {
@@ -52,10 +53,8 @@ class ComponentUsers extends React.Component {
                 Authorization: "bruno-silva-epps"
             }
         }).then((resposta) => {
-            this.setState({ userName: resposta.data.name })
-            this.setState({ userEmail: resposta.data.email })
-
-            console.log(this.state.userEmail)
+            this.setState({ userName: resposta.data.name, userEmail: resposta.data.email })
+            this.setState({ details: true })
         }).catch((erro) => {
             alert('Não foi possivel encontar as informações!')
         })
@@ -75,9 +74,17 @@ class ComponentUsers extends React.Component {
 
         return (
             <div>
-                {lista}
-                {/* <ComponentDetails 
-                    userInfo={this.state.details}
+                {this.state.details ? (<div>
+                    <ComponentDetails
+                        name={this.state.userName}
+                        email={this.state.userEmail}
+                    />
+                </div>) : <div>{lista}</div>}
+
+                {/* {lista} */}
+                {/* <ComponentDetails
+                    name={this.state.userName}
+                    email={this.state.userEmail}
                 /> */}
             </div>
         )

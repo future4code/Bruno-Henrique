@@ -4,15 +4,11 @@ import React from 'react';
 class ComponentDetails extends React.Component{
    
     render(){
-        const usuario = this.props.userInfo.map((info) => {
-            return (
-                <div>
-                    <p>{info.name} : {info.email}</p>
-                </div>
-            )
-        })
         return(
-            <div>{usuario}</div>
+            <div>
+                <p>{this.props.name}</p>
+                <p>{this.props.email}</p>
+            </div>
         )
     }
 };
