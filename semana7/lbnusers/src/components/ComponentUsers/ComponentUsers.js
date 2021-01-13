@@ -11,10 +11,6 @@ class ComponentUsers extends React.Component {
         this.getUsers();
     }
 
-    componentDidUpdate = () => {
-        this.getUsers();
-    }
-
     getUsers = () => {
         axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
             headers: {
@@ -22,22 +18,26 @@ class ComponentUsers extends React.Component {
             }
         }).then((resposta) => {
             this.setState({ users: resposta.data });
+            this.getUsers()
         }).catch((erro) => {
             console.log(erro.message)
         })
     }
 
-    deleteUser = (id) => {
-        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
-            headers: {
-                Authorization: "bruno-silva-epps"
-            }
-        }).then((reposta) => {
-            alert("Usuario excluido!")
-        }).catch((erro) => {
-            alert("Não foi possivel excluir o usuario!")
-            console.log(erro.message)
-        })
+    deleteUser = (id, name) => {
+        const msg = window.confirm(`Deseja realmente exluir o usuario ${name}?`)
+        if (msg) {
+            axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
+                headers: {
+                    Authorization: "bruno-silva-epps"
+                }
+            }).then((reposta) => {
+                alert("Usuario excluido!")
+            }).catch((erro) => {
+                alert("Não foi possivel excluir o usuario!")
+                console.log(erro.message)
+            })
+        }
     }
 
 
@@ -47,7 +47,7 @@ class ComponentUsers extends React.Component {
             return (
                 <div>
                     {user.name}
-                    <button onClick={() => this.deleteUser(user.id)}>Excluir</button>
+                    <button onClick={() => this.deleteUser(user.id, user.name)}>Excluir</button>
                 </div>
             )
         })
