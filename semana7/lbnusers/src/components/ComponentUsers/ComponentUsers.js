@@ -1,4 +1,5 @@
 import React from 'react'
+import ComponentDetails from '../ComponentDetails/ComponentDetails'
 import axios from 'axios'
 
 class ComponentUsers extends React.Component {
@@ -40,13 +41,13 @@ class ComponentUsers extends React.Component {
         }
     }
 
-
     render() {
 
         const lista = this.state.users.map((user) => {
             return (
                 <div>
                     {user.name}
+                    <ComponentDetails />
                     <button onClick={() => this.deleteUser(user.id, user.name)}>Excluir</button>
                 </div>
             )
