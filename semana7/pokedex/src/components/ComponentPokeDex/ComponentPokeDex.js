@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios'
+import { baseUrlRegion, baseUrlAllPokemons } from "./BaseUrl";
 
 class ComponentPokeDex extends React.Component {
 
     state = {
         regions: [],
-        pokemons: []
+        pokemons: [],
     }
 
     componentDidMount = () => {
@@ -14,23 +15,24 @@ class ComponentPokeDex extends React.Component {
 
     getAllRegions = async () => {
         try {
-            const response = await axios.get('https://pokeapi.co/api/v2/region/')
-            // console.log(response.data.results)
-
+            const response = await axios.get(baseUrlRegion)
             this.setState({ regions: response.data.results })
         } catch (error) {
             console.log(error)
         }
     }
 
-    getStartedPokemons = async (e) => {
+    getAllPokemons = async () => {
         try {
-            const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
-            // console.log(response.data.results)
-            this.setState({ pokemons: response.data.results })
+            const response = await axios.get(baseUrlAllPokemons)
+            this.setState({ pokemons: response.data.pokemon_entries })
         } catch (error) {
             console.log(error)
         }
+    }
+
+    getSelectedPokemons = (e) => {
+        
     }
 
     render() {
@@ -41,24 +43,13 @@ class ComponentPokeDex extends React.Component {
             )
         })
 
-        const listOfPokemons = this.state.pokemons.filter((pokemon) => {
-            
-            if (pokemon.name === "bulbasaur" || pokemon.name === "charmander" || pokemon.name === "squirtle") {
-                return true
-            }
-        }).map((pokemon) => {
-            return(
-                <p>{pokemon.name}</p>
-            )
-        })
         return (
             <div>
                 <h2>Pokedex</h2>
-                <select onChange={this.getStartedPokemons}>
+                <select onChange={this.getSelectedPokemons}>
                     <option>...</option>
                     {listOfRegions}
                 </select>
-                {listOfPokemons}
             </div>
         )
     }
