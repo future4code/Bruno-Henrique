@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import {baseURL, header} from '../APISource/APISource'
 
-class CreatePlaylist extends React.Component {
+class CreatePlaylistName extends React.Component {
 
     state = {
         inputName: '',
@@ -14,12 +14,10 @@ class CreatePlaylist extends React.Component {
         }
         axios.post(`${baseURL}playlists`, body, header)
         .then((res) => {
-            console.log(res.data)
             this.setState({inputName: ''})
         })
         .catch((error) => {
             alert('Não foi possivel criar uma playlista com esse nome :(')
-            console.log(error)
         })
     }
 
@@ -45,4 +43,4 @@ class CreatePlaylist extends React.Component {
     }
 };
 
-export default CreatePlaylist;
+export default CreatePlaylistName;
