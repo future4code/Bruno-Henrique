@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Post from './components/Post/Post';
 import styled from "styled-components"
-import SecaoNovaPostagem from './components/SecaoNovaPostagem/SecaoNovaPostagem';
+// import SecaoNovaPostagem from './components/SecaoNovaPostagem/SecaoNovaPostagem';
 
 const AppContainer = styled.div `
   display: flex;
@@ -14,7 +14,11 @@ const App = () => {
 
   return (
     <AppContainer>
-      <SecaoNovaPostagem />
+      <Post
+        nomeUsuario={'Usuário'}
+        fotoUsuario={'https://picsum.photos/50/50'}
+        fotoPost={'https://picsum.photos/200/150'}
+      />
     </AppContainer>
   );
 }
