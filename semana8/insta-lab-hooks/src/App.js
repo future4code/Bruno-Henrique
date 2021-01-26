@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import Post from './components/Post/Post';
+import Post from './components/Post/Post';
 import styled from "styled-components"
 import SecaoNovaPostagem from './components/SecaoNovaPostagem/SecaoNovaPostagem';
 
@@ -13,11 +13,7 @@ const AppContainer = styled.div`
 const App = () => {
 
   const [postsList, setPostsList] = useState([])
-  const [post, setPost] = useState({
-    user: "",
-    avatar: "",
-    link: ""
-  })
+  const [post, setPost] = useState({})
 
   const [inputUserName, setInputUserName] = useState('')
   const [inputUserAvatar, setInputUserAvatar] = useState('')
@@ -41,9 +37,9 @@ const App = () => {
       avatar: inputUserAvatar,
       link: inputLink
     })
-    const newPostsList = [post, ...postsList]
+    const newPostsList = postsList
+    newPostsList.push(post)
     setPostsList(newPostsList)
-    console.log(postsList)
   }
 
   return (
@@ -54,6 +50,17 @@ const App = () => {
         inputLink={inputLink} onChangeLink={handleInputLink}
         onClickCreate={handlePostsList}
       />
+
+      {postsList.map((post) => {
+        return (
+          <Post
+            key={post.link}
+            nomeUsuario={post.user}
+            fotoUsuario={post.avatar}
+            fotoPost={post.link}
+          />
+        )
+      })}
 
       {/* <Post
         nomeUsuario={'Usuário'}
