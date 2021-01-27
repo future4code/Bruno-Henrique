@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import Post from './components/Post/Post';
-import styled from "styled-components"
 import SecaoNovaPostagem from './components/SecaoNovaPostagem/SecaoNovaPostagem';
+import styled from "styled-components"
 
 const AppContainer = styled.div`
   display: flex;
@@ -15,22 +16,17 @@ function App() {
   const [postsList, setPostsList] = useState([])
   const [post, setPost] = useState({})
 
+  useEffect(() => { 
+    const list = [post, ...postsList]
+    setPostsList(list)
+  }, [post])
 
-  useEffect(() => {
-    const newPostsList = postsList
-    newPostsList.push(post)
-    setPostsList(newPostsList)
-  },[post])
-
-  const handlePost = (name, avatar, link) => {
-    setPost({
-      user: name,
-      avatar: avatar,
-      link: link
-    })
+  const handlePost = (name, avatar, photo) => {
+    setPost({ user: name, avatar: avatar, link: photo })
+    // setPostsList([...postsList, { user: name, avatar: avatar, link: photo }])
   }
 
-  const allPosts = postsList.map((post) => {
+  const renderPosts = postsList.map((post) => {
     return (
       <Post
         key={post.link}
@@ -41,15 +37,12 @@ function App() {
     )
   })
 
-  // console.log(post)
-  // console.log(postsList)
-
   return (
     <AppContainer>
       <SecaoNovaPostagem
         onClickCreate={handlePost}
       />
-      {allPosts}
+      {renderPosts}
     </AppContainer>
   );
 }
