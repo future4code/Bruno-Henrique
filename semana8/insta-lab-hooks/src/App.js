@@ -14,16 +14,9 @@ const AppContainer = styled.div`
 function App() {
 
   const [postsList, setPostsList] = useState([])
-  const [post, setPost] = useState({})
 
-  useEffect(() => { 
-    const list = [post, ...postsList]
-    setPostsList(list)
-  }, [post])
-
-  const handlePost = (name, avatar, photo) => {
-    setPost({ user: name, avatar: avatar, link: photo })
-    // setPostsList([...postsList, { user: name, avatar: avatar, link: photo }])
+  const handlePost = (name, avatar, photo) => {    
+    setPostsList([{ user: name, avatar: avatar, link: photo }, ...postsList])
   }
 
   const renderPosts = postsList.map((post) => {
