@@ -1,37 +1,39 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react'
 
-import { baseURL } from "./API/Api";
-import { StyledBtn, ContainerApp, ContainerFooter, ContainerHeader, ContainerMain } from './style/StyleApp';
+import { AppContainer, HeaderConatiner, MainContainer, FooterContainer } from './StyledApp'
+import MainScreen from './pages/MainScreen';
+import UserProfile from './pages/UserProfile';
 
 function App() {
-  const [astroProfile, setAstroProfile] = useState({})
+  const [currentScreen, setCurrentScreen] = useState(true)
 
-  const getProfile = () => {
-    axios.get(`${baseURL}/person`)
-      .then((response) => {
-        setAstroProfile(response.data.profile)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+  const handleScreen = () => {
+    setCurrentScreen(!currentScreen)
+  }
+
+  const getCurrentScreen = () => {
+    switch (currentScreen) {
+      case true:
+        return <MainScreen />
+      case false:
+        return <UserProfile />
+      default:
+        return <MainScreen />
+    }
   }
 
   return (
-    <ContainerApp>
-      <StyledBtn>Reset</StyledBtn>
-      <ContainerHeader>
-        <StyledBtn>Deu match</StyledBtn>
-        AstroMatch
-        <StyledBtn>Não deu</StyledBtn>
-      </ContainerHeader>
-      <ContainerMain>Perfil</ContainerMain>
-      <ContainerFooter>
-        <StyledBtn>Sim</StyledBtn>
-        <StyledBtn>Não</StyledBtn>
-      </ContainerFooter>
-    </ContainerApp>
-  );
+    <AppContainer>
+      <HeaderConatiner>
+      <button onClick={handleScreen}>Mudar pagina</button>
+        Header
+      </HeaderConatiner>
+      <MainContainer>
+        {getCurrentScreen()}
+      </MainContainer>
+      <FooterContainer>footer</FooterContainer>
+    </AppContainer>
+  )
 }
 
 export default App;
