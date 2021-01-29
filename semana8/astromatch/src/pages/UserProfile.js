@@ -5,25 +5,25 @@ import { baseURL } from '../API/Api'
 function UserProfile() {
     const [matchList, setMatchList] = useState([])
 
-    useEffect(() => { 
+    useEffect(() => {
         getMatches()
     })
 
     const getMatches = () => {
         axios.get(`${baseURL}/matches`)
-            .then((response) => {
+            .then((response) => { 
                 setMatchList(response.data.matches)
             })
             .catch((error) => { 
                 console.log(error)
             })
-    } 
+    }
 
     return (
         <div>
             <h2>Perfil de usuario</h2>
-            {matchList.map((match)=>{
-                return(
+            {matchList.map((match) => {
+                return (
                     <div>{match.name}</div>
                 )
             })}
