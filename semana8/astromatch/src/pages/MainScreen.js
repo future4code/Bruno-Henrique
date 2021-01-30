@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { baseURL } from "../API/Api";
 
+import { ContainnerMainScreen, ProfileImg, StyledButtons } from './StyledPages'
+
+
 
 function MainScreen() {
     const [astroProfile, setAstroProfile] = useState({})
@@ -14,6 +17,7 @@ function MainScreen() {
         axios.get(`${baseURL}/person`)
             .then((response) => {
                 setAstroProfile(response.data.profile)
+                // console.log(response.data.profile)
             })
             .catch((error) => {
                 console.log(error)
@@ -38,11 +42,15 @@ function MainScreen() {
         <div>
             <h2>Match?</h2>
             {astroProfile ? (
-                <div>
+                <ContainnerMainScreen>
                     <p>{astroProfile.name}</p>
-                    <button onClick={() => handleBtnChoose(astroProfile.id, true)}>Yes</button>
-                    <button onClick={() => handleBtnChoose(astroProfile.id, false)}>No</button>
-                </div>) : <p>Nenhum perfil encontrado</p>}
+                    <ProfileImg src={astroProfile.photo} />
+                    <StyledButtons>
+                        <button onClick={() => handleBtnChoose(astroProfile.id, true)}>Yes</button>
+                        <button onClick={() => handleBtnChoose(astroProfile.id, false)}>No</button>
+                    </StyledButtons>
+
+                </ContainnerMainScreen>) : <p>Nenhum perfil encontrado</p>}
         </div>
     )
 }

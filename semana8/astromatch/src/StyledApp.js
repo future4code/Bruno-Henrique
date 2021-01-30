@@ -10,6 +10,8 @@ export const AppContainer = styled.div`
 `;
 
 export const HeaderConatiner = styled.div`
+    display:flex;
+    justify-content:space-between;
     width: 100%;
     height: 10%;
 `;

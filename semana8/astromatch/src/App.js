@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import { baseURL } from './API/Api';
 
@@ -26,21 +26,23 @@ function App() {
   }
 
   const handleReset = () => {
-    axios.put(`${baseURL}/clear`)
-      .then((response) => { 
-        alert(`${response.data.message}`)
-      })
-      .catch((error) => { 
-        console.log(error)
-      })
+    if (window.confirm("Deseja excluir a lista de matches?")) {
+      axios.put(`${baseURL}/clear`)
+        .then((response) => {
+          alert(`${response.data.message}`)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
   }
 
   return (
     <AppContainer>
       <HeaderConatiner>
         <button onClick={handleScreen}>Mudar pagina</button>
+        <p>astroMatch</p>
         <button onClick={handleReset}>Reset</button>
-        Header
       </HeaderConatiner>
       <MainContainer>
         {getCurrentScreen()}
