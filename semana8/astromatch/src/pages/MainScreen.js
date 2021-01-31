@@ -40,11 +40,11 @@ function MainScreen() {
 
     return (
         <div>
-            <h2>Match?</h2>
             {astroProfile ? (
                 <ContainnerMainScreen>
-                    <p>{astroProfile.name}</p>
                     <ProfileImg src={astroProfile.photo} />
+                    <p>{astroProfile.name}, {astroProfile.age}</p>
+                    <p>{astroProfile.bio}</p>
                     <StyledButtons>
                         <button onClick={() => handleBtnChoose(astroProfile.id, true)}>Yes</button>
                         <button onClick={() => handleBtnChoose(astroProfile.id, false)}>No</button>

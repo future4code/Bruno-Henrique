@@ -47,7 +47,7 @@ function App() {
       <MainContainer>
         {getCurrentScreen()}
       </MainContainer>
-      <FooterContainer>footer</FooterContainer>
+      {/* <FooterContainer>footer</FooterContainer> */}
     </AppContainer>
   )
 }

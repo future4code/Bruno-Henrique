@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { baseURL } from '../API/Api'
+import { Avatar, ListContainer } from './StyledPages'
 
 function UserProfile() {
     const [matchList, setMatchList] = useState([])
@@ -11,10 +12,10 @@ function UserProfile() {
 
     const getMatches = () => {
         axios.get(`${baseURL}/matches`)
-            .then((response) => { 
+            .then((response) => {
                 setMatchList(response.data.matches)
             })
-            .catch((error) => { 
+            .catch((error) => {
                 console.log(error)
             })
     }
@@ -22,11 +23,17 @@ function UserProfile() {
     return (
         <div>
             <h2>Perfil de usuario</h2>
-            {matchList.map((match) => {
-                return (
-                    <div>{match.name}</div>
-                )
-            })}
+            <div>
+                {matchList.map((match) => {
+                    return (
+                        <ListContainer>
+                            <Avatar src={match.photo}/>
+                            <p>{match.name}</p>
+                        </ListContainer>
+                    )
+                })}
+            </div>
+
 
         </div>
     )
