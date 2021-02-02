@@ -8,8 +8,6 @@ import TripCreatorPage from '../pages/TripCreatorPage'
 import TripDeatailsPage from '../pages/TripDetailsPage'
 import TripListPage from '../pages/TripListPage'
 
-
-
 export default function Router() {
     return (
         <BrowserRouter>
