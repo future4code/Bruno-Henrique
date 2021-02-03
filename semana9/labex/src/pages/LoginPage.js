@@ -17,23 +17,14 @@ const LoginPage = () => {
     const handleBtnHome = () => {
         history.push("/")
     }
-    const handleBtnList = () => {
-        history.push("/trips/list")
-    }
-    const handleBtnCreate = () => {
-        history.push("/trips/create")
-    }
-    const handleBtnDetails = () => {
-        history.push("/trips/details")
-    }
 
     useEffect(() => {
         const token = localStorage.getItem("admToken");
-    
+
         if (token) {
-          history.push("/trips/create");
+            history.push("/trips/create");
         }
-      }, [history]);
+    }, [history]);
 
     const handleBtnLogin = () => {
         const body = {
@@ -44,7 +35,7 @@ const LoginPage = () => {
         axios.post(`${baseURL}/login`, body)
             .then((res) => {
                 localStorage.setItem("admToken", res.data.token)
-                history.push("/")
+                history.push("/trips/create")
             })
             .catch((error) => {
                 alert("Usuario ou senha incorretos!")
