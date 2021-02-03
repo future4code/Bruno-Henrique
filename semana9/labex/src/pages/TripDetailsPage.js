@@ -1,8 +1,8 @@
 import React from 'react'
-// import { useHistory } from 'react-router-dom';
+import { useRequestLogin } from '../hooks/useRequestLogin'
 
 const TripDeatailsPage = () => {
-    // const history = useHistory()
+    useRequestLogin()
     
     return(
         <h1>Detalhes da Viagem</h1>

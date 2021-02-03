@@ -47,6 +47,7 @@ const LoginPage = () => {
                 history.push("/")
             })
             .catch((error) => {
+                alert("Usuario ou senha incorretos!")
                 console.log(error)
             })
     }
@@ -54,10 +55,7 @@ const LoginPage = () => {
     return (
         <div>
             <h1>Pagina de login</h1>
-            {/* <button onClick={handleBtnHome}>Home</button>
-            <button onClick={handleBtnList}>Lista de Viagens</button>
-            <button onClick={handleBtnCreate}>Adicionar Viagens</button>
-            <button onClick={handleBtnDetails}>Detalhes da Viagem</button> */}
+            <button onClick={handleBtnHome}>Home</button>
             <div>
                 <h3>Login</h3>
                 <label>Usuário</label>

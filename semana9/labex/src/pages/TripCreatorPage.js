@@ -1,10 +1,11 @@
 import React from 'react'
-// import { useHistory } from 'react-router-dom';
+
+import { useRequestLogin } from '../hooks/useRequestLogin'
 
 const TripCreatorPage = () => {
-    // const history = useHistory();
+    useRequestLogin()
     
-    return(
+    return (
         <h1>Criar Viagem</h1>
     )
 };
