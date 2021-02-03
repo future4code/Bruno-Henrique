@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import axios from 'axios'
 
@@ -16,6 +16,10 @@ const LoginPage = () => {
 
     const handleBtnHome = () => {
         history.push("/")
+    }
+
+    const handleBtnCreate = () => { 
+        history.push("/trips/create")
     }
 
     useEffect(() => {
@@ -47,6 +51,8 @@ const LoginPage = () => {
         <div>
             <h1>Pagina de login</h1>
             <button onClick={handleBtnHome}>Home</button>
+            <button onClick={handleBtnCreate}>Criar viagem</button>
+
             <div>
                 <h3>Login</h3>
                 <label>Usuário</label>
