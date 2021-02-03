@@ -1,8 +1,8 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 const TripListPage = () => {
-    const history = useHistory();
+    // const history = useHistory();
     
     return(
         <h1>Listar Viagens</h1>
