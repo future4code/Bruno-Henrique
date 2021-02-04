@@ -3,15 +3,15 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 
 import { useHistory } from 'react-router-dom';
-import { useInput } from '../hooks/useInput';
+import { useForm } from '../hooks/useForm'
+// import { useInput } from '../hooks/useInput';
 
 import { baseURL } from '../api/baseURL'
 import Header from '../components/Header';
 
 
 const LoginPage = () => {
-    const [user, handleUser] = useInput()
-    const [password, handlePassword] = useInput()
+    const [formLogin, handleLogin] = useForm({ email: "", password: "" })
 
     const history = useHistory();
 
@@ -19,7 +19,7 @@ const LoginPage = () => {
         history.push("/")
     }
 
-    const handleBtnCreate = () => { 
+    const handleBtnCreate = () => {
         history.push("/trips/create")
     }
 
@@ -31,13 +31,10 @@ const LoginPage = () => {
         }
     }, [history]);
 
-    const handleBtnLogin = () => {
-        const body = {
-            email: user,
-            password: password
-        };
+    const handleBtnLogin = (event) => {
+        event.preventDefault()
 
-        axios.post(`${baseURL}/login`, body)
+        axios.post(`${baseURL}/login`, formLogin)
             .then((res) => {
                 localStorage.setItem("admToken", res.data.token)
                 history.push("/trips/create")
@@ -55,15 +52,24 @@ const LoginPage = () => {
             <button onClick={handleBtnHome}>Home</button>
             <button onClick={handleBtnCreate}>Criar viagem</button>
 
-            <div>
+            <form onSubmit={handleBtnLogin}>
                 <h3>Login</h3>
                 <label>Usuário</label>
-                <input value={user} onChange={handleUser} />
+                <input
+                    name="email"
+                    value={formLogin.email}
+                    onChange={handleLogin}
+                    required
+                />
                 <label>Senha</label>
-                <input value={password} onChange={handlePassword} />
-                <button onClick={handleBtnLogin}>Entrar</button>
-            </div>
-
+                <input
+                    name="password"
+                    value={formLogin.password}
+                    onChange={handleLogin}
+                    required
+                />
+                <button>Entrar</button>
+            </form>
         </div>
     )
 };
