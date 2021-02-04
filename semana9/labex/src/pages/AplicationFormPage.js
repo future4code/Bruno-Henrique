@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
+import Header from '../components/Header';
 
 const AplicationFormPage = () => {
     const history = useHistory();
@@ -10,6 +11,7 @@ const AplicationFormPage = () => {
 
     return (
         <div>
+            <Header />
             <h1>Pagina de inscrição</h1>
             <button onClick={handleBtnHome}>Home</button>
         </div>

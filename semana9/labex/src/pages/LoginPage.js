@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { useInput } from '../hooks/useInput';
 
 import { baseURL } from '../api/baseURL'
+import Header from '../components/Header';
 
 
 const LoginPage = () => {
@@ -49,6 +50,7 @@ const LoginPage = () => {
 
     return (
         <div>
+            <Header />
             <h1>Pagina de login</h1>
             <button onClick={handleBtnHome}>Home</button>
             <button onClick={handleBtnCreate}>Criar viagem</button>
