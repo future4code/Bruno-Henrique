@@ -4,7 +4,6 @@ import axios from 'axios'
 
 import { useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm'
-// import { useInput } from '../hooks/useInput';
 
 import { baseURL } from '../api/baseURL'
 import Header from '../components/Header';

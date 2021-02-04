@@ -20,7 +20,6 @@ export const StyledLogin = styled.div`
     margin-bottom:8px;
 
     border: 1px solid black;
-
 `
 
 export const StyledForm = styled.div`
