@@ -22,20 +22,20 @@ const LoginPage = () => {
         history.push("/trips/create")
     }
 
-    useEffect(() => {
-        const token = localStorage.getItem("admToken");
+    // useEffect(() => {
+    //     const token = localStorage.getItem("admToken");
 
-        if (token) {
-            history.push("/trips/create");
-        }
-    }, [history]);
+    //     if (token) {
+    //         history.push("/trips/create");
+    //     }
+    // }, [history]);
 
     const handleBtnLogin = (event) => {
         event.preventDefault()
 
         axios.post(`${baseURL}/login`, formLogin)
             .then((res) => {
-                localStorage.setItem("admToken", res.data.token)
+                window.localStorage.setItem("admToken", res.data.token)
                 history.push("/trips/create")
             })
             .catch((error) => {
@@ -44,31 +44,39 @@ const LoginPage = () => {
             })
     }
 
+
     return (
         <div>
             <Header />
             <h1>Pagina de login</h1>
             <button onClick={handleBtnHome}>Home</button>
-            <button onClick={handleBtnCreate}>Criar viagem</button>
 
-            <form onSubmit={handleBtnLogin}>
-                <h3>Login</h3>
-                <label>Usuário</label>
-                <input
-                    name="email"
-                    value={formLogin.email}
-                    onChange={handleLogin}
-                    required
-                />
-                <label>Senha</label>
-                <input
-                    name="password"
-                    value={formLogin.password}
-                    onChange={handleLogin}
-                    required
-                />
-                <button>Entrar</button>
-            </form>
+            {localStorage.getItem("admToken") ?
+                <p>{`Usuario ${formLogin.email} esta logado!`}</p> :
+                <div>
+                    <button onClick={handleBtnCreate}>Criar viagem</button>
+                    <form onSubmit={handleBtnLogin}>
+                        <h3>Login</h3>
+                        <label>Usuário</label>
+                        <input
+                            name="email"
+                            value={formLogin.email}
+                            onChange={handleLogin}
+                            required
+                        />
+                        <label>Senha</label>
+                        <input
+                            name="password"
+                            value={formLogin.password}
+                            onChange={handleLogin}
+                            required
+                        />
+                        <button>Entrar</button>
+                    </form>
+                </div>
+
+            }
+
         </div>
     )
 };

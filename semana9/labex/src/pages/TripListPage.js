@@ -1,37 +1,28 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom';
-import Grid from "@material-ui/core/Grid";
-import CardComponent from '../components/CardComponent';
-import useShowListTrips from '../hooks/useShowListTrips'
+import useGetRequest from "../hooks/useGetRequest";
+import { baseURL } from '../api/baseURL'
+
 
 const TripListPage = () => {
     const history = useHistory();
-    const [list, handleList] = useShowListTrips()
-
-    useEffect(() => {
-        handleList()
-    })
+    const trips = useGetRequest(`${baseURL}/trips`, [])
 
     return (
-        <Grid container>
-            {list.map((trip) => {
+        <div>
+            <h2>Viagens Disponiveis</h2>
+            {trips.map((trip) => {
                 return (
-                    <CardComponent
-                        planet={trip.planet}
-                        descrition={trip.date}
-                    />
-                    // <div key={trip.id}>
-                    //     <p>{trip.id}</p>
-                    //     <p>{trip.descrition}</p>
-                    //     <p>{trip.planet}</p>
-                    //     <p>{trip.name}</p>
-                    //     <p>{trip.durationInDays}</p>
-                    //     <p>{trip.date}</p>
-                    //     <hr />
-                    // </div>
+                    <div key={trip.id}>
+                        <p>{trip.date}</p>
+                        <p>{trip.planet}</p>
+                        <p>{trip.description}</p>
+                        <p>{trip.durationInDays} dias</p>
+                        <hr />
+                    </div>
                 )
             })}
-        </Grid>
+        </div>
     )
 };
 
