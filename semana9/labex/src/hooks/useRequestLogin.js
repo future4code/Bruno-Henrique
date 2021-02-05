@@ -5,7 +5,7 @@ export const useRequestLogin = () => {
     const history = useHistory()
 
     useEffect(() => {
-        const token = localStorage.getItem("admToken")
+        const token = window.localStorage.getItem("admToken")
 
         if (!token) {
             history.push("/login")

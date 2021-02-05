@@ -30,7 +30,7 @@ const TripCreatorPage = () => {
 
         axios.post(`${baseURL}/trips`, formAddTrip, {
             headers: {
-                Authorization: token                 
+                auth: token                 
             }
         })
             .then((res) => {

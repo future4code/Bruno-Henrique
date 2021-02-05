@@ -51,7 +51,7 @@ const LoginPage = () => {
             <h1>Pagina de login</h1>
             <button onClick={handleBtnHome}>Home</button>
 
-            {localStorage.getItem("admToken") ?
+            {window.localStorage.getItem("admToken") ?
                 <p>{`Usuario ${formLogin.email} esta logado!`}</p> :
                 <div>
                     <button onClick={handleBtnCreate}>Criar viagem</button>
