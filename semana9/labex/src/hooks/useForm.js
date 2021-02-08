@@ -12,5 +12,5 @@ export function useForm(initialState) {
         setForm(initialState)
     }
 
-    return [form, handleOnChange, clearForm]
+    return {form, clearForm}
 }

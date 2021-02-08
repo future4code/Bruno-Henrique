@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from "styled-components";
+import axios from 'axios'
+
+import { baseURL } from '../api/baseURL'
+import { useForm } from '../hooks/useForm'
+
 import Grid from '@material-ui/core/Grid'
 import Paper from "@material-ui/core/Paper";
 import { Avatar, Button, TextField } from '@material-ui/core';
@@ -23,19 +28,42 @@ const StyledInput = styled(TextField)`
 
 const ButtonLogin = styled(Button)`
     margin-top: 30px;
-` 
+`
 
-const LoginForm = () => {
+const intialValuesField = {
+    email: "",
+    password: ""
+}
+
+const LoginForm = (props) => {
+
+    const {formLogin} = useForm(intialValuesField)
+
+    const handleBtnLogin = (event) => {
+        event.preventDefault()
+
+        axios.post(`${baseURL}/login`, formLogin)
+            .then((res) => {
+                window.localStorage.setItem("admToken", res.data.token)
+                props.history.push("/trips/create")
+            })
+            .catch((error) => {
+                alert("Usuario ou senha incorretos!")
+                console.log(error)
+            })
+    }
+
     return (
-        <Grid>
-            <StyledPaper elevation={10}>
-                <Grid align="center">
-                    <StyledAvatarIcon>
-                        <LockOutlinedIcon />
-                    </StyledAvatarIcon>
-                    <h2>Login</h2>
-                </Grid>
-                <form>
+        <form onSubmit={handleBtnLogin}>
+            <Grid>
+                <StyledPaper elevation={10}>
+                    <Grid align="center">
+                        <StyledAvatarIcon>
+                            <LockOutlinedIcon />
+                        </StyledAvatarIcon>
+                        <h2>Login</h2>
+                    </Grid>
+
                     <StyledInput
                         variant="outlined"
                         fullWidth
@@ -59,9 +87,10 @@ const LoginForm = () => {
                     >
                         Logar
                 </ButtonLogin>
-                </form>
-            </StyledPaper>
-        </Grid>
+
+                </StyledPaper>
+            </Grid>
+        </form>
     )
 }
 

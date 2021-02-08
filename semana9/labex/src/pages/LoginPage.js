@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react'
 
-import axios from 'axios'
-
 import { useHistory } from 'react-router-dom';
-import { useForm } from '../hooks/useForm'
+import LoginForm from '../components/LoginForm'
 
-import { baseURL } from '../api/baseURL'
 import Header from '../components/Header';
 
-
 const LoginPage = () => {
-    const [formLogin, handleLogin] = useForm({ email: "", password: "" })
 
     const history = useHistory();
 
@@ -30,25 +25,15 @@ const LoginPage = () => {
     //     }
     // }, [history]);
 
-    const handleBtnLogin = (event) => {
-        event.preventDefault()
-
-        axios.post(`${baseURL}/login`, formLogin)
-            .then((res) => {
-                window.localStorage.setItem("admToken", res.data.token)
-                history.push("/trips/create")
-            })
-            .catch((error) => {
-                alert("Usuario ou senha incorretos!")
-                console.log(error)
-            })
-    }
-
 
     return (
         <div>
             <Header />
-            <h1>Pagina de login</h1>
+            <LoginForm 
+                history={history}
+            />
+
+            {/* <h1>Pagina de login</h1>
             <button onClick={handleBtnHome}>Home</button>
 
             {window.localStorage.getItem("admToken") ?
@@ -75,8 +60,7 @@ const LoginPage = () => {
                     </form>
                 </div>
 
-            }
-
+            } */}
         </div>
     )
 };
