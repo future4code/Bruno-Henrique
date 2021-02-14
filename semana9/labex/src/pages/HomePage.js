@@ -1,5 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
+import Header from '../components/Header';
+
+import { MainContainer, StyledForm, StyledLogin, StyledSection } from './stylepages/StyledHomePage'
 
 const HomePage = () => {
     const history = useHistory();
@@ -12,12 +15,19 @@ const HomePage = () => {
         history.push("/login")
     }
 
-    return(
-        <div>
-            <h1>Pagina principal</h1>
-            <button onClick={handleBtnForm}>Formulario</button>
-            <button onClick={handleBtnLogin}>Login</button>
-        </div>
+    return (
+        <MainContainer>
+            <Header />
+            <StyledSection>
+                <StyledLogin>
+                    <button onClick={handleBtnLogin}>Login</button>
+                </StyledLogin>
+                <StyledForm>
+                    <button onClick={handleBtnForm}>Formulario</button>
+                </StyledForm>
+            </StyledSection>
+
+        </MainContainer>
     )
 };
 

@@ -7,6 +7,7 @@ import AplicationFormPage from '../pages/AplicationFormPage'
 import TripCreatorPage from '../pages/TripCreatorPage'
 import TripDeatailsPage from '../pages/TripDetailsPage'
 import TripListPage from '../pages/TripListPage'
+import ErrorPage from '../pages/ErrorPage'
 
 export default function Router() {
     return (
@@ -29,6 +30,10 @@ export default function Router() {
                 </Route>
                 <Route exact path="/trips/details">
                     <TripDeatailsPage />
+                </Route>
+
+                <Route>
+                    <ErrorPage />
                 </Route>
             </Switch>
         </BrowserRouter>
