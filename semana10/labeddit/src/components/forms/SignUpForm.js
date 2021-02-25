@@ -1,7 +1,7 @@
 import React from 'react';
 import useForm from '../../hooks/useForm'
-import axios from 'axios'
 
+import axios from 'axios'
 import { baseURL } from '../constants/baseURL'
 
 import { Header } from '../header/Header'
@@ -20,7 +20,7 @@ export default function SignUp() {
                 clearForm()
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error.message)
             })
     }
 
