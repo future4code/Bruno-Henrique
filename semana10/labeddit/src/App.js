@@ -1,9 +1,14 @@
 import React from 'react'
-import Routes from './routes/Routes';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Routes from './Routes/Routes'
 
 function App() {
   return (
-    <Routes />
+    <>
+      <CssBaseline />
+      <Routes />
+    </>
   );
 }
 
