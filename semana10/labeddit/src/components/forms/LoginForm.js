@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import GlobalStateContext from '../../global/GlobalStateContext'
 
+import { useHistory } from 'react-router-dom'
+import { goToSignUpPage, goToFeedPage } from '../../Routes/Coordinator'
 import axios from 'axios'
 import { baseURL } from '../constants/baseURL'
 
@@ -11,7 +13,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { StyledPaperLogin, StyledAvatarIcon, StyledInput, StyledButton } from './style'
 
 const LoginForm = () => {
-    const  {states, setters} = useContext(GlobalStateContext)
+    const { states, setters } = useContext(GlobalStateContext)
+    const history = useHistory()
     const [input, handleInput, clearForm] = useForm({ email: "", password: "" })
 
     const handleBtn = (e) => {
@@ -68,7 +71,12 @@ const LoginForm = () => {
                         Logar
                     </StyledButton>
                 </form>
-                <StyledButton variant="contained" color="primary" fullWidth>
+                <StyledButton
+                    onClick={() => goToSignUpPage(history)}
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                >
                     Cadastre-se
                 </StyledButton>
             </StyledPaperLogin>

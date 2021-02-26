@@ -43,7 +43,7 @@ export const Header = () => {
 
     return (
         <header>
-            <AppBar position='sticky'>{displayDesktop()}</AppBar>
+            <AppBar position='static' elevation={false}>{displayDesktop()}</AppBar>
         </header>
     )
 }
