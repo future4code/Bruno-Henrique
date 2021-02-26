@@ -4,8 +4,6 @@ import GlobalStateContext from '../../global/GlobalStateContext'
 
 import { Header } from '../../components/header/Header'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
-import Card from '@material-ui/core/Card'
 import { PostCard } from '../../components/card/PostCard'
 
 export default function FeedPage() {
@@ -66,7 +64,15 @@ export default function FeedPage() {
 
     const list = posts.map((post) => {
         return (
-            <PostCard />
+            <PostCard
+                key={post.id}
+                id={post.id} 
+                username={post.username}
+                title={post.title}
+                text={post.text}
+                votesCount={post.votesCount}
+                commentsCount={post.commentsCount}
+            />
         )
     })
 
@@ -77,9 +83,7 @@ export default function FeedPage() {
                 <Grid container>
                     <Grid item xs={12} align="center">
                         <Grid item xs={10} sm={6} md={4}>
-                            <Paper>
-                                {list}
-                            </Paper>
+                            {list}
                         </Grid>
                     </Grid>
 

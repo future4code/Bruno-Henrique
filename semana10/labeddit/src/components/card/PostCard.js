@@ -4,8 +4,12 @@ import styled from 'styled-components'
 import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
+import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
+import ArrowDropUpSharpIcon from '@material-ui/icons/ArrowDropUpSharp';
+import ArrowDropDownSharpIcon from '@material-ui/icons/ArrowDropDownSharp';
 import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
 import Typography from '@material-ui/core/Typography';
 
@@ -14,23 +18,50 @@ const StyledCard = styled(Card)`
     margin: 20px auto;
 `;
 
-export const PostCard = () => {
+const Divided = styled.hr`
+    max-width: 80%;
+`;
+
+const StyledCardActions = styled(CardActions)`
+    display:flex;
+    justify-content: space-between;
+`;
+
+export const PostCard = (props) => {
     return (
         <StyledCard>
             <CardHeader
                 avatar={
-                    // <Avatar>
-                    <AccountCircleSharpIcon />
-                    // </Avatar>
+                    <Avatar>
+                        <AccountCircleSharpIcon />
+                    </Avatar>
                 }
-                title="Usuario"
-                subheader="Titulo do post"
+                title={props.username}
+                subheader={props.title}
             />
-            <CardContent>
-                <Typography paragraph>
-                    This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
-                </Typography>
-            </CardContent>
+            <Divided />
+            <CardActionArea>
+                <CardContent>
+                    <Typography paragraph>
+                        {props.text}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
+            <Divided />
+            <StyledCardActions disableSpacing>
+                <div>
+                    <IconButton>
+                        <ArrowDropUpSharpIcon />
+                    </IconButton>
+                    {props.votesCount}
+                    <IconButton>
+                        <ArrowDropDownSharpIcon />
+                    </IconButton>
+                </div>
+                <div>
+                    <p>{props.commentsCount} comentários</p>                    
+                </div>
+            </StyledCardActions>
         </StyledCard>
     )
 }
