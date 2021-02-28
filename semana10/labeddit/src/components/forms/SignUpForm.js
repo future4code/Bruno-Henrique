@@ -16,6 +16,7 @@ export default function SignUp() {
         e.preventDefault();
         axios.post(`${baseURL}/signup`, input)
             .then((res) => {
+                localStorage.getItem('token', res.data.token)
                 alert(`Cadastro realizado com sucesso!`)
                 clearForm()
             })

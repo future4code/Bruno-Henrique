@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 import GlobalStateContext from '../../global/GlobalStateContext'
 
@@ -7,6 +8,7 @@ import Grid from '@material-ui/core/Grid'
 import { PostCard } from '../../components/card/PostCard'
 
 export default function FeedPage() {
+    useProtectedPage()
     const { states, setters } = useContext(GlobalStateContext)
 
     const posts = [

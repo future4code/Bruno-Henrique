@@ -21,10 +21,14 @@ const LoginForm = () => {
         e.preventDefault();
         axios.post(`${baseURL}/login`, input)
             .then((res) => {
-                setters.setToken(res.data.token)
+                localStorage.setItem("token", res.data.token)
+                // setters.setToken(res.data.token)
+                
+                goToFeedPage(history)
                 clearForm()
             })
             .catch((error) => {
+                alert("Usuário e/ou senha incorretos!")
                 console.log(error.message)
             })
     }
@@ -44,9 +48,10 @@ const LoginForm = () => {
                         value={input.email}
                         onChange={handleInput}
 
+                        type="email"
                         variant="outlined"
                         fullWidth
-                        label="Usuário"
+                        label="E-mail"
                         placeholder="Digite E-mail"
                         required
                     />

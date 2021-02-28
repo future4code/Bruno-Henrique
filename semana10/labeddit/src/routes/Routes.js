@@ -18,7 +18,7 @@ export default function Routes() {
                 <Route exact path="/feed">
                     <FeedPage />
                 </Route>
-                <Route exact path="/post/:id">
+                <Route exact path="/postDetails/:id">
                     <PostPage />
                 </Route>
             </Switch>
