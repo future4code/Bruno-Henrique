@@ -4,7 +4,7 @@ import GlobalStateContext from '../../global/GlobalStateContext'
 
 import { AppBar, Button, Toolbar, Typography } from '@material-ui/core'
 import styled from 'styled-components'
-import { goToLoginPage } from '../../Routes/Coordinator';
+import { goToLoginPage, goToFeedPage } from '../../Routes/Coordinator';
 
 const HeaderContainer = styled(Toolbar)`
     display:flex;
@@ -27,7 +27,7 @@ const StyledButton = styled(Button)`
 export const Header = () => {
     const history = useHistory()
     const { states, setters } = useContext(GlobalStateContext)
-    
+
     const logout = () => {
         setters.setToken("")
     }
@@ -43,9 +43,11 @@ export const Header = () => {
     }
 
     const labedditLogo = (
-        <Typography variant='h4'>
-            LabEddit
-        </Typography>
+        <StyledButton variant="text" onClick={() => goToFeedPage(history)}>
+            <Typography variant='h4'>
+                LabEddit
+            </Typography>
+        </StyledButton>
     )
     const sign = (
         <StyledButton onClick={handleBtnLoginAction}>
