@@ -21,15 +21,14 @@ const LoginForm = () => {
         e.preventDefault();
         axios.post(`${baseURL}/login`, input)
             .then((res) => {
-                localStorage.setItem("token", res.data.token)
-                // setters.setToken(res.data.token)
-                
+                // localStorage.setItem("token", res.data.token)
+                setters.setToken(res.data.token)
+
                 goToFeedPage(history)
                 clearForm()
             })
             .catch((error) => {
-                alert("Usuário e/ou senha incorretos!")
-                console.log(error.message)
+                alert(error.response.data.message)
             })
     }
 

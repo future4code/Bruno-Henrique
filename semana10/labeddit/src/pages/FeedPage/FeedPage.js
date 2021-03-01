@@ -9,7 +9,7 @@ import { PostCard } from '../../components/card/PostCard'
 
 export default function FeedPage() {
     useProtectedPage()
-    const { states, setters } = useContext(GlobalStateContext)
+    // const { states, setters } = useContext(GlobalStateContext)
 
     const posts = [
         {
@@ -68,7 +68,7 @@ export default function FeedPage() {
         return (
             <PostCard
                 key={post.id}
-                id={post.id} 
+                id={post.id}
                 username={post.username}
                 title={post.title}
                 text={post.text}
@@ -81,16 +81,15 @@ export default function FeedPage() {
     return (
         <>
             <Header />
-            <Grid>
-                <Grid container>
-                    <Grid item xs={12} align="center">
-                        <Grid item xs={10} sm={6} md={4}>
-                            {list}
-                        </Grid>
+            <Grid container>
+                <Grid item xs={12} align="center">
+                    <Grid item xs={10} sm={6} md={4}>
+                        {list}
                     </Grid>
-
                 </Grid>
+
             </Grid>
+
         </>
 
     )

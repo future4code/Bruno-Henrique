@@ -1,6 +1,8 @@
 import React from 'react';
 import useForm from '../../hooks/useForm'
 
+import { goToFeedPage } from '../../Routes/Coordinator';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios'
 import { baseURL } from '../constants/baseURL'
 
@@ -11,17 +13,19 @@ import { StyledPaperSignUp, StyledAvatarIcon, StyledInput, StyledButton } from '
 
 export default function SignUp() {
     const [input, handleInput, clearForm] = useForm({ username: "", email: "", password: "" })
+    const history = useHistory()
 
     const handleBtn = (e) => {
         e.preventDefault();
         axios.post(`${baseURL}/signup`, input)
             .then((res) => {
-                localStorage.getItem('token', res.data.token)
+                localStorage.setItem('token', res.data.token)
                 alert(`Cadastro realizado com sucesso!`)
+                goToFeedPage(history)
                 clearForm()
             })
             .catch((error) => {
-                console.log(error.message)
+                alert(error.response.data.message)
             })
     }
 

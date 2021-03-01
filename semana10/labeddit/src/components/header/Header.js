@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom';
+import GlobalStateContext from '../../global/GlobalStateContext'
+
 import { AppBar, Button, Toolbar, Typography } from '@material-ui/core'
 import styled from 'styled-components'
+import { goToLoginPage } from '../../Routes/Coordinator';
 
 const HeaderContainer = styled(Toolbar)`
     display:flex;
@@ -21,15 +25,31 @@ const StyledButton = styled(Button)`
 `;
 
 export const Header = () => {
+    const history = useHistory()
+    const { states, setters } = useContext(GlobalStateContext)
+    
+    const logout = () => {
+        setters.setToken("")
+    }
+
+    const handleBtnLoginAction = () => {
+        if (states.token) {
+            logout()
+            setters.setHandleBtnLoginText("Login")
+            goToLoginPage(history)
+        } else {
+            goToLoginPage(history)
+        }
+    }
 
     const labedditLogo = (
         <Typography variant='h4'>
             LabEddit
         </Typography>
     )
-    const signIn = (
-        <StyledButton>
-            Login
+    const sign = (
+        <StyledButton onClick={handleBtnLoginAction}>
+            {states.handleBtnLoginText}
         </StyledButton>
     )
 
@@ -37,8 +57,9 @@ export const Header = () => {
         return (
             <HeaderContainer>
                 {labedditLogo}
-                {signIn}
-            </HeaderContainer>);
+                {sign}
+            </HeaderContainer>
+        );
     }
 
     return (

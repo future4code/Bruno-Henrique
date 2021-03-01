@@ -6,9 +6,10 @@ import GlobalStateContext from './GlobalStateContext'
 
 export default function GlobalState(props) {
     const [token, setToken] = useState("")
+    const [handleBtnLoginText, setHandleBtnLoginText] = useState(token ? "Logout" : "Login")
 
-    const states = { token }
-    const setters = { setToken }
+    const states = { token, handleBtnLoginText }
+    const setters = { setToken, setHandleBtnLoginText }
     const requests = {}
 
     const data = { states, setters }
