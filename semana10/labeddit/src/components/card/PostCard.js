@@ -28,6 +28,11 @@ const StyledCardActions = styled(CardActions)`
 `;
 
 export const PostCard = (props) => {
+    
+    const handlePostDetails = (history, id) => { 
+        history.push(`/postDetails/${id}`)        
+    }
+
     return (
         <StyledCard>
             <CardHeader
@@ -40,7 +45,7 @@ export const PostCard = (props) => {
                 subheader={props.title}
             />
             <Divided />
-            <CardActionArea>
+            <CardActionArea onClick={() => handlePostDetails(props.history,props.id)}>
                 <CardContent>
                     <Typography paragraph>
                         {props.text}
@@ -59,7 +64,7 @@ export const PostCard = (props) => {
                     </IconButton>
                 </div>
                 <div>
-                    <p>{props.commentsCount} comentários</p>                    
+                    <p>{props.commentsCount} comentários</p>
                 </div>
             </StyledCardActions>
         </StyledCard>

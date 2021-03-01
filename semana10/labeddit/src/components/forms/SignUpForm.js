@@ -1,17 +1,20 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import useForm from '../../hooks/useForm'
+import GlobalStateContext from '../../global/GlobalStateContext'
+import { Header } from '../header/Header'
 
-import { goToFeedPage } from '../../Routes/Coordinator';
 import { useHistory } from 'react-router-dom';
+import { goToFeedPage } from '../../Routes/Coordinator';
+
 import axios from 'axios'
 import { baseURL } from '../constants/baseURL'
 
-import { Header } from '../header/Header'
 import Grid from '@material-ui/core/Grid'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { StyledPaperSignUp, StyledAvatarIcon, StyledInput, StyledButton } from './style'
 
 export default function SignUp() {
+    const { states, setters } = useContext(GlobalStateContext)    
     const [input, handleInput, clearForm] = useForm({ username: "", email: "", password: "" })
     const history = useHistory()
 
@@ -19,7 +22,8 @@ export default function SignUp() {
         e.preventDefault();
         axios.post(`${baseURL}/signup`, input)
             .then((res) => {
-                localStorage.setItem('token', res.data.token)
+                setters.token(res.data.token)
+                setters.setHandleBtnLoginText("Logout")
                 alert(`Cadastro realizado com sucesso!`)
                 goToFeedPage(history)
                 clearForm()

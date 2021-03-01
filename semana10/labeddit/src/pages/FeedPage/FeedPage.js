@@ -1,14 +1,17 @@
 import React, { useContext } from 'react'
+import { Header } from '../../components/header/Header'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 import GlobalStateContext from '../../global/GlobalStateContext'
+import { useHistory } from 'react-router-dom'
 
-import { Header } from '../../components/header/Header'
+
 import Grid from '@material-ui/core/Grid'
 import { PostCard } from '../../components/card/PostCard'
 
 export default function FeedPage() {
     useProtectedPage()
+    const history = useHistory()
     // const { states, setters } = useContext(GlobalStateContext)
 
     const posts = [
@@ -74,6 +77,7 @@ export default function FeedPage() {
                 text={post.text}
                 votesCount={post.votesCount}
                 commentsCount={post.commentsCount}
+                history={history}
             />
         )
     })

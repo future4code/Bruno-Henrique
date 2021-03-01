@@ -23,7 +23,7 @@ const LoginForm = () => {
             .then((res) => {
                 // localStorage.setItem("token", res.data.token)
                 setters.setToken(res.data.token)
-
+                setters.setHandleBtnLoginText("Logout")
                 goToFeedPage(history)
                 clearForm()
             })
