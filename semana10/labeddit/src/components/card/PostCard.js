@@ -28,9 +28,9 @@ const StyledCardActions = styled(CardActions)`
 `;
 
 export const PostCard = (props) => {
-    
-    const handlePostDetails = (history, id) => { 
-        history.push(`/postDetails/${id}`)        
+
+    const handlePostDetails = (history, id) => {
+        history.push(`/postDetails/${id}`)
     }
 
     return (
@@ -45,7 +45,7 @@ export const PostCard = (props) => {
                 subheader={props.title}
             />
             <Divided />
-            <CardActionArea onClick={() => handlePostDetails(props.history,props.id)}>
+            <CardActionArea onClick={() => handlePostDetails(props.history, props.id)}>
                 <CardContent>
                     <Typography paragraph>
                         {props.text}
