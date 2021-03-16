@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "clear && node ./index.js"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1"
+   },
   "keywords": [
     "node"
   ],
   "author": "Bruno Silva",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
 }
