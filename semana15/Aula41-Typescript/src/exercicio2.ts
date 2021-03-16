@@ -23,7 +23,7 @@ function obterEstatisticas(numeros: number[]): {} {
         maior: numerosOrdenados[numeros.length - 1],
         menor: numerosOrdenados[0],
         media: soma / numeros.length
-    }    
+    }
 
     return estatistica
 }
@@ -34,4 +34,12 @@ function obterEstatisticas(numeros: number[]): {} {
 
 //c. Crie um type para representar uma amostra de dados, isto é, um objeto com as chaves numeros e obterEstatisticas.
 // Abaixo, temos um exemplo de objeto desse tipo, declarado em JavaScript:
-const arrNum: number[] = [5,7,1]
+type amostra = {
+    numeros: number[],
+    obterEstatisticas: (numeros: number[]) => {}
+}
+
+const amostraDeIdade: amostra = {
+    numeros: [21, 18, 65, 44, 15, 18],
+    obterEstatisticas
+}
