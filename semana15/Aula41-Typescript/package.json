@@ -1,0 +1,21 @@
+{
+  "name": "aula41-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "startEx1": "npm run build && node ./build/exercicio1.js",
+    "startEx2": "npm run build && node ./build/exercicio2.js"
+  },
+  "keywords": [
+    "Labenu",
+    "Node",
+    "Typescript"
+  ],
+  "author": "Bruno Silva",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.2.3"
+  }
+}
