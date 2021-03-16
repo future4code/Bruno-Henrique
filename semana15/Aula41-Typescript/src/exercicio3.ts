@@ -25,12 +25,26 @@ const user5: post = {
     texto: "Avada Kedavra!"
 }
 
-const listaDePosts: post[] = [user1, user2, user3, user4, user5]
+const posts: post[] = [user1, user2, user3, user4, user5]
 
-console.log(listaDePosts)
+console.log(posts)
 
 //b .Quais são as entradas e saídas dessa função? Copie a função para o mesmo arquivo .ts 
 //do array de posts e faça a tipagem necessária.
 //Entradas são uma lista com todos os posts e um autor para pesquisa. Saida é um array filtrado
 //de acordo com a busca
-
+function buscarPostsPorAutor(
+    listaDePosts: post[],
+    autorInformado: string
+) {
+    return posts.filter(
+        (post) => {
+            return post.autor === autorInformado
+        }
+    )
+}
+console.log(
+    buscarPostsPorAutor(
+        posts, "Dobby"
+    )
+);
