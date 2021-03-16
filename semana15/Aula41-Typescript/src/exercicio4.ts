@@ -24,9 +24,18 @@ const pokemon3: pokemon = {
 
 //b) E se este arquivo estivesse dentro de uma pasta chamada src.O processo seria diferente? 
 //Se sim, descreva as diferenças.
-//Caso o tsconfig.json não tenha sido criado e editado para apontar os caminhos de input e output
-//eh necessario informar o caminho do arquivo(./src/exemplo.ts)
+//Caso o tsconfig.json não tenha sido criado e editado para apontar os caminhos de input("rootDir": "./src") 
+//e output("outDir": "./build")eh necessario informar o caminho do arquivo(./src/exemplo.ts)
 
 //c) Existe alguma maneira de transpilar múltilplos arquivos de uma vez só? Caso conheça, 
 //explique como fazer. 
-//
+//Após a criação e edição do arquivo tsconfig.json como na letra b, podemos usar apenas o script build: tsc 
+//(npm run build) dentro do package.json para transpilar todos os arquivos .ts dentro da pasta ./src
+
+//d) Compare esse arquivo com o que criamos durante a aula (ele está disponível na área de configuração 
+//do projeto ali em cima). Leia as descrições sobre cada uma das propriedades. Alguma configuração 
+//que chamou sua atenção? O que mudou em comparação com o arquivo criado pelos slides?
+//Em "basic options": 
+//opção "jsx": "preserve". Por fazer inferencia ao React;
+//Em "Additional Checks":
+//"noUnusedLocals": true e noUnusedParameters": true. Por um codigo mais limpo 
