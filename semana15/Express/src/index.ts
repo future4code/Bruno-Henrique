@@ -16,7 +16,7 @@ app.get('/countries/all', (req: Request, res: Response) => {
             ctId: ct.id,
             ctName: ct.name
         }));
-        res.status(201).send(results).end()
+        res.status(201).send(results)
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: "Not found" });
     }
@@ -37,41 +37,23 @@ app.get("/countries/search", (req: Request, res: Response) => {
             results = results.filter((country) =>
                 country.name.includes(countryName)
             )
-            // if (results.length !== 0) {
-            //     res.status(201).send(results).end()
-            // } else {
-            //     errorCode = 404
-            //     throw new Error(`${countryName} not found`);
-            // }
         }
 
         if (countryCapital) {
             results = results.filter((country) =>
                 country.capital.includes(countryCapital)
             )
-            //     if (results.length !== 0) {
-            //         res.status(201).send(results).end()
-            //     } else {
-            //         errorCode = 404
-            //         throw new Error(`${countryCapital} not found`);
-            //     }
         }
 
         if (countryContinent) {
             results = results.filter((country) =>
                 country.continent.includes(countryContinent)
             )
-            //     if (results.length !== 0) {
-            //         res.status(201).send(results).end()
-            //     } else {
-            //         errorCode = 404
-            //         throw new Error(`${countryContinent} not found`);
-            //     }
         }
         if (results.length === 0) {
             throw new Error("Not found!");
         }
-        res.status(201).send(results).end()
+        res.status(201).send(results)
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message });
@@ -88,7 +70,10 @@ app.get('/countries/:id', (req: Request, res: Response) => {
         const results = countries.filter((ct) => {
             return ct.id === id
         })
-        res.status(201).send(results).end()
+        if (results.length === 0) {
+            throw new Error("Not found!");
+        }
+        res.status(201).send(results)
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message });
@@ -125,7 +110,46 @@ app.put("/countries/edit/:id", (req: Request, res: Response) => {
             countries[countryChange].capital = newCapital
         }
 
-        res.status(200).send("Countries updated!")
+        res.status(200).send("Country updated!")
+
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message });
+
+    }
+})
+
+app.delete("/countries/:id", (req: Request, res: Response) => {
+    try {
+
+        if (!req.headers.authorization) {
+            errorCode = 401
+            throw new Error("Invalid authorization.");
+        }
+
+        const token: string = req.headers.authorization
+        const regexAuth = new RegExp('^[A-Za-z0-9].{10,}')
+        if (!regexAuth.test(token)) {
+            throw new Error("Invalid token!");
+        }
+
+        const id: number = Number(req.params.id)
+        if (isNaN(id)) {
+            errorCode = 406
+            throw new Error("Invalid Id! Please check Id value.");
+        }
+
+        const countryDelete: number = countries.findIndex((ct) =>
+            ct.id === id
+        )
+        if (countryDelete < 0) {
+            errorCode = 404
+            throw new Error("Country not found!")
+        }
+
+        countries.splice(countryDelete, 1);
+
+        res.status(200).send("Sucess! Country deleted.")
+
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message });
