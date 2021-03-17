@@ -34,7 +34,7 @@ app.get("/countries/search", (req: Request, res: Response) => {
         }
 
         if (countryName) {
-            results = results.filter((country) => 
+            results = results.filter((country) =>
                 country.name.includes(countryName)
             )
             // if (results.length !== 0) {
@@ -58,7 +58,7 @@ app.get("/countries/search", (req: Request, res: Response) => {
         }
 
         if (countryContinent) {
-            results = results.filter((country) => 
+            results = results.filter((country) =>
                 country.continent.includes(countryContinent)
             )
             //     if (results.length !== 0) {
@@ -68,8 +68,8 @@ app.get("/countries/search", (req: Request, res: Response) => {
             //         throw new Error(`${countryContinent} not found`);
             //     }
         }
-        if(results.length === 0){
-            throw new Error("Not found!");            
+        if (results.length === 0) {
+            throw new Error("Not found!");
         }
         res.status(201).send(results).end()
 
@@ -95,18 +95,40 @@ app.get('/countries/:id', (req: Request, res: Response) => {
     }
 })
 
+app.put("/countries/edit/:id", (req: Request, res: Response) => {
+    try {
+        const id: number = Number(req.params.id)
+        if (isNaN(id)) {
+            errorCode = 406
+            throw new Error("Invalid Id type! Please check Id value.");
+        }
+        if(!req.params.name && !req.params.capital){
+            throw new Error("Check your requests data!");            
+        }
+        const countryName: string = req.params.name
+        const countryCapital: string = req.params.capital
+
+        const results = countries.find((ct) => {
+            return ct.id === id
+        })
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message });
+
+    }
+})
+
 // esse código + essa importação para criar o servidor:
 // por performance, é bom o servidor ser o último trecho de código do documento
 
-app.listen(3003, () => {
-    console.log("Servidor rodando no endereço http://localhost:3003");
-});
-
-// const server = app.listen(process.env.PORT || 3003, () => {
-//     if (server) {
-//         const address = server.address() as AddressInfo;
-//         console.log(`Server is running in http://localhost: ${address.port}`);
-//     } else {
-//         console.error(`Failure upon starting server.`);
-//     }
+// app.listen(3003, () => {
+//     console.log("Servidor rodando no endereço http://localhost:3003");
 // });
+
+const server = app.listen(process.env.PORT || 3003, () => {
+    if (server) {
+        const address = server.address() as AddressInfo;
+        console.log(`Server is running in http://localhost: ${address.port}`);
+    } else {
+        console.error(`Failure upon starting server.`);
+    }
+});
