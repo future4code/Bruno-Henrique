@@ -150,6 +150,45 @@ app.delete("/countries/:id", (req: Request, res: Response) => {
 
         res.status(200).send("Sucess! Country deleted.")
 
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message });
+
+    }
+})
+
+app.post("/countries/create", (req: Request, res: Response) => {
+    try {
+
+        if (!req.headers.authorization) {
+            errorCode = 401
+            throw new Error("Invalid authorization.");
+        }
+
+        const token: string = req.headers.authorization
+        const regexAuth = new RegExp('^[A-Za-z0-9].{10,}')
+        if (!regexAuth.test(token)) {
+            throw new Error("Invalid token!");
+        }
+
+        if (req.body.name && req.body.capital && req.body.continent) {
+            countries.find((ct) => {
+                if (ct.name === req.body.name) {
+                    errorCode = 400
+                    throw new Error("Country already exists!")
+                }
+            })
+            const newCountry: country = {
+                id: Date.now(),
+                name: req.body.name,
+                capital: req.body.capital,
+                continent: req.body.continent
+            }
+            countries.push(newCountry)
+            res.status(200).send({message: "Success!", newCountry})
+
+        }
+        throw new Error("Invalid body data!");
+
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message });
