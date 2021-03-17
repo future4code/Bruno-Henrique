@@ -97,20 +97,36 @@ app.get('/countries/:id', (req: Request, res: Response) => {
 
 app.put("/countries/edit/:id", (req: Request, res: Response) => {
     try {
+        if (!req.body.name && !req.body.capital) {
+            throw new Error("Check your requests data!");
+        }
         const id: number = Number(req.params.id)
         if (isNaN(id)) {
             errorCode = 406
             throw new Error("Invalid Id type! Please check Id value.");
         }
-        if(!req.params.name && !req.params.capital){
-            throw new Error("Check your requests data!");            
-        }
-        const countryName: string = req.params.name
-        const countryCapital: string = req.params.capital
 
-        const results = countries.find((ct) => {
-            return ct.id === id
-        })
+        const countryChange: number = countries.findIndex((ct) =>
+            ct.id === id
+        )
+
+        if (countryChange === -1) {
+            errorCode = 404
+            throw new Error()
+        }
+
+        const newName: string = req.body.name
+        const newCapital: string = req.body.capital
+
+        if (newName) {
+            countries[countryChange].name = newName
+        }
+        if (newCapital) {
+            countries[countryChange].capital = newCapital
+        }
+
+        res.status(200).send("Countries updated!")
+
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message });
 
