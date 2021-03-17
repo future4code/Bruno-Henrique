@@ -29,41 +29,49 @@ app.get("/countries/search", (req: Request, res: Response) => {
         const countryContinent: string = req.query.continent as string;
         let results: country[] = countries;
 
+        if (!countryName && !countryCapital && !countryContinent) {
+            throw new Error("Check your requests data!");
+        }
+
         if (countryName) {
-            results = results.filter((country) => {
-                return country.name.includes(countryName)
-            })
-            if (results.length !== 0) {
-                res.status(201).send(results).end()
-            } else {
-                errorCode = 404
-                throw new Error(`${countryName} not found`);
-            }
+            results = results.filter((country) => 
+                country.name.includes(countryName)
+            )
+            // if (results.length !== 0) {
+            //     res.status(201).send(results).end()
+            // } else {
+            //     errorCode = 404
+            //     throw new Error(`${countryName} not found`);
+            // }
         }
 
         if (countryCapital) {
-            results = results.filter((country) => {
-                return country.capital.includes(countryCapital)
-            })
-            if (results.length !== 0) {
-                res.status(201).send(results).end()
-            } else {
-                errorCode = 404
-                throw new Error(`${countryCapital} not found`);
-            }
+            results = results.filter((country) =>
+                country.capital.includes(countryCapital)
+            )
+            //     if (results.length !== 0) {
+            //         res.status(201).send(results).end()
+            //     } else {
+            //         errorCode = 404
+            //         throw new Error(`${countryCapital} not found`);
+            //     }
         }
 
         if (countryContinent) {
-            results = results.filter((country) => {
-                return country.continent.includes(countryContinent)
-            })
-            if (results.length !== 0) {
-                res.status(201).send(results).end()
-            } else {
-                errorCode = 404
-                throw new Error(`${countryContinent} not found`);
-            }
+            results = results.filter((country) => 
+                country.continent.includes(countryContinent)
+            )
+            //     if (results.length !== 0) {
+            //         res.status(201).send(results).end()
+            //     } else {
+            //         errorCode = 404
+            //         throw new Error(`${countryContinent} not found`);
+            //     }
         }
+        if(results.length === 0){
+            throw new Error("Not found!");            
+        }
+        res.status(201).send(results).end()
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message });
@@ -86,31 +94,6 @@ app.get('/countries/:id', (req: Request, res: Response) => {
         res.status(errorCode).send({ status: "FAILED", message: error.message });
     }
 })
-
-// app.get('/countries/search', (req: Request, res: Response) => {
-//     try {
-//         const countryName: string = req.query.name as string;
-//         const countryCapital: string = req.query.capital as string;
-//         const countryContinent: string = req.query.continent as string;
-
-//         let results: country[] = countries;
-
-//         if (countryName) {
-//             results = results.filter((country) => {
-//                 return country.name.includes(countryName)
-//             })
-//             if (results.length !== 0) {
-//                 res.status(201).send(results).end()
-//             }else{
-//                 errorCode = 404
-//                 throw new Error("Country not found");                
-//             }
-//         }
-
-//     } catch (error) {
-//         res.status(errorCode).send({ status: "FAILED", message: error.message });
-//     }
-// }
 
 // esse código + essa importação para criar o servidor:
 // por performance, é bom o servidor ser o último trecho de código do documento
