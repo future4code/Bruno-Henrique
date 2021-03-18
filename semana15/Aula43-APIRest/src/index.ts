@@ -143,6 +143,34 @@ app.put("/users/edit/:id", (req: Request, res: Response) => {
     }
 })
 
+app.patch("/users/edit/:id/sqn", (req: Request, res: Response) => {
+    let errorCode = 400
+    try {
+        const userId: number = Number(req.params.id)
+        if (isNaN(userId)) {
+            errorCode = 404
+            throw new Error("User not found");
+        }
+
+        const userIndex: number = users.findIndex((user) => (
+            user.id === userId
+        ))
+
+        if (userIndex < 0) {
+            errorCode = 404
+            throw new Error("User not found");
+        }
+        
+        users[userIndex].name = `${users[userIndex].name}-REALTERADO`
+
+        res.status(201).send()
+
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message })
+
+    }
+})
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
         const address = server.address() as AddressInfo;
