@@ -76,6 +76,7 @@ app.get("/users/search", (req: Request, res: Response) => {
             errorCode = 404
             throw new Error(`Type or Name not found`);
         }
+        
         res.status(201).send({ status: "Success", results })
 
     } catch (error) {
@@ -113,6 +114,8 @@ app.post("/users/create", (req: Request, res: Response) => {
     }
 })
 
+//Exercicio 5
+
 app.put("/users/edit/:id", (req: Request, res: Response) => {
     let errorCode = 400
     try {
@@ -137,9 +140,10 @@ app.put("/users/edit/:id", (req: Request, res: Response) => {
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message })
-
     }
 })
+
+//Exercicio 6
 
 app.patch("/users/edit/:id/sqn", (req: Request, res: Response) => {
     let errorCode = 400
@@ -165,9 +169,10 @@ app.patch("/users/edit/:id/sqn", (req: Request, res: Response) => {
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message })
-
     }
 })
+
+//Exercicio 7
 
 app.delete("/users/:id", (req: Request, res: Response) => {
     let errorCode = 400
