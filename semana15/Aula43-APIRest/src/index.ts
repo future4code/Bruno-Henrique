@@ -1,13 +1,11 @@
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
-import { users, user, USER_TYPE } from "./users"
-
+import { users, user } from "./users"
 
 const app: Express = express();
 app.use(express.json());
 app.use(cors());
-
 
 //Exercicio 1
 //a. Qual método HTTP você deve utilizar para isso? Reps.: Usaria o metodo GET
@@ -132,7 +130,7 @@ app.put("/users/edit/:id", (req: Request, res: Response) => {
             errorCode = 404
             throw new Error("User not found");
         }
-        
+
         users[userIndex].name = `${users[userIndex].name}-ALTERADO`
 
         res.status(201).send()
@@ -160,7 +158,7 @@ app.patch("/users/edit/:id/sqn", (req: Request, res: Response) => {
             errorCode = 404
             throw new Error("User not found");
         }
-        
+
         users[userIndex].name = `${users[userIndex].name}-REALTERADO`
 
         res.status(201).send()
@@ -168,6 +166,32 @@ app.patch("/users/edit/:id/sqn", (req: Request, res: Response) => {
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message })
 
+    }
+})
+
+app.delete("/users/:id", (req: Request, res: Response) => {
+    let errorCode = 400
+    try {
+        const userId: number = Number(req.params.id)
+        if (isNaN(userId)) {
+            throw new Error("User not found! Check id params.");
+        }
+
+        const userIndex: number = users.findIndex((userDelete) =>
+            userDelete.id === userId
+        )
+
+        if (userIndex < 0){
+            errorCode = 404
+            throw new Error("User not found");
+        }
+
+        users.splice(userIndex, 1);
+
+        res.status(201).send({status: "Sucess!", message: "User deleted!"})     
+               
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message })
     }
 })
 
