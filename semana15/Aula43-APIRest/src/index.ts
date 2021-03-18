@@ -123,8 +123,8 @@ app.put("/users/edit/:id", (req: Request, res: Response) => {
             errorCode = 404
             throw new Error("User not found");
         }
-        const myUsers: user[] = users
-        const userIndex: number = myUsers.findIndex((user) => (
+
+        const userIndex: number = users.findIndex((user) => (
             user.id === userId
         ))
 
@@ -133,7 +133,9 @@ app.put("/users/edit/:id", (req: Request, res: Response) => {
             throw new Error("User not found");
         }
         
+        users[userIndex].name = `${users[userIndex].name}-ALTERADO`
 
+        res.status(201).send()
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message })
