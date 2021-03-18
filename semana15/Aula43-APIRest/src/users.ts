@@ -9,7 +9,7 @@ export type user = {
     name: string,
     email: string,
     type: USER_TYPE,
-    age: number
+    age: number | string
 }
 
 export let users: user[] = [

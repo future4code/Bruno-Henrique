@@ -31,25 +31,109 @@ app.get("/users", (req: Request, res: Response) => {
 //b. Você consegue pensar em um jeito de garantir que apenas types válidos sejam utilizados?
 //Criando o objeto enum USER_TYPE{} e passando ele no momento que eh criado o usuário
 
-app.get("/users/type", (req: Request, res: Response) => {
+//Exercicio 3
+//a. Qual é o tipo de envio de parâmetro que costuma ser utilizado por aqui? Resp.: Query Params
+
+//b. Altere este endpoint para que ele devolva uma mensagem de erro caso nenhum
+//usuário tenha sido encontrado.
+
+app.get("/users/search", (req: Request, res: Response) => {
     let errorCode: number = 400
     try {
         const userType: string = req.query.type as string
-        //const userType: string = req.params.type
+        const userName: string = req.query.name as string
 
-        if (!userType) {
+        if (!userType && !userName) {
             errorCode = 422
             throw new Error("Please check your request value!");
         }
-        const results = users.filter((user) =>
-            user.type === userType
-        )
+        let results: user[] = []
+
+        // if (userType && userName) {
+        //     results = users.filter((user) => {
+        //         if (user.type === userType && user.name === userName) {
+        //             return user
+        //         }
+        //     })
+        //     if (results.length === 0) {
+        //         errorCode = 404
+        //         throw new Error(`Type or Name not found`);
+        //     }
+        //     res.status(201).send({ status: "Success", results })
+        // }
+
+        if (userType) {
+            results = users.filter((user) =>
+                user.type === userType
+            )
+        }
+
+        if (userName) {
+            results = users.filter((user) =>
+                user.name === userName
+            )
+        }
 
         if (results.length === 0) {
             errorCode = 404
-            throw new Error(`Type not found`);
+            throw new Error(`Type or Name not found`);
         }
         res.status(201).send({ status: "Success", results })
+
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message })
+    }
+})
+
+//Exercicio 4
+//a. Mude o método do endpoint para `PUT`. O que mudou? Resp.: Usnado o metodo Post ou Put
+//a requisição foi atendida.
+
+//b. Você considera o método PUT apropriado para esta transação? Por quê?
+//Resp.: Acredito que não. Porque neste caso de criação de um novo usuario por exemplo,
+//a ideia seria criar um novo recurso da aplicação e não atualizar.
+
+app.post("/users/create", (req: Request, res: Response) => {
+    let errorCode = 400
+    try {
+        if (!req.body.name || !req.body.email || !req.body.type || !req.body.age) {
+            errorCode = 422
+            throw new Error("Missing parameters! Please check the fields.");
+        }
+        const newUser: user = {
+            id: Date.now(),
+            name: req.body.name,
+            email: req.body.email,
+            type: req.body.id,
+            age: req.body.age
+        }
+        users.push(newUser)
+        res.status(201).send({ status: "Success!" })
+
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message })
+    }
+})
+
+app.put("/users/edit/:id", (req: Request, res: Response) => {
+    let errorCode = 400
+    try {
+        const userId: number = Number(req.params.id)
+        if (isNaN(userId)) {
+            errorCode = 404
+            throw new Error("User not found");
+        }
+        const myUsers: user[] = users
+        const userIndex: number = myUsers.findIndex((user) => (
+            user.id === userId
+        ))
+
+        if (userIndex < 0) {
+            errorCode = 404
+            throw new Error("User not found");
+        }
+        
+
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message })
