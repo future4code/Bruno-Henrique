@@ -35,6 +35,40 @@ app.get("/cliente/saldo", (req: Request, res: Response) => {
     }
 })
 
+app.put("/cliente/saldo", (req: Request, res: Response) => {
+    let errorCode = 400
+    try {
+        const name: string = req.query.name as string
+        const cpf: string = req.query.cpf as string
+        const addValue: string = req.query.value as string
+
+        if (!name || !cpf || !addValue) {
+            errorCode = 422
+            throw new Error("Invalid parameters! Please check the fields.");
+        }
+
+        const accountIndex = clients.findIndex((user) => {
+            return (user.name === name && user.cpf === Number(cpf))
+        })
+
+        const myAccount: client[] = clients
+
+        if (accountIndex < 0) {
+            errorCode = 404
+            throw new Error("Client not found");
+        }
+
+        const myCurrentValue: number = Number(myAccount[accountIndex].currentMoney)
+
+        clients[accountIndex].currentMoney = myCurrentValue + Number(addValue)
+
+        res.status(200).send({ status: "Success" })
+
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message })
+    }
+})
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
         const address = server.address() as AddressInfo;
