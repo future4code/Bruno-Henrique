@@ -52,6 +52,7 @@ app.put("/cliente/saldo", (req: Request, res: Response) => {
         const name: string = req.query.name as string
         const cpf: string = req.query.cpf as string
         const addValue: string = req.query.value as string
+        //const addValue: string = req.body.value
 
         if (!name || !cpf || !addValue) {
             errorCode = 422
@@ -80,6 +81,7 @@ app.put("/cliente/saldo", (req: Request, res: Response) => {
     }
 })
 
+//Pagar conta
 app.post("/cliente/pagamentos", (req: Request, res: Response) => {
     let errorCode = 400
     try {
@@ -121,6 +123,7 @@ app.post("/cliente/pagamentos", (req: Request, res: Response) => {
     }
 })
 
+//Novo cliente
 app.post("/cliente/novaConta", (req: Request, res: Response) => {
     let errorCode = 400
     try {
