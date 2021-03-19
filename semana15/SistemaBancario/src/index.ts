@@ -7,7 +7,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/clientes", (req: Request, res: Response) => {
+app.get("/cliente/all", (req: Request, res: Response) => {
     let errorCode = 400
     try {
         res.status(201).send(clients)
@@ -115,6 +115,37 @@ app.post("/cliente/pagamentos", (req: Request, res: Response) => {
         clients[accountIndex].currentMoney = myAccount[accountIndex].currentMoney - billValue
 
         res.status(200).send({ status: "Success" })
+
+    } catch (error) {
+        res.status(errorCode).send({ status: "FAILED", message: error.message })
+    }
+})
+
+app.post("/cliente/novaConta", (req: Request, res: Response) => {
+    let errorCode = 400
+    try {
+        const clientName: string = req.body.name
+        const clientCpf: number = req.body.cpf
+        const clientBirthday: Date = new Date(req.body.birthday)
+
+        if (!clientName || !clientCpf || !clientBirthday) {
+            errorCode = 422
+            throw new Error("Invalid parameters! Please check the fields.");
+        }
+
+        //Lógica de verificação de idade
+
+        const newAccount: client = {
+            name: clientName,
+            cpf: clientCpf,
+            birthday: clientBirthday,
+            currentMoney: 0,
+            accInfo: []
+        }
+
+        clients.push(newAccount)
+
+        res.status(201).send({status: "Success"})
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message })
