@@ -97,7 +97,7 @@ app.post("/cliente/pagamentos", (req: Request, res: Response) => {
 
         const myAccount: client[] = clients
         const billValue: number = req.body.value
-        const billDescription: string = req.body.description
+        const billDescription: string = req.body.info
         const billDate: Date = new Date(req.body.date)
 
         if (accountIndex < 0) {
