@@ -129,14 +129,22 @@ app.post("/cliente/novaConta", (req: Request, res: Response) => {
     try {
         const clientName: string = req.body.name
         const clientCpf: number = req.body.cpf
-        const clientBirthday: Date = new Date(req.body.birthday)
+        const dateOfBirthday: string = req.body.birthday
 
-        if (!clientName || !clientCpf || !clientBirthday) {
+        if (!clientName || !clientCpf || !dateOfBirthday) {
             errorCode = 422
             throw new Error("Invalid parameters! Please check the fields.");
         }
+        const [day, mounth, year] = dateOfBirthday.split("/")
+        const clientBirthday: Date = new Date(`${year}-${mounth}-${day}`)
 
-        //Lógica de verificação de idade
+        const ageTimestamp: number= Date.now() - clientBirthday.getTime()
+        const ageInYears: number = ageTimestamp/1000/60/60/24/365
+
+        if(ageInYears < 18){
+            errorCode = 401
+            throw new Error("The client must be 18 years old or older");            
+        }
 
         const newAccount: client = {
             name: clientName,
@@ -148,7 +156,7 @@ app.post("/cliente/novaConta", (req: Request, res: Response) => {
 
         clients.push(newAccount)
 
-        res.status(201).send({status: "Success"})
+        res.status(201).send({ status: "Success" })
 
     } catch (error) {
         res.status(errorCode).send({ status: "FAILED", message: error.message })
