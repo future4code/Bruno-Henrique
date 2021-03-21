@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
-import { clients, client, details } from "./clients/clients"
+import { clients, client, details, TRANSACTION } from "./clients/clients"
 
 const app: Express = express();
 app.use(express.json());
@@ -51,10 +51,10 @@ app.put("/cliente/saldo", (req: Request, res: Response) => {
     try {
         const name: string = req.query.name as string
         const cpf: string = req.query.cpf as string
-        const addValue: string = req.query.value as string
+        const value: string = req.query.value as string
         //const addValue: string = req.body.value
 
-        if (!name || !cpf || !addValue) {
+        if (!name || !cpf || !value) {
             errorCode = 422
             throw new Error("Invalid parameters! Please check the fields.");
         }
@@ -69,10 +69,16 @@ app.put("/cliente/saldo", (req: Request, res: Response) => {
             errorCode = 404
             throw new Error("Client not found");
         }
+        const addValue: number = Number(value)
+        const newAccInfo: details = {
+            type:TRANSACTION.DEPOSIT,
+            value: addValue,
+            date: new Date(),
+            info: "Adicionado saldo"
+        }
 
-        const myCurrentValue: number = Number(myAccount[accountIndex].currentMoney)
-
-        clients[accountIndex].currentMoney = myCurrentValue + Number(addValue)
+        clients[accountIndex].accInfo.push(newAccInfo)
+        clients[accountIndex].currentMoney = clients[accountIndex].currentMoney + addValue
 
         res.status(200).send({ status: "Success" })
 
@@ -108,6 +114,7 @@ app.post("/cliente/pagamentos", (req: Request, res: Response) => {
         }
 
         const billPaid: details = {
+            type: TRANSACTION.PAYMENT,
             value: billValue,
             date: billDate,
             info: billDescription
@@ -136,24 +143,24 @@ app.post("/cliente/novaConta", (req: Request, res: Response) => {
             throw new Error("Invalid parameters! Please check the fields.");
         }
 
-        const checkCPF = clients.find((client) => 
+        const checkCPF = clients.find((client) =>
             client.cpf === clientCpf
         )
 
-        if(checkCPF){
+        if (checkCPF) {
             errorCode = 401
-            throw new Error("Client already exist!");            
+            throw new Error("Client already exist!");
         }
 
         const [day, mounth, year] = dateOfBirthday.split("/")
         const clientBirthday: Date = new Date(`${year}-${mounth}-${day}`)
 
-        const ageTimestamp: number= Date.now() - clientBirthday.getTime()
-        const ageInYears: number = ageTimestamp/1000/60/60/24/365
+        const ageTimestamp: number = Date.now() - clientBirthday.getTime()
+        const ageInYears: number = ageTimestamp / 1000 / 60 / 60 / 24 / 365
 
-        if(ageInYears < 18){
+        if (ageInYears < 18) {
             errorCode = 401
-            throw new Error("The client must be 18 years old or older");            
+            throw new Error("The client must be 18 years old or older");
         }
 
         const newAccount: client = {

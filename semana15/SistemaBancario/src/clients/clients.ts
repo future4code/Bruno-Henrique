@@ -1,4 +1,11 @@
+export enum TRANSACTION {
+    "DEPOSIT" = "Depósito",
+    "PAYMENT" = "Pagamento",
+    "TRANSFER" = "Transferência"
+}
+
 export type details = {
+    type: TRANSACTION,
     value: number,
     date: Date,
     info: string
@@ -20,11 +27,13 @@ export let clients: client[] = [
         currentMoney: 200,
         accInfo: [
             {
+                type: TRANSACTION.PAYMENT,
                 value: 10,
                 date: new Date("2019-12-05"),
                 info: "Padaria"
             },
             {
+                type: TRANSACTION.PAYMENT,
                 value: 30,
                 date: new Date("2019-08-05"),
                 info: "Mercado"
@@ -38,11 +47,13 @@ export let clients: client[] = [
         currentMoney: 1020,
         accInfo: [
             {
+                type: TRANSACTION.PAYMENT,
                 value: 50,
                 date: new Date("2020-08-05"),
                 info: "Presente"
             },
             {
+                type: TRANSACTION.PAYMENT,
                 value: 360,
                 date: new Date("2020-08-05"),
                 info: "Restaurante"
