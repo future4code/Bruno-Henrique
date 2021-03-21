@@ -135,6 +135,16 @@ app.post("/cliente/novaConta", (req: Request, res: Response) => {
             errorCode = 422
             throw new Error("Invalid parameters! Please check the fields.");
         }
+
+        const checkCPF = clients.find((client) => 
+            client.cpf === clientCpf
+        )
+
+        if(checkCPF){
+            errorCode = 401
+            throw new Error("Client already exist!");            
+        }
+
         const [day, mounth, year] = dateOfBirthday.split("/")
         const clientBirthday: Date = new Date(`${year}-${mounth}-${day}`)
 
