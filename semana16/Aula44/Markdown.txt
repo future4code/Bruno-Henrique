@@ -255,3 +255,33 @@ WHERE rating > 7 ;
 ![Rating > 7](./images/busca-por-rating.png)
 
 *****************************************************************************************************
+
+### Exercicio 7
+
+**a.**
+~~~sql
+SELECT * from Movies
+WHERE title LIKE "%vida%" ;
+~~~
+![Busca por palavra](./images/busca-por-palavra.png)
+
+**b.**
+~~~sql
+SELECT * from Movies
+WHERE title LIKE "%doce%" OR sinopse LIKE "%circo%";
+~~~
+![Busca por palavras](./images/busca-por-palavras.png)
+
+**c.**
+~~~sql
+SELECT * from Movies
+WHERE release_date < "2021-03-22";
+~~~
+![Busca por ja lançados](./images/busca-por-lancados.png)
+
+**d.**
+~~~sql
+SELECT * from Movies
+WHERE (title LIKE "%doce%" OR sinopse LIKE "%circo%") AND rating > 7;
+~~~
+![Busca por palavras e rating](./images/busca-por-palavras&rating.png)
