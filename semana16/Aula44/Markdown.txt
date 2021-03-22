@@ -24,3 +24,113 @@ Actors
 **c.** Segue respostas
 * __DESCRIBE Actor__ foi exibido as informações da tabela como o nome de cada coluna, o tipo, as
 restrições e tipo de chave
+
+*****************************************************************************************************
+
+### Exercicio 2
+~~~sql
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "001", 
+  "Tony Ramos",
+  400000,
+  "1948-08-25", 
+  "male"
+);
+~~~
+
+**a.**
+~~~sql
+INSERT  INTO  Actor(id, name, salary, birth_date, gender)
+VALUES(
+    "002",
+    "Glória Pires",
+    1200000,
+    "1963-08-23",
+    "female"
+);
+~~~
+
+**b.**
+~~~sql
+INSERT  INTO  Actor(id, name, salary, birth_date, gender)
+VALUES(
+    "002",
+    "Camila Pitanga",
+    1000000,
+    "1979-04-17",
+    "female"
+);
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+INSERT INTO Actor(id, name, salary, birth_date, gender) VALUES( "002", "Camila Pitanga", 1000000, "1979-04-17", "female" )
+***Message***:
+Duplicate entry '002' for key 'PRIMARY'
+
+**Resposta**
+A requisão falhou porque tentei criar um novo usuario com um **id** ja existente.
+
+**c.**
+~~~sql
+INSERT INTO Actor (id, name, salary)
+VALUES(
+  "003", 
+  "Fernanda Montenegro",
+  300000,
+  "1929-10-19", 
+  "female"
+);
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+INSERT INTO Actor (id, name, salary) VALUES( "003", "Fernanda Montenegro", 300000, "1929-10-19", "female" )
+***Message***:
+Column count doesn't match value count at row 1
+
+**Resposta**
+A requisão falhou porque tentei criar um novo usuario com informações que não estão listadas na linha 1. Para ele funcionar tenho que alterar a lista de entrada para id,name,salary,birth_date,gender
+
+**d.**
+~~~sql
+INSERT INTO Actor (id, salary, birth_date, gender)
+VALUES(
+  "004",
+  400000,
+  "1949-04-18", 
+  "male"
+);
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+INSERT INTO Actor (id, salary, birth_date, gender) VALUES( "004", 400000, "1949-04-18", "male" )
+***Message***:
+Field 'name' doesn't have a default value
+
+**Resposta**
+A requisão falhou porque tentei criar um novo usuario faltando informação que foi definida como obrigatória. Faltou o name. Para funcionar tenho que adicionar o name na lista e o nome do ator/atriz para cadastro.
+
+**e.**
+~~~sql
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "005", 
+  "Juliana Paes",
+  719333.33,
+  1979-03-26, 
+  "female"
+);
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+INSERT INTO Actor (id, name, salary, birth_date, gender) VALUES( "005", "Juliana Paes", 719333.33, 1979-03-26, "female" )
+***Message***:
+ Incorrect date value: '1950' for column 'birth_date' at row 1
+
+ **Resposta**
+ A requisão falhou porque tentei criar um novo usuario passando uma informação com o tipo diferente do esperado. A data estava com formato de INT resultado de uma operação matematica entre 1979-03-26 mas a requisição espera uma Date. Para funcionar adicionei aspas ao valor.
+
+**f.**
+Adicionado mais uma atriz e um ator a tabela
+
+*****************************************************************************************************
