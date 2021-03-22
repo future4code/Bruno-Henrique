@@ -134,3 +134,79 @@ INSERT INTO Actor (id, name, salary, birth_date, gender) VALUES( "005", "Juliana
 Adicionado mais uma atriz e um ator a tabela
 
 *****************************************************************************************************
+
+### Exercicio 3
+**a.**
+~~~sql
+SELECT * from Actor
+WHERE gender = "female"
+~~~
+
+**b.**
+~~~sql
+SELECT salary from Actor
+WHERE  name = "Tony Ramos"
+~~~
+
+**c.**
+~~~sql
+SELECT * from Actor
+WHERE  gender = "invalid"
+~~~
+**Resposta**
+Não houve retorno nenhum pois todos os atores/atrizes cadastrados possuem a chave gender preenchida por ela ser obrigatoria no momento do cadastro.
+
+**d.**
+~~~sql
+SELECT id, name, salary from Actor
+WHERE  salary <= 500000
+~~~
+
+**e.**
+~~~sql
+SELECT id, nome from Actor 
+WHERE id = "002"
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+SELECT id, nome from Actor WHERE id = "002"
+***Message***:
+Unknown column 'nome' in 'field list'
+
+**Resposta**
+Não foi encontrado o campo nome lista de criação da tabela
+~~~sql
+SELECT id, name from Actor 
+WHERE id = "002"
+~~~
+
+*****************************************************************************************************
+
+### Exercicio 4
+~~~sql
+SELECT * FROM Actor
+WHERE salary > 300000 AND (name LIKE "J%" OR name LIKE "A%")
+~~~
+
+**a.**
+Foi realizado uma busca na tabela Actor adicionando um filtro onde foi pesquisado salarios acima de 300000 e nomes que comecem ou com a letra J ou a letra A.
+
+**b.**
+~~~sql
+SELECT * FROM Actor
+WHERE salary > 350000 AND name NOT LIKE "A%"
+~~~
+
+**c.**
+~~~sql
+SELECT * FROM Actor
+WHERE name LIKE "%G%" OR name LIKE "%g%"
+~~~
+
+**d.**
+~~~sql
+SELECT * FROM Actor
+WHERE (name LIKE "%G%" OR name LIKE "%A%") AND salary BETWEEN 350000 AND 900000
+~~~
+
+*****************************************************************************************************
