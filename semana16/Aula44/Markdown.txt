@@ -210,3 +210,48 @@ WHERE (name LIKE "%G%" OR name LIKE "%A%") AND salary BETWEEN 350000 AND 900000
 ~~~
 
 *****************************************************************************************************
+
+### Exercicio 5
+~~~sql
+CREATE TABLE Movies(
+    id VARCHAR (255) PRIMARY KEY ,
+    name VARCHAR (255) NOT NULL ,
+    sinopse MEDIUMTEXT NOT NULL ,
+    release_date DATE not NULL ,
+    rating TINYINT NOT NULL 
+);
+~~~
+
+**a.**
+Essa query cria uma tabela contendo 5 colunas chave onde cada chave possui um tipo que os valores devem ser.
+
+**b,c,d,e**
+Adicionado 4 filmes na tabela Movies
+![Filmes Brasileiros](./images/movies.png)
+
+*****************************************************************************************************
+
+### Exercicio 6
+
+**a.**
+~~~sql
+SELECT id, title, rating from Movies
+WHERE id = "002";
+~~~
+![Doce de Mãe](./images/busca-por-id.png)
+
+**b.**
+~~~sql
+SELECT * from Movies
+WHERE title = "Se Eu Fosse Você" ;
+~~~
+![Se Eu Fosse Você](./images/busca-por-title.png)
+
+**b.**
+~~~sql
+SELECT id, title, sinopse from Movies
+WHERE rating > 7 ;
+~~~
+![Rating > 7](./images/busca-por-rating.png)
+
+*****************************************************************************************************
