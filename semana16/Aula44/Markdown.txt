@@ -1,0 +1,26 @@
+### Exercicio 1
+~~~sql
+CREATE TABLE Actor (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR (255) NOT NULL,
+    salary FLOAT NOT NULL,
+    birth_date DATE NOT NULL,
+		gender VARCHAR(6) NOT NULL
+);
+~~~
+
+**a.** Segue resposta:
+* __CREATE TABLE Actor__ é uma sintaxe usada para criar uma tabela com o nome Actor
+* __name, salary, birth_date, gender__ são os nomes de cada coluna da tabela
+* __VARCHAR(255), FLOAT, DATE__ são os tipos de cada coluna
+* __PRIMARY KEY, NOT NULL__ são as restrições de cada coluna     
+
+**b.** Segue respostas:
+* __SHOW DATABASES__ ao executa-lo foi exibido os bancos de dados epps-nome-sobrenome e 
+information_schema.
+* __SHOW TABLES__ ao execula-lo foi exibido todas as tabelhas criadas, no meu caso somente 
+Actors
+
+**c.** Segue respostas
+* __DESCRIBE Actor__ foi exibido as informações da tabela como o nome de cada coluna, o tipo, as
+restrições e tipo de chave
