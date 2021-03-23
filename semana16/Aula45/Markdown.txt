@@ -1,4 +1,4 @@
-#Aula 45
+# Aula 45
 
 ### Exercicio 1
 **a.**
@@ -26,4 +26,93 @@ ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
 
 *****************************************************************************************************
 
-###Exercicio 2
+### Exercicio 2
+**a.**
+~~~sql
+UPDATE Actor
+SET 
+name = "Antônio Fagundes",
+birth_date = "1959-06-11",
+gender = "male"
+WHERE id = 003; 
+~~~
+
+**b.**
+##### UPPER
+~~~sql
+UPDATE Actor
+SET name = UPPER(name)
+WHERE name = "Juliana Paes"
+~~~
+ou 
+~~~sql
+UPDATE Actor
+SET name = "JULIANA PAES"
+WHERE name = "Juliana Paes" ;
+~~~
+##### LOWER
+~~~sql
+UPDATE Actor
+SET name = LOWER(name)
+WHERE name = "Juliana Paes"
+~~~
+ou 
+~~~sql
+UPDATE Actor
+SET name = "juliana paes"
+WHERE name = "Juliana Paes" ;
+~~~
+
+~~~sql
+UPDATE Actor
+SET name = "Juliana Paes"
+WHERE name = "Juliana Paes" ;
+~~~
+
+**c.**
+~~~sql
+UPDATE Actor
+SET 
+name = "Regina Duarte",
+salary = 370000,
+birth_date = "1965-09-30",
+gender = "female"
+WHERE id = 005
+~~~
+
+**d.**
+~~~sql
+UPDATE Actor
+SET 
+name = "Moacyr Franco",
+salary = 670000,
+birth_date = "1945-09-30",
+gender = "male"
+WHERE id = 008
+~~~
+***Mensagem de erro
+0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0***
+
+A query não esta errada pois a condição WHERE não foi atendida para que fosse feito o UPDATE ja
+que a minha tabela tem apenas 7 entradas. 
+
+*****************************************************************************************************
+
+### Exercicio 3
+**a.**
+~~~sql
+DELETE from Actor
+WHERE name = "Regina Duarte";
+~~~
+
+**b.**
+~~~sql
+DELETE from Actor
+WHERE salary > 1000000 AND gender = "male"
+~~~
+~~~sql
+DELETE from Actor
+WHERE salary > 500000 AND gender = "male"
+~~~
+
+*****************************************************************************************************
