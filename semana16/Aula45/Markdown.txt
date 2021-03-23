@@ -2,3 +2,28 @@
 
 ### Exercicio 1
 **a.**
+~~~sql
+ALTER TABLE Actor DROP COLUMN salary;
+~~~
+Na tabela Actor a coluna salary será derrubada.
+
+**b.**
+~~~sql
+ALTER TABLE Actor CHANGE gender sex VARCHAR(6);
+~~~
+Na tabela Actor o nome e o tipo da COLUMN; (antigo)gender para (novo)sex e o tipo VARCHAR(6)
+
+**c.**
+~~~sql
+ALTER TABLE Actor CHANGE gender gender VARCHAR(255);
+~~~
+Na tabela Actor a coluna gender vai continuar com o mesmo nome mas o tipo passa a ser VARCHAR(255)
+
+**d.**
+~~~sql
+ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
+~~~
+
+*****************************************************************************************************
+
+###Exercicio 2
