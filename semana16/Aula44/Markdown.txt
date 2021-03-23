@@ -1,0 +1,287 @@
+### Exercicio 1
+~~~sql
+CREATE TABLE Actor (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR (255) NOT NULL,
+    salary FLOAT NOT NULL,
+    birth_date DATE NOT NULL,
+		gender VARCHAR(6) NOT NULL
+);
+~~~
+
+**a.** Segue resposta:
+* __CREATE TABLE Actor__ é uma sintaxe usada para criar uma tabela com o nome Actor
+* __name, salary, birth_date, gender__ são os nomes de cada coluna da tabela
+* __VARCHAR(255), FLOAT, DATE__ são os tipos de cada coluna
+* __PRIMARY KEY, NOT NULL__ são as restrições de cada coluna     
+
+**b.** Segue respostas:
+* __SHOW DATABASES__ ao executa-lo foi exibido os bancos de dados epps-nome-sobrenome e 
+information_schema.
+* __SHOW TABLES__ ao execula-lo foi exibido todas as tabelhas criadas, no meu caso somente 
+Actors
+
+**c.** Segue respostas
+* __DESCRIBE Actor__ foi exibido as informações da tabela como o nome de cada coluna, o tipo, as
+restrições e tipo de chave
+
+*****************************************************************************************************
+
+### Exercicio 2
+~~~sql
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "001", 
+  "Tony Ramos",
+  400000,
+  "1948-08-25", 
+  "male"
+);
+~~~
+
+**a.**
+~~~sql
+INSERT  INTO  Actor(id, name, salary, birth_date, gender)
+VALUES(
+    "002",
+    "Glória Pires",
+    1200000,
+    "1963-08-23",
+    "female"
+);
+~~~
+
+**b.**
+~~~sql
+INSERT  INTO  Actor(id, name, salary, birth_date, gender)
+VALUES(
+    "002",
+    "Camila Pitanga",
+    1000000,
+    "1979-04-17",
+    "female"
+);
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+INSERT INTO Actor(id, name, salary, birth_date, gender) VALUES( "002", "Camila Pitanga", 1000000, "1979-04-17", "female" )
+***Message***:
+Duplicate entry '002' for key 'PRIMARY'
+
+**Resposta**
+A requisão falhou porque tentei criar um novo usuario com um **id** ja existente.
+
+**c.**
+~~~sql
+INSERT INTO Actor (id, name, salary)
+VALUES(
+  "003", 
+  "Fernanda Montenegro",
+  300000,
+  "1929-10-19", 
+  "female"
+);
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+INSERT INTO Actor (id, name, salary) VALUES( "003", "Fernanda Montenegro", 300000, "1929-10-19", "female" )
+***Message***:
+Column count doesn't match value count at row 1
+
+**Resposta**
+A requisão falhou porque tentei criar um novo usuario com informações que não estão listadas na linha 1. Para ele funcionar tenho que alterar a lista de entrada para id,name,salary,birth_date,gender
+
+**d.**
+~~~sql
+INSERT INTO Actor (id, salary, birth_date, gender)
+VALUES(
+  "004",
+  400000,
+  "1949-04-18", 
+  "male"
+);
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+INSERT INTO Actor (id, salary, birth_date, gender) VALUES( "004", 400000, "1949-04-18", "male" )
+***Message***:
+Field 'name' doesn't have a default value
+
+**Resposta**
+A requisão falhou porque tentei criar um novo usuario faltando informação que foi definida como obrigatória. Faltou o name. Para funcionar tenho que adicionar o name na lista e o nome do ator/atriz para cadastro.
+
+**e.**
+~~~sql
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "005", 
+  "Juliana Paes",
+  719333.33,
+  1979-03-26, 
+  "female"
+);
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+INSERT INTO Actor (id, name, salary, birth_date, gender) VALUES( "005", "Juliana Paes", 719333.33, 1979-03-26, "female" )
+***Message***:
+ Incorrect date value: '1950' for column 'birth_date' at row 1
+
+ **Resposta**
+ A requisão falhou porque tentei criar um novo usuario passando uma informação com o tipo diferente do esperado. A data estava com formato de INT resultado de uma operação matematica entre 1979-03-26 mas a requisição espera uma Date. Para funcionar adicionei aspas ao valor.
+
+**f.**
+Adicionado mais uma atriz e um ator a tabela
+
+*****************************************************************************************************
+
+### Exercicio 3
+**a.**
+~~~sql
+SELECT * from Actor
+WHERE gender = "female"
+~~~
+
+**b.**
+~~~sql
+SELECT salary from Actor
+WHERE  name = "Tony Ramos"
+~~~
+
+**c.**
+~~~sql
+SELECT * from Actor
+WHERE  gender = "invalid"
+~~~
+**Resposta**
+Não houve retorno nenhum pois todos os atores/atrizes cadastrados possuem a chave gender preenchida por ela ser obrigatoria no momento do cadastro.
+
+**d.**
+~~~sql
+SELECT id, name, salary from Actor
+WHERE  salary <= 500000
+~~~
+
+**e.**
+~~~sql
+SELECT id, nome from Actor 
+WHERE id = "002"
+~~~
+**Mensagem de erro**
+***EXECUTE FAIL***:
+SELECT id, nome from Actor WHERE id = "002"
+***Message***:
+Unknown column 'nome' in 'field list'
+
+**Resposta**
+Não foi encontrado o campo nome lista de criação da tabela
+~~~sql
+SELECT id, name from Actor 
+WHERE id = "002"
+~~~
+
+*****************************************************************************************************
+
+### Exercicio 4
+~~~sql
+SELECT * FROM Actor
+WHERE salary > 300000 AND (name LIKE "J%" OR name LIKE "A%")
+~~~
+
+**a.**
+Foi realizado uma busca na tabela Actor adicionando um filtro onde foi pesquisado salarios acima de 300000 e nomes que comecem ou com a letra J ou a letra A.
+
+**b.**
+~~~sql
+SELECT * FROM Actor
+WHERE salary > 350000 AND name NOT LIKE "A%"
+~~~
+
+**c.**
+~~~sql
+SELECT * FROM Actor
+WHERE name LIKE "%G%" OR name LIKE "%g%"
+~~~
+
+**d.**
+~~~sql
+SELECT * FROM Actor
+WHERE (name LIKE "%G%" OR name LIKE "%A%") AND salary BETWEEN 350000 AND 900000
+~~~
+
+*****************************************************************************************************
+
+### Exercicio 5
+~~~sql
+CREATE TABLE Movies(
+    id VARCHAR (255) PRIMARY KEY ,
+    name VARCHAR (255) NOT NULL ,
+    sinopse MEDIUMTEXT NOT NULL ,
+    release_date DATE not NULL ,
+    rating TINYINT NOT NULL 
+);
+~~~
+
+**a.**
+Essa query cria uma tabela contendo 5 colunas chave onde cada chave possui um tipo que os valores devem ser.
+
+**b,c,d,e**
+Adicionado 4 filmes na tabela Movies
+![Filmes Brasileiros](./images/movies.png)
+
+*****************************************************************************************************
+
+### Exercicio 6
+
+**a.**
+~~~sql
+SELECT id, title, rating from Movies
+WHERE id = "002";
+~~~
+![Doce de Mãe](./images/busca-por-id.png)
+
+**b.**
+~~~sql
+SELECT * from Movies
+WHERE title = "Se Eu Fosse Você" ;
+~~~
+![Se Eu Fosse Você](./images/busca-por-title.png)
+
+**b.**
+~~~sql
+SELECT id, title, sinopse from Movies
+WHERE rating > 7 ;
+~~~
+![Rating > 7](./images/busca-por-rating.png)
+
+*****************************************************************************************************
+
+### Exercicio 7
+
+**a.**
+~~~sql
+SELECT * from Movies
+WHERE title LIKE "%vida%" ;
+~~~
+![Busca por palavra](./images/busca-por-palavra.png)
+
+**b.**
+~~~sql
+SELECT * from Movies
+WHERE title LIKE "%doce%" OR sinopse LIKE "%circo%";
+~~~
+![Busca por palavras](./images/busca-por-palavras.png)
+
+**c.**
+~~~sql
+SELECT * from Movies
+WHERE release_date < "2021-03-22";
+~~~
+![Busca por ja lançados](./images/busca-por-lancados.png)
+
+**d.**
+~~~sql
+SELECT * from Movies
+WHERE (title LIKE "%doce%" OR sinopse LIKE "%circo%") AND rating > 7;
+~~~
+![Busca por palavras e rating](./images/busca-por-palavras&rating.png)
