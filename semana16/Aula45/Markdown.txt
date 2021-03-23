@@ -5,18 +5,21 @@
 ~~~sql
 ALTER TABLE Actor DROP COLUMN salary;
 ~~~
+**Resposta**
 Na tabela Actor a coluna salary será derrubada.
 
 **b.**
 ~~~sql
 ALTER TABLE Actor CHANGE gender sex VARCHAR(6);
 ~~~
+**Resposta**
 Na tabela Actor o nome e o tipo da COLUMN; (antigo)gender para (novo)sex e o tipo VARCHAR(6)
 
 **c.**
 ~~~sql
 ALTER TABLE Actor CHANGE gender gender VARCHAR(255);
 ~~~
+**Resposta**
 Na tabela Actor a coluna gender vai continuar com o mesmo nome mas o tipo passa a ser VARCHAR(255)
 
 **d.**
@@ -93,6 +96,7 @@ WHERE id = 008
 ***Mensagem de erro
 0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0***
 
+**Resposta**
 A query não esta errada pois a condição WHERE não foi atendida para que fosse feito o UPDATE ja
 que a minha tabela tem apenas 7 entradas. 
 
@@ -116,3 +120,69 @@ WHERE salary > 500000 AND gender = "male"
 ~~~
 
 *****************************************************************************************************
+
+### Exercicio 4
+
+**a.**
+~~~sql
+SELECT MAX(salary) from Actor
+~~~
+
+**b.**
+~~~sql
+SELECT MIN(salary) as Menor_salario
+from Actor
+WHERE gender = "female";
+~~~
+
+**c.**
+~~~sql
+SELECT COUNT(*) FROM Actor
+WHERE gender = "female";
+~~~
+
+**d.**
+~~~sql
+SELECT SUM(salary) as Somatorio
+FROM  Actor
+~~~
+
+*****************************************************************************************************
+
+### Exercicio 5
+
+**a.**
+~~~sql
+SELECT COUNT(*), gender
+FROM Actor
+GROUP BY gender
+~~~
+**Resposta**
+Esta query conta quantos atores/atrizes existem na tabela e os agrupa de acordo com o genero
+
+**b.**
+~~~sql
+SELECT id, name FROM Actor
+WHERE GENDER = "male"
+ORDER BY name DESC;
+~~~
+
+**c.**
+~~~sql
+SELECT * FROM Actor
+ORDER BY salary ASC;
+~~~
+
+**d.**
+~~~sql
+SELECT id, name FROM Actor
+ORDER BY salary DESC
+LIMIT 3;
+~~~
+
+**e.**
+~~~sql
+SELECT AVG(salary) as media_salarial_genero , gender
+from Actor
+GROUP BY gender;
+~~~
