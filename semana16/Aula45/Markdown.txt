@@ -97,7 +97,7 @@ WHERE id = 008
 0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0***
 
 **Resposta**
-A query não esta errada pois a condição WHERE não foi atendida para que fosse feito o UPDATE ja
+A query não esta errada.A condição WHERE não foi atendida para que fosse feito o UPDATE ja
 que a minha tabela tem apenas 7 entradas. 
 
 *****************************************************************************************************
@@ -186,3 +186,48 @@ SELECT AVG(salary) as media_salarial_genero , gender
 from Actor
 GROUP BY gender;
 ~~~
+
+*****************************************************************************************************
+
+### Exercicio 6
+
+**a.**
+~~~sql
+ALTER TABLE Movies ADD playing_limit_date Date;
+~~~
+
+**b.**
+~~~sql
+ALTER TABLE Movies CHANGE rating rating FLOAT;
+~~~
+
+**c.**
+~~~sql
+UPDATE Movies
+SET 
+playing_limit_date = curdate()
+WHERE id = 002;
+
+UPDATE Movies
+SET 
+playing_limit_date = "2021-03-13"
+WHERE id = 004;
+~~~
+
+**d.**
+~~~sql
+DELETE FROM Movies
+WHERE id = 004;
+
+UPDATE Movies
+SET
+sinopse = "Alterado"
+WHERE id = 004;
+~~~
+**Resposta**
+A query não esta errada.A condição WHERE não foi atendida para que fosse feito o UPDATE ja
+que a minha tabela vai até o id 003. 
+
+*****************************************************************************************************
+
+### Exercicio 7
