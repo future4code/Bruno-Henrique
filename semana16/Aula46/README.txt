@@ -46,3 +46,16 @@ const countByGender = async(gender:string)=>{
 ~~~
 
 ********************************************************************************************
+
+### Exercicio 2
+
+**a.**
+~~~sql
+const changeSalary = async (id:string, salary:number):Promise<void> => {
+    await connection("Actor")
+    .update({
+        salary: salary
+    })
+    .WHERE({id: "${id}"})
+}
+~~~
