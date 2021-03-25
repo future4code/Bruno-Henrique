@@ -1,7 +1,7 @@
 import {Request, Response} from "express"
 import connection from "../connection";
 
-const getActorList = async (req:Request, res:Response) => {
+const getActorsList = async (req:Request, res:Response) => {
     try {
 
         const result = await connection.raw(`
@@ -15,4 +15,4 @@ const getActorList = async (req:Request, res:Response) => {
     }
 };
 
-export default getActorList;
+export default getActorsList;
