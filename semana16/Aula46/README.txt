@@ -38,11 +38,11 @@ const countByGender = async(gender:string)=>{
     -- SELECT COUNT(*) as count FROM Actor WHERE gender = "${gender}"
 
     `)
-    return result[0]
+    return result[0];
 
     -- const count = result[0][0].count;
     -- return count;
-}
+};
 ~~~
 
 ********************************************************************************************
@@ -56,6 +56,28 @@ const changeSalary = async (id:string, salary:number):Promise<void> => {
     .update({
         salary: salary
     })
-    .WHERE({id: "${id}"})
-}
+    .WHERE("id", id);
+
+    --.WHERE({id: "${id}"})
+};
+~~~
+
+**b.**
+~~~sql
+const deleteActor = async (id: string): Promise<void> => {
+  await connection("Actor")
+    .delete()
+    .where("id", id);
+}; 
+~~~
+
+**c.**
+~~~sql
+const avgSalary = async (gender: string): Promise<any> => {
+  const result = await connection("Actor")
+    .avg("salary as average")
+    .where({ gender });
+
+  return result[0].average;
+};
 ~~~
