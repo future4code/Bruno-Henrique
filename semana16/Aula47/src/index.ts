@@ -3,8 +3,8 @@ import getActorsList from "./endpoints/getActorsList"
 import getMoviesList from "./endpoints/getMoviesList"
 import updateActor from "./endpoints/updateActor"
 
-app.get("/actor",getActorsList)
+app.get("/allActors",getActorsList)
 
-app.get("/movies", getMoviesList)
+app.get("/allMovies", getMoviesList)
 
 app.put("/actor/:id", updateActor)
