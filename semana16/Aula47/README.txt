@@ -113,3 +113,24 @@ Após executar a query a mensagem de erro acima foi exibida. O banco não execut
 ________________________________________________________________________________________________________
 
 ### Exercico 3
+
+~~~SQL
+SELECT * FROM Movies
+INNER JOIN Rating ON Movies.id = Rating.movie_id;
+);
+~~~
+
+**a.**
+Esta query pega todos os filmes e suas respectivas avaliacoes. O operador **ON** funciona como uma condição para essa query montar a resposta. Sem ele a resposta seria uma permutação entre os dados das duas tabelas.
+
+**b.**
+~~~SQL
+SELECT Movies.id, title, rate 
+FROM Movies
+INNER JOIN Rating 
+ON Movies.id = Rating.movie_id;
+~~~
+
+________________________________________________________________________________________________________
+
+### Exercico 4
