@@ -1,1 +1,18 @@
-GET http://localhost:3003
+GET http://localhost:3003/allActors
+
+###
+
+GET http://localhost:3003/allMovies
+
+###
+
+PUT http://localhost:3003/actor/004
+Content-Type: application/json
+
+{
+   "gender": "male",
+   "salary": 8000000 
+}
+
+###
+
