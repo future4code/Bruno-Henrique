@@ -134,3 +134,33 @@ ON Movies.id = Rating.movie_id;
 ________________________________________________________________________________________________________
 
 ### Exercico 4
+
+**a.**
+~~~SQL
+SELECT title, Rating.id, rate, comment 
+FROM Movies
+LEFT JOIN Rating 
+ON Movies.id = Rating.movie_id;
+~~~
+
+**b.**
+~~~SQL
+SELECT Movies.id, title, actor_id 
+FROM Movies
+JOIN MovieCast 
+ON movie_id = actor_id;
+~~~
+
+**c.**
+~~~SQL
+SELECT title, AVG(Rating.rate) as Media 
+FROM Movies
+LEFT JOIN Rating
+ON Movies.id = Rating.movie_id
+GROUP BY Movies.id
+;
+~~~
+
+________________________________________________________________________________________________________
+
+### Exercico 5
