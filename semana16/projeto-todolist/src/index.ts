@@ -116,8 +116,8 @@ app.get("/task/:id", async (req, res) => {
         const result = await connection.raw(`
         SELECT Tasks_todolist.id as TaskId, title, description, limitDate, Users_todolist.id as UserId, nickname 
         FROM Users_todolist
-        JOIN Tasks_todolist ON "${req.params.id}" = creatorUserId;
-        `)
+        JOIN Tasks_todolist ON "${req.params.id}" = creatorUserId
+        `);
 
         res.send(result[0])
 
