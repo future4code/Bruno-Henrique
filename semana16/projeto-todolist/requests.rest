@@ -19,3 +19,16 @@ Content-Type: application/json
 {
 	"name": "Astro Dev"
 }
+
+###
+
+PUT   http://localhost:3003/task 
+Content-Type: application/json
+
+{
+	"id": 1,
+	"title": "Projeto de ToDoList",
+	"description": "Criar o backend da aplicação",
+	"limitDate": "2021-03-26",
+	"creatorUserId": "user1616779034606" 
+}

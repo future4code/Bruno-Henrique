@@ -69,20 +69,41 @@ app.get("/user/:id", async (req, res) => {
 app.post("/user/edit/:id", async (req, res) => {
     let errorCode = 400
     try {
-        
+
         const results = await connection("Users_todolist")
             .update({
                 name: req.body.name,
                 nickname: req.body.nickname,
                 email: req.body.email
             })
-            .where({id: req.params.id})
-            
-            res.status(200).send("Updated!")
+            .where({ id: req.params.id })
+
+        res.status(200).send("Updated!")
 
     } catch (error) {
         console.log(error.message)
         res.status(errorCode).send(error.message)
     }
+})
 
+app.put("/task", async (req, res) => {
+    let errorCode = 400
+    try {
+        const { id, title, description, limitDate, creatorUserId } = req.body
+
+        await connection("Tasks_todolist")
+            .insert({
+                id,
+                title,
+                description,
+                limitDate,
+                creatorUserId
+        })
+
+        res.send("Task add!")
+
+    } catch (error) {
+        console.log(error.message)
+        res.status(errorCode).send(error.message)
+    }
 })
