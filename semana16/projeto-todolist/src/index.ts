@@ -42,9 +42,9 @@ app.get("/user/:id", async (req, res) => {
     try {
         const id = req.params.id
 
-        if(!id){
+        if (!id) {
             errorCode = 422
-            throw new Error("Invalid parameters! Please check the id field.");            
+            throw new Error("Invalid parameters! Please check the id field.");
         }
 
         const results = await connection.raw(`
@@ -52,17 +52,37 @@ app.get("/user/:id", async (req, res) => {
         WHERE id = "${id}";
         `)
 
-        if(results[0].length === 0){
+        if (results[0].length === 0) {
             errorCode = 404
             throw new Error("User not found");
-            
         }
 
         res.status(200).send(results[0])
-    
+
 
     } catch (error) {
         console.log(error.message)
         res.status(errorCode).send(error.message)
     }
+})
+
+app.post("/user/edit/:id", async (req, res) => {
+    let errorCode = 400
+    try {
+        
+        const results = await connection("Users_todolist")
+            .update({
+                name: req.body.name,
+                nickname: req.body.nickname,
+                email: req.body.email
+            })
+            .where({id: req.params.id})
+            
+            res.status(200).send("Updated!")
+
+    } catch (error) {
+        console.log(error.message)
+        res.status(errorCode).send(error.message)
+    }
+
 })

@@ -11,3 +11,11 @@ Content-Type: application/json
 
 GET http://localhost:3003/user/user1616779034606
 
+###
+
+POST http://localhost:3003/user/edit/user1616779034606
+Content-Type: application/json
+
+{
+	"name": "Astro Dev"
+}
