@@ -89,7 +89,9 @@ app.post("/user/edit/:id", async (req, res) => {
 app.put("/task", async (req, res) => {
     let errorCode = 400
     try {
-        const { id, title, description, limitDate, creatorUserId } = req.body
+        const { id, title, description, scheduleDate, creatorUserId } = req.body
+        const [day, mounth, year] = scheduleDate.split("/")
+        const limitDate: Date = new Date(`${year}-${mounth}-${day}`)
 
         await connection("Tasks_todolist")
             .insert({
@@ -98,7 +100,7 @@ app.put("/task", async (req, res) => {
                 description,
                 limitDate,
                 creatorUserId
-        })
+            })
 
         res.send("Task add!")
 
@@ -107,3 +109,20 @@ app.put("/task", async (req, res) => {
         res.status(errorCode).send(error.message)
     }
 })
+
+app.get("/task/:id", async (req, res) => {
+    let errorCode = 400
+    try {
+        const result = await connection.raw(`
+        SELECT Tasks_todolist.id as TaskId, title, description, limitDate, Users_todolist.id as UserId, nickname 
+        FROM Users_todolist
+        JOIN Tasks_todolist ON "${req.params.id}" = creatorUserId;
+        `)
+
+        res.send(result[0])
+
+    } catch (error) {
+        console.log(error.message)
+        res.status(errorCode).send(error.message)
+    }
+});

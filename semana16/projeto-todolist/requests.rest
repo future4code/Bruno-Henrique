@@ -2,9 +2,9 @@ PUT   http://localhost:3003/user
 Content-Type: application/json
 
 {
-	"name": "Astro Dev",
-	"nickname": "astrodev",
-	"email": "astro@dev.com"
+	"name": "Bruno Silva",
+	"nickname": "Brunohcs",
+	"email": "silva@dev.com"
 }
 
 ###
@@ -22,13 +22,16 @@ Content-Type: application/json
 
 ###
 
-PUT   http://localhost:3003/task 
+PUT http://localhost:3003/task 
 Content-Type: application/json
 
 {
-	"id": 1,
-	"title": "Projeto de ToDoList",
-	"description": "Criar o backend da aplicação",
-	"limitDate": "2021-03-26",
-	"creatorUserId": "user1616779034606" 
+	"title": "Terminar endpoint 5",
+	"description": "Criar o o endpoint de criação de tarefas da aplicação",
+	"scheduleDate": "26/03/2021",
+	"creatorUserId": "user1616795673606" 
 }
+
+###
+
+GET http://localhost:3003/task/user1616795673606
