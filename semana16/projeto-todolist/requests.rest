@@ -6,3 +6,8 @@ Content-Type: application/json
 	"nickname": "astrodev",
 	"email": "astro@dev.com"
 }
+
+###
+
+GET http://localhost:3003/user/user1616779034606
+
