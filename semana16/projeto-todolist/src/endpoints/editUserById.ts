@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import connection from "../connection"
 
-const editUserById = async (req: Request, res: Response) => {
+const editUserById = async (req: Request, res: Response): Promise<void> => {
     let errorCode = 400
     try {
 

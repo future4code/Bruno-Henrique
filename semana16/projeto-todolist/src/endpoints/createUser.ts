@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import connection from "../connection"
 
-const createUser = async (req: Request, res: Response) => {
+const createUser = async (req: Request, res: Response): Promise<void> => {
     let errorCode = 400
     try {
 

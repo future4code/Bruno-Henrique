@@ -28,10 +28,10 @@ Content-Type: application/json
 {
 	"title": "Terminar endpoint 5",
 	"description": "Criar o o endpoint de criação de tarefas da aplicação",
-	"scheduleDate": "26/03/2021",
-	"creator_id": "user1616957286060" 
+	"scheduleDate": "26/04/2021",
+	"creator_id": "user1616957286060"
 }
 
 ###
 
-GET http://localhost:3003/task/user1616795673606
+GET http://localhost:3003/task/user161657286060
