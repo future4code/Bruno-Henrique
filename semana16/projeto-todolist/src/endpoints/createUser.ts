@@ -30,11 +30,11 @@ const createUser = async (req: Request, res: Response) => {
             );`
         )
 
-        res.status(201).send("Success! User created.")
+        res.status(201).send({message: "Success! User created."})
         
     } catch (error) {
-        console.log(error.message)
-        res.status(errorCode).send(error.message)
+        console.log(error.sqlmessage)
+        res.status(errorCode).send({message: error.message})
     }
 }
 

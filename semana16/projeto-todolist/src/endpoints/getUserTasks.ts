@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import connection from "../connection"
 
-const searchUserTasks = async (req: Request, res: Response) => {
+const getUserTasks = async (req: Request, res: Response) => {
     let errorCode = 400
     try {
         const result = await connection.raw(`
@@ -18,4 +18,4 @@ const searchUserTasks = async (req: Request, res: Response) => {
     }
 }
 
-export default searchUserTasks
+export default getUserTasks
