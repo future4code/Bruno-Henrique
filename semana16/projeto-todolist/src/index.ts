@@ -21,7 +21,7 @@ app.put("/user", async (req, res) => {
         const { name, nickname, email } = req.body
 
         await connection.raw(
-            `INSERT INTO Users_todolist(id, name, nickname, email)
+            `INSERT INTO users_todolist(id, name, nickname, email)
              VALUES(
                 "user${Date.now()}",
                 "${name}",
@@ -48,7 +48,7 @@ app.get("/user/:id", async (req, res) => {
         }
 
         const results = await connection.raw(`
-        SELECT id, nickname FROM Users_todolist
+        SELECT id, nickname FROM users_todolist
         WHERE id = "${id}";
         `)
 
@@ -70,7 +70,7 @@ app.post("/user/edit/:id", async (req, res) => {
     let errorCode = 400
     try {
 
-        const results = await connection("Users_todolist")
+        const results = await connection("users_todolist")
             .update({
                 name: req.body.name,
                 nickname: req.body.nickname,
@@ -89,20 +89,20 @@ app.post("/user/edit/:id", async (req, res) => {
 app.put("/task", async (req, res) => {
     let errorCode = 400
     try {
-        const { id, title, description, scheduleDate, creatorUserId } = req.body
+        const { id, title, description, scheduleDate, creator_id } = req.body
         const [day, mounth, year] = scheduleDate.split("/")
-        const limitDate: Date = new Date(`${year}-${mounth}-${day}`)
+        const limit_date: Date = new Date(`${year}-${mounth}-${day}`)
 
-        await connection("Tasks_todolist")
+        await connection("tasks_todolist")
             .insert({
                 id,
                 title,
                 description,
-                limitDate,
-                creatorUserId
+                limit_date,
+                creator_id
             })
 
-        res.send("Task add!")
+        res.send("Task added!")
 
     } catch (error) {
         console.log(error.message)
@@ -114,9 +114,9 @@ app.get("/task/:id", async (req, res) => {
     let errorCode = 400
     try {
         const result = await connection.raw(`
-        SELECT Tasks_todolist.id as TaskId, title, description, limitDate, Users_todolist.id as UserId, nickname 
-        FROM Users_todolist
-        JOIN Tasks_todolist ON "${req.params.id}" = creatorUserId
+        SELECT tasks_todolist.id as TaskId, title, description, limit_date, users_todolist.id as UserId, nickname 
+        FROM users_todolist
+        JOIN tasks_todolist ON "${req.params.id}" = creator_id
         `);
 
         res.send(result[0])
