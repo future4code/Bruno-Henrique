@@ -9,6 +9,6 @@ app.get("/user/all", getAllUsers)
 
 app.get("/user/searchByName", getUserByName)
 
-app.get("/user/:type", getUserByType)
-
 app.get("/user/search", getUsersOrderBy)
+
+app.get("/user/:type", getUserByType)

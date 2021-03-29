@@ -10,4 +10,4 @@ GET http://localhost:3003/user/cx
 
 ###
 
-GET http://localhost:3003/user/search
+GET http://localhost:3003/user/search?name=a&orderBy=type&orderType=DESC

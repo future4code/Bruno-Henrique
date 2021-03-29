@@ -7,7 +7,7 @@ export default async function selectUserOrderBy(
    const result = await connection.raw(`
       SELECT id, name, email, type
       FROM aula48_exercicio
-      WHERE aula48_exercicio.name LIKE "%${searchName}%"
+      WHERE name LIKE "%${searchName}%"
       ORDER BY ${orderBy} ${orderType};
    `)
 

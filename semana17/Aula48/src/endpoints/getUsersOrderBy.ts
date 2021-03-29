@@ -7,18 +7,18 @@ export const getUsersOrderBy = async (req: Request, res: Response): Promise<void
 
         let orderBy = req.query.orderBy as string         //name, type ou email (default)
         let orderType = req.query.orderType as string      //ASC (default) ou DESC
-        const searchName = req.query.option as string
+        const searchName = req.query.name as string
 
         if (!searchName) {
             res.statusCode = 422
-            throw new Error("Please check search by field!"); 
+            throw new Error("Please check searchBy field!"); 
         }
 
         if(orderBy !== "name" && orderBy !== "type" ){
             orderBy = "email";    
         }
 
-        if(orderType.toUpperCase() !== "ASC" && orderType.toUpperCase() !== "DESC" ){
+        if(orderType !== "ASC" && orderType !== "DESC" ){
             orderType = "ASC";    
         }
 
