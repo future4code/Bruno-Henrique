@@ -8,4 +8,4 @@ app.get("/user/all", getAllUsers)
 
 app.get("/user/searchByName", getUserByName)
 
-app.get("/user/searchByType", getUserByType)
+app.get("/user/:type", getUserByType)

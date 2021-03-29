@@ -4,7 +4,7 @@ import selectUserByType from "../data/selectUserByType";
 
 export const getUserByType = async (req: Request, res: Response): Promise<void> => {
     try {
-        const userType = req.query.type as string
+        const userType = req.params.type
 
         if(!userType){
             res.statusCode = 422
