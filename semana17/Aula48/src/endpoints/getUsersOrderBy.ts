@@ -18,7 +18,7 @@ export const getUsersOrderBy = async (req: Request, res: Response): Promise<void
             orderBy = "email";    
         }
 
-        if(orderType !== "ASC" && orderType !== "DESC" ){
+        if(orderType.toUpperCase() !== "ASC" && orderType.toUpperCase() !== "DESC" ){
             orderType = "ASC";    
         }
 
