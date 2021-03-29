@@ -54,52 +54,20 @@ export default async function selectAllUsers():Promise<any> {
 
 _____________________________________________________________________________________________________
 
-#### Exercico 1
-
+#### Exercicio 1
 **a.** Crie uma cópia do endpoint acima, e altere-o para que ele possa receber um parâmetro de filtragem por **nome**. Este nome deve ser enviado por **query params**.
-
-~~~javascript
-import { Request, Response } from "express"
-import selectUserByName from "../data/selectUserByName"
-
-export const getUserByName = async (req: Request, res: Response): Promise<void> => {
-    try {
-        const userName = req.query.name as string
-
-        if(!userName){
-            res.statusCode = 422
-            throw new Error("Please check search by name field!");            
-        }
-
-        const user = await selectUserByName(userName)
-
-        if (!user.length) {
-            res.statusCode = 404
-            throw new Error("User not found")
-        }
-
-        res.status(200).send(user)
-
-    } catch (error) {
-        console.log(error)
-        res.send(error.message || error.sqlMessage)
-    }
-}
-~~~
-
-~~~javascript
-import connection from "../connection"
-
-export default async function selectUserByName(userName: string): Promise<any> {
-   const result = await connection.raw(`
-      SELECT id, name, email, type
-      FROM aula48_exercicio
-      WHERE name LIKE "%${userName}%";
-   `)
-
-   return result[0]
-}
-~~~
-
 **b.** Crie mais uma cópia do endpoint acima, e agora permita que haja filtragem por **tipo** de user. O tipo de user deve ser passado por **path params.**
+
+#### Exercicio 2
+Faça uma cópia do endpoint original, e adicione a ele a funcionalidade de ordenação que possa receber nome ou tipo de user. A ordenação padrão deve ser crescente, e caso o usuário não passe nenhum parâmetro, a ordenação deve ser por email.
+
+#### Exercicio 3
+Gere uma cópia do endpoint original, e faça com que ele exiba apenas 5 users por vez, e permita que o usuário possa passar a página que deseja ver. O número da página deve ser passado por **query params**.
+
+#### Exercicio 4
+Crie um último endpoint que possua todas as funcionalidades acima (as duas filtragens, a ordenação e a paginação). Atribua valores padrão para filtragem, ordenação e paginação para que:
+
+- Caso o usuário não forneça parâmetro de filtragem, o endpoint busque todos os users;
+- Caso o usuário não forneça parâmetro de ordenação, o endpoint ordene por **nome** em ordem **decrescente;**
+- Caso o usuário não forneça número de página, deve começar na página 1
 
