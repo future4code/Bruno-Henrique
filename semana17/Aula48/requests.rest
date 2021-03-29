@@ -1,0 +1,9 @@
+GET http://localhost:3003/user/all
+
+###
+
+GET http://localhost:3003/user/searchByName?name=amanda
+
+###
+
+GET http://localhost:3003/user/searchByType?type=teacher
