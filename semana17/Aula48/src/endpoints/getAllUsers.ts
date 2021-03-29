@@ -7,7 +7,7 @@ export const getAllUsers = async(req: Request,res: Response): Promise<void> =>{
  
        if(!users.length){
           res.statusCode = 404
-          throw new Error("No recipes found")
+          throw new Error("User not found")
        }
  
        res.status(200).send(users)
