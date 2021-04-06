@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import connection from "../connection";
 import { getTokenData } from "../services/tokenGenerator";
+import { USER_ROLE } from "../types";
 
 export default async function getProfile(req: Request, res: Response): Promise<any> {
     try {
@@ -20,6 +21,11 @@ export default async function getProfile(req: Request, res: Response): Promise<a
 
         const [user] = await connection("Users")
             .where({ id: authData.id })
+
+        if(user.role !== USER_ROLE.NORMAL){
+            res.statusCode = 401
+            throw new Error("Usuário sem permissão para acessar profile");            
+        }    
 
         res.status(200).send({ 
             id: user.id,
