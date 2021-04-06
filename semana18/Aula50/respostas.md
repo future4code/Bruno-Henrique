@@ -86,8 +86,18 @@ const generateToken = (id: string): string => {
 **a.** O que a linha as string faz? Por que precisamos usar ela ali?
 Ela está dizendo que o process.env.JWT_KEY é para ser tratado como uma string.
 
-**b.** Agora, crie a função que gere o token. Além disso, crie um type  para representar o input dessa função.
-
+### Exercicio 7
 ~~~javascript
+const expiresIn = "1min";
 
+const getData = (token: string): AuthenticationData => {
+  const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+  const result = {
+    id: payload.id,
+  };
+  return result;
+};
 ~~~
+
+**a.** O que a linha as any faz? Por que precisamos usá-la ali?
+Esta dizendo que o retorno do jwt.verify() pode assumir qualquer valor.

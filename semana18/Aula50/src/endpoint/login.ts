@@ -13,6 +13,11 @@ export default async function login(req: Request, res: Response): Promise<any> {
             throw new Error("Todos os campos devem ser preenchidos!");
         }
 
+        if(!email.includes("@")){
+            res.statusCode = 422
+            throw new Error("Email invalido");    
+        }
+
         const user = await loginCheck(email)
 
         if (!user) {

@@ -12,15 +12,15 @@ export const tokenGenerator = (payload: jwtAuthentication): string => {
     )
 }
 
-export const getTokenData = (token: string): jwtAuthentication | null => { 
+export const getTokenData = (token: string): jwtAuthentication | null => {
     try {
 
-        const { id } = jwt.verify(token, process.env.JWT_KEY!) as jwtAuthentication
+        const { id } = jwt.verify(token, process.env.JWT_KEY as string) as jwtAuthentication
 
         return { id }
-        
+
     } catch (error) {
         console.log(error.message);
-        return null        
+        return null
     }
 }

@@ -23,3 +23,8 @@ Content-Type: application/json
     "email": "camila@dev.com",
     "password": "qwerty"
 }
+
+###
+
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1NTBiMmZkLTJkOWQtNGZlNi1hZmUxLTFlYzA5YWZmMzJiYiIsImlhdCI6MTYxNzczMTczMywiZXhwIjoxNjE3ODE4MTMzfQ.U2y6arXOPLalXzUbolUTdqaoH2r2TSHo-dtLmdTmLIA
