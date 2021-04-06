@@ -3,24 +3,25 @@ import createUser from "../data/createUser"
 import { idGenerator } from "../services/idGenerator"
 import { tokenGenerator } from "../services/tokenGenerator"
 import { userLogin } from "../types"
+
 export default async function createSignup(req: Request, res: Response): Promise<void> {
     try {
 
-        const { email, password } = req.body as userLogin  
-        
-        if(!email || !password){
+        const { email, password } = req.body as userLogin
+
+        if (!email || !password) {
             res.statusCode = 422
-            throw new Error("Todos os campos devem ser preenchidos");            
+            throw new Error("Todos os campos devem ser preenchidos");
         }
 
-        if(!email.includes("@")){
+        if (!email.includes("@")) {
             res.statusCode = 422
-            throw new Error("Informe um email valido!");            
+            throw new Error("Informe um email valido!");
         }
 
-        if(password.length < 6){
+        if (password.length < 6) {
             res.statusCode = 422
-            throw new Error("Informe uma senha valida! Minimo 6 caracteres ");            
+            throw new Error("Informe uma senha valida! Minimo 6 caracteres ");
         }
 
         const id: string = idGenerator()
