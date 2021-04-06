@@ -1,5 +1,7 @@
+
 import { Request, Response } from "express"
 import createUser from "../data/createUser"
+import { hash } from "../services/encrypt"
 import { idGenerator } from "../services/idGenerator"
 import { tokenGenerator } from "../services/tokenGenerator"
 import { userLogin } from "../types"
@@ -26,7 +28,9 @@ export default async function createSignup(req: Request, res: Response): Promise
 
         const id: string = idGenerator()
 
-        await createUser(id, email, password)
+        const passwordHash = await hash(password)
+
+        await createUser(id, email, passwordHash)
 
         const token: string = tokenGenerator({ id })
 

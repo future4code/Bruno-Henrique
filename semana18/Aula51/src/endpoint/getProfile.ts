@@ -23,7 +23,8 @@ export default async function getProfile(req: Request, res: Response): Promise<a
 
         res.status(200).send({ 
             id: user.id,
-            email: user.email
+            email: user.email,
+            password: user.password
         })
 
     } catch (error) {
