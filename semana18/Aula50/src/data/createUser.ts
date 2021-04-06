@@ -8,3 +8,5 @@ async function createUser(id: string, email: string, password: string) {
             password
         })
 }
+
+export default createUser
