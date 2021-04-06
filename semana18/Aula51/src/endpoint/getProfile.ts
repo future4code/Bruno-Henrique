@@ -24,7 +24,7 @@ export default async function getProfile(req: Request, res: Response): Promise<a
         res.status(200).send({ 
             id: user.id,
             email: user.email,
-            password: user.password
+            role: user.role
         })
 
     } catch (error) {

@@ -2,8 +2,9 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "email":"camila3@dev.com",
-    "password": "112233"
+    "email":"camila5@dev.com",
+    "password": "qwerty",
+    "role": "normal"
 }
 
 ###
@@ -27,4 +28,4 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3003/user/profile
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYjQ0YjJiLWM2NDMtNDJlMi1hMTI3LTcyN2QzMGUzNjI5YiIsImlhdCI6MTYxNzc0MDE4OSwiZXhwIjoxNjE3ODI2NTg5fQ.bTLTnG0HuU0gBLqLPIvCSPCx2fUnQwHWbhPXpRQir68
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQxZjMwMzA2LTczNWUtNDg4ZS1hYzIwLWE4NDhkNzUyMGM2NyIsImlhdCI6MTYxNzc0NDEyMywiZXhwIjoxNjE3ODMwNTIzfQ.9UGHey7z2xPja0iVcrVCQYDI-hqXFeg7xgwx6ecupkY
