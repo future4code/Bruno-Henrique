@@ -17,3 +17,10 @@ export type userSignup = {
     password: string;
     role: USER_ROLE
 }
+
+export type userAddress = {
+    street: string,
+    neighborhood: string,
+    city: string,
+    state: string
+}

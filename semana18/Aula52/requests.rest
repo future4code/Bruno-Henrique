@@ -29,3 +29,7 @@ Content-Type: application/json
 
 GET http://localhost:3003/user/profile
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQxZjMwMzA2LTczNWUtNDg4ZS1hYzIwLWE4NDhkNzUyMGM2NyIsImlhdCI6MTYxNzc0NDEyMywiZXhwIjoxNjE3ODMwNTIzfQ.9UGHey7z2xPja0iVcrVCQYDI-hqXFeg7xgwx6ecupkY
+
+###
+
+GET http://localhost:3003/user/address/30140000
