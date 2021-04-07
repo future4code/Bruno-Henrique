@@ -1,0 +1,17 @@
+GET http://localhost:3003/user/all
+
+###
+
+GET http://localhost:3003/user/searchByName?name=amanda
+
+###
+
+GET http://localhost:3003/user/cx
+
+###
+
+GET http://localhost:3003/user/search?name=t&orderBy=&orderType=
+
+###
+
+GET http://localhost:3003/user/allLimited?limit=4&page=2
