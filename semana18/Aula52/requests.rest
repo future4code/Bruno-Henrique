@@ -2,9 +2,12 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "email":"camila5@dev.com",
+    "email":"bruno6@dev.com",
     "password": "qwerty",
-    "role": "normal"
+    "role": "normal",
+    "cep": "30140000",
+    "numero": 40,
+    "complemento": "apt200"
 }
 
 ###
@@ -32,4 +35,3 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQxZjMwMzA2LTczNWUt
 
 ###
 
-GET http://localhost:3003/user/address/30140000

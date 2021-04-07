@@ -1,6 +1,8 @@
 
 import { Request, Response } from "express"
+import connection from "../connection"
 import createUser from "../data/createUser"
+import getAddressInfo from "../data/getAddressInfo"
 import loginCheck from "../data/loginCheck"
 import { hash } from "../services/encrypt"
 import { idGenerator } from "../services/idGenerator"
@@ -11,10 +13,20 @@ export default async function createSignup(req: Request, res: Response): Promise
     try {
 
         const { email, password, role } = req.body as userSignup
+        let { cep, numero, complemento } = req.body
 
         if (!email || !password || !role) {
             res.statusCode = 422
             throw new Error("Todos os campos devem ser preenchidos");
+        }
+
+        if (!cep || !numero) {
+            res.statusCode = 422
+            throw new Error("Por favor informe o CEP e o numero");
+        }
+
+        if (!complemento) {
+            complemento = "Não informado"
         }
 
         if (!email.includes("@")) {
@@ -27,7 +39,7 @@ export default async function createSignup(req: Request, res: Response): Promise
         if (checkUser) {
             res.statusCode = 422
             throw new Error("Email ja cadastrado.");
-            
+
         }
 
         if (password.length < 6) {
@@ -40,13 +52,29 @@ export default async function createSignup(req: Request, res: Response): Promise
             throw new Error("Informe uma 'role' valida!");
         }
 
-        const id: string = idGenerator()
+        const userId: string = idGenerator()
+        const addressId: string = idGenerator()
 
         const passwordHash = await hash(password)
 
-        await createUser(id, email, passwordHash, role.toUpperCase())
+        await createUser(userId, email, passwordHash, role.toUpperCase())
 
-        const token: string = tokenGenerator({ id })
+        const userAddress = await getAddressInfo(cep)
+
+        await connection("users_address")
+            .insert({
+                id: addressId,
+                CEP: userAddress?.CEP,
+                Logradouro: userAddress?.Logradouro,
+                Numero: numero,
+                Complemento: complemento,
+                Bairro: userAddress?.Bairro,
+                Cidade: userAddress?.Cidade,
+                Estado: userAddress?.Estado,
+                address_id: userId              
+            })
+
+        const token: string = tokenGenerator({ id: userId })
 
         res.status(201).send({ token: token })
 

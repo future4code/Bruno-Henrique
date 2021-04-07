@@ -19,8 +19,9 @@ export type userSignup = {
 }
 
 export type userAddress = {
-    street: string,
-    neighborhood: string,
-    city: string,
-    state: string
+    CEP: string,
+    Logradouro: string,
+    Bairro: string,
+    Cidade: string,
+    Estado: string
 }
