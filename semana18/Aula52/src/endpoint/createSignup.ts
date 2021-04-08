@@ -61,8 +61,6 @@ export default async function createSignup(req: Request, res: Response): Promise
 
         const userAddress = await getAddressInfo(cep)
 
-        console.log(userAddress)
-
         await connection("users_address")
             .insert({
                 id: addressId,

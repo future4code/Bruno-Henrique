@@ -35,3 +35,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQxZjMwMzA2LTczNWUt
 
 ###
 
+POST http://localhost:3003/user/email
+Content-Type: application/json
+
+{
+    "email": "brunohcs@terra.com.br"
+}
