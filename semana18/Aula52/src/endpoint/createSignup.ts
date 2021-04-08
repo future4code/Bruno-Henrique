@@ -61,17 +61,19 @@ export default async function createSignup(req: Request, res: Response): Promise
 
         const userAddress = await getAddressInfo(cep)
 
+        console.log(userAddress)
+
         await connection("users_address")
             .insert({
                 id: addressId,
                 CEP: userAddress?.CEP,
                 Logradouro: userAddress?.Logradouro,
-                Numero: numero,
+                Numero: Number(numero),
                 Complemento: complemento,
                 Bairro: userAddress?.Bairro,
                 Cidade: userAddress?.Cidade,
                 Estado: userAddress?.Estado,
-                address_id: userId              
+                user_id: userId              
             })
 
         const token: string = tokenGenerator({ id: userId })

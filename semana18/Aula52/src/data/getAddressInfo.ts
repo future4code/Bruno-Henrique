@@ -7,17 +7,13 @@ async function getAddressInfo(codigo: string): Promise<userAddress | null> {
     try {
         const result = await axios.get(`${baseURL}/${codigo}/json`)
 
-        if (!result.data) {
-            throw new Error("Endereço não encontrado!");
-        }
-
-        const { CEP, Logradouro, Bairro, Cidade, uf } = result.data
+        const { cep, logradouro, bairro, localidade, uf } = result.data
 
         return ({
-            CEP,
-            Logradouro,
-            Bairro,
-            Cidade,
+            CEP: cep,
+            Logradouro: logradouro,
+            Bairro: bairro,
+            Cidade: localidade,
             Estado: uf
         })
 
