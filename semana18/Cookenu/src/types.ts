@@ -13,3 +13,8 @@ export type userLogin = {
     email: string,
     password: string
 }
+
+export type recipe = {
+    title: string,
+    description: Text
+}

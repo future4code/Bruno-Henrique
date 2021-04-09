@@ -30,3 +30,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhYTA4MDlkLWJiOTYt
 
 
 ###
+
+
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhYTA4MDlkLWJiOTYtNGJiNi1hNTUwLTMzNmRkMjNjOTZlYiIsImlhdCI6MTYxNzk5MDQ3MywiZXhwIjoxNjE4MDc2ODczfQ.kKqjWultjgXq3OHCnGDx_SCgZGQwuucw73SUcS7nHSA
+
+{
+    "title": "Miojo Gourmet",
+    "description": "Cozinhe o miojo e tire cerca de 70% da água. Acrescente uma colher de sobremesa de curry e outra de orégano. Para finalizar, apenas meio sachê do tempero pronto"
+}
+
+###
