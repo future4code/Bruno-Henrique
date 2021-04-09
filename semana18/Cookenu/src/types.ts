@@ -15,6 +15,9 @@ export type userLogin = {
 }
 
 export type recipe = {
+    id?: number,
     title: string,
-    description: Text
+    description: Text,
+    createdAt?: Date,
+    userId: string
 }

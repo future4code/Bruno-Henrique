@@ -25,9 +25,7 @@ export default async function createRecipe(req: Request, res: Response): Promise
             throw new Error("Please, ckeck if 'title' and 'description' field were filled.");            
         }
 
-        const recipe = await recipeCreator(title, description, user.id)
-
-        console.log(recipe)
+        await recipeCreator(title, description, user.id)
 
         res.status(201).send({message: "Created!"})
 

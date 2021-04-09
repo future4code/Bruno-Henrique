@@ -1,6 +1,7 @@
 import connection from "../connection";
+import { recipe } from "../types";
 
-async function recipeCreator(title: string, description: Text, userId: string) {
+async function recipeCreator(title: string, description: Text, userId: string): Promise<void> {
 
     await connection("cookenu_recipes")
         .insert({
