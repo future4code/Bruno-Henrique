@@ -3,6 +3,7 @@ export type jwtAuthentication = {
 }
 
 export type account = {
+    id: string,
     name: string,
     email: string,
     password: string

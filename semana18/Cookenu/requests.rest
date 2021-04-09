@@ -2,7 +2,17 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Bruno Silva",
+    "name": "Rafael Silva",
+    "email": "rafael@labechef.com.br",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
     "email": "bruno@labechef.com.br",
     "password": "qwerty"
 }

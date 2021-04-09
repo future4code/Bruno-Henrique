@@ -1,11 +1,14 @@
 import { Request, Response } from "express"
 import accountCreator from "../data/accountCreator";
 import userCheck from "../data/userCheck";
+
 import { hash } from "../services/encrypt";
 import { idGenerator } from "../services/idGenerator";
 import { tokenGenerator } from "../services/tokenGenerator";
-import dotenv from "dotenv"
+
 import { account } from "../types"
+
+import dotenv from "dotenv"
 
 dotenv.config()
 
@@ -16,6 +19,11 @@ export default async function createAccount(req: Request, res: Response): Promis
         if (!name || !email || !password) {
             res.statusCode = 422
             throw new Error("Please, check if all fields(name, email, password) were filled!");
+        }
+
+        if(!email.includes("@")){
+            res.statusCode = 422
+            throw new Error("Please, enter a valid email! ");            
         }
 
         if (password.length < 6) {
