@@ -21,3 +21,12 @@ Content-Type: application/json
 
 GET http://localhost:3003/user/profile
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhYTA4MDlkLWJiOTYtNGJiNi1hNTUwLTMzNmRkMjNjOTZlYiIsImlhdCI6MTYxNzk3NDQ2NywiZXhwIjoxNjE4MDYwODY3fQ.0VbN97AdAa00ykGl-Jh4ZVP_2ZeHgCjbepySJ5lKROk
+
+
+###
+
+GET http://localhost:3003/user/29facc21-ad1e-4abe-b836-d2607229c7c1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhYTA4MDlkLWJiOTYtNGJiNi1hNTUwLTMzNmRkMjNjOTZlYiIsImlhdCI6MTYxNzk3NDQ2NywiZXhwIjoxNjE4MDYwODY3fQ.0VbN97AdAa00ykGl-Jh4ZVP_2ZeHgCjbepySJ5lKROk
+
+
+###
