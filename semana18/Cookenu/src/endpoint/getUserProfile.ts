@@ -14,6 +14,11 @@ export default async function getUserProfile(req: Request, res: Response): Promi
             throw new Error("Required token.");
         }
 
+        if(!id){
+            res.statusCode = 422
+            throw new Error("Please, ckeck if 'id' field were filled.");             
+        }
+
         const user: jwtAuthentication | null = getTokenData(token)
 
         if (!user) {
