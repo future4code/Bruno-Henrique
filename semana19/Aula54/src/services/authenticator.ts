@@ -1,9 +1,9 @@
 import * as jwt from "jsonwebtoken"
-import { USER_ROLES } from "../data/insertUser"
+import { ROLE_TYPE } from "../types/signup"
 
 export type AuthenticationData = {
    id: string,
-   role: USER_ROLES
+   role: ROLE_TYPE
 }
 
 export function generateToken(
