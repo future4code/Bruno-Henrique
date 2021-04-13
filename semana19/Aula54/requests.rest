@@ -4,8 +4,8 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Jennifer",
-    "email": "jenn@dev.com",
+    "name": "David Silva",
+    "email": "david@dev.com",
     "password": "qwerty",
     "role": "admin"
 }
@@ -18,7 +18,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "bruno@dev.com",
+    "email": "jenn@dev.com",
     "password": "qwerty"
 }
 
@@ -27,4 +27,11 @@ Content-Type: application/json
 @token = {{login.response.body.token}}
 
 GET http://localhost:3003/all
+Authorization: {{token}}
+
+###
+
+@id = be7dc263-0a96-47eb-a3ee-737b4143a4e7
+
+DELETE http://localhost:3003/delete/{{id}}
 Authorization: {{token}}
