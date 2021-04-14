@@ -1,8 +1,9 @@
 import { connection } from "../data/connection";
+import { userTaskDTO } from "../model/task";
 
 export const selectTaskById = async (
    id: string
-): Promise<any> => {
+): Promise<userTaskDTO> => {
    const result = await connection.raw(`
         SELECT tasks.*, nickname FROM to_do_list_tasks AS tasks
         JOIN to_do_list_users AS users
