@@ -1,8 +1,8 @@
 import { connection } from "../data/connection";
-import { user } from "../model/user";
+import { userDTO } from "../model/user";
 
 export const insertUser = async (
-   user: user
+   user: userDTO
 ) => {
    await connection.insert({
       id: user.id,
