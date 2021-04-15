@@ -1,0 +1,43 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email":"bruno6@dev.com",
+    "password": "qwerty",
+    "role": "normal",
+    "cep": "30140000",
+    "numero": 40,
+    "complemento": "apt200"
+}
+
+###
+GET http://localhost:3003/userByemail
+Content-Type: application/json
+
+{
+    "email": "camila@dev.com"
+}
+
+###
+
+POST  http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "camila4@dev.com",
+    "password": "qwerty"
+}
+
+###
+
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQxZjMwMzA2LTczNWUtNDg4ZS1hYzIwLWE4NDhkNzUyMGM2NyIsImlhdCI6MTYxNzc0NDEyMywiZXhwIjoxNjE3ODMwNTIzfQ.9UGHey7z2xPja0iVcrVCQYDI-hqXFeg7xgwx6ecupkY
+
+###
+
+POST http://localhost:3003/user/email
+Content-Type: application/json
+
+{
+    "email": "brunohcs@terra.com.br"
+}

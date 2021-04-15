@@ -1,0 +1,1 @@
+export const baseURL: string = "https://viacep.com.br/ws"
