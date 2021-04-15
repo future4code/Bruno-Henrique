@@ -1,0 +1,41 @@
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Alice",
+    "email": "alice@gmail.com",
+    "password": "pass123"
+}
+
+###
+
+# @name login
+
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "alice@gmail.com",
+    "password": "pass123"
+}
+
+###
+
+@token = {{login.response.body.token}}
+
+POST http://localhost:3003/posts/create
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "photo": "https://i.picsum.photos/id/238/200/200.jpg?hmac=O4Jc6lqHVfaKVzLf8bWssNTbWzQoaRUC0TDXod9xDdM",
+    "description": "My city is beautiful =D",
+    "type": "normal"
+}
+
+###
+
+@id = be7dc263-0a96-47eb-a3ee-737b4143a4e7
+
+GET  http://localhost:3003/posts/{{id}}
+Authorization: {{token}}
