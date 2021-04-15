@@ -1,0 +1,37 @@
+PUT   http://localhost:3003/user 
+Content-Type: application/json
+
+{
+	"name": "Astro Dev",
+	"nickname": "astrodev",
+	"email": "astro@dev.com"
+}
+
+###
+
+GET http://localhost:3003/user/user1616957286060
+
+###
+
+POST http://localhost:3003/user/edit/user1616957286060
+Content-Type: application/json
+
+{
+	"nickname": "brunohcs"
+}
+
+###
+
+PUT http://localhost:3003/task 
+Content-Type: application/json
+
+{
+	"title": "Terminar endpoint 5",
+	"description": "Criar o o endpoint de criação de tarefas da aplicação",
+	"scheduleDate": "26/04/2021",
+	"creator_id": "user1616957286060"
+}
+
+###
+
+GET http://localhost:3003/task/user161657286060
