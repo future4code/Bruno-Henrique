@@ -8,16 +8,16 @@ export async function loginBusiness(input: userLogin): Promise<string> {
 
         if (!input.email || !input.password) {
             //res.statusCode = 406
-            //message = '"email" and "password" must be provided'
-            //throw new Error(message)
+            let message = '"email" and "password" must be provided'
+            throw new Error(message)
         }
 
         const queryResult: any = await checkUser(input.email)
 
         if (!queryResult[0]) {
             //res.statusCode = 401
-            //message = "Invalid credentials"
-            //throw new Error(message)
+            let message = "Invalid credentials"
+            throw new Error(message)
         }
 
         const user: user = {
@@ -31,8 +31,8 @@ export async function loginBusiness(input: userLogin): Promise<string> {
 
         if (!passwordIsCorrect) {
             //res.statusCode = 401
-            //message = "Invalid credentials"
-            //throw new Error(message)
+            let message = "Invalid credentials"
+            throw new Error(message)
         }
 
         const token: string = generateToken({
@@ -42,7 +42,7 @@ export async function loginBusiness(input: userLogin): Promise<string> {
         return token
 
     } catch (error) {
-        throw new Error("Estou dentro da camada loginBusinnes");
+        throw new Error(error.message);
     }
 }
 

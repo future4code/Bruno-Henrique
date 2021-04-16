@@ -1,7 +1,7 @@
 import { user } from "../model/userModel"
 import { connection } from "./connection"
 
-export const signupData = async (user: user): Promise<void> => {
+export const signupData = async (user: user) => {
 
     try {
         await connection('labook_users')

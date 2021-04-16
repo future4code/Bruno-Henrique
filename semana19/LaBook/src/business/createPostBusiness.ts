@@ -1,5 +1,6 @@
 import { postCreator } from "../data/postCreator";
-import { convertType, post, POST_TYPES } from "../model/postModel";
+import { authenticationData } from "../model/authenticationModel";
+import { convertType, POST_TYPES } from "../model/postModel";
 import { generateId } from "../services/idGenerator"
 import { getTokenData } from "../services/tokenGenerator"
 

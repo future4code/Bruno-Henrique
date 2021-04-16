@@ -9,8 +9,8 @@ export async function signupBusiness(input: userSignup): Promise<string> {
 
         if (!input.name || !input.email || !input.password) {
             //res.statusCode = 406
-            //message = '"name", "email" and "password" must be provided'
-            //throw new Error(message)
+            const message = '"name", "email" and "password" must be provided'
+            throw new Error(message)
         }
 
         const id: string = generateId()
@@ -23,12 +23,12 @@ export async function signupBusiness(input: userSignup): Promise<string> {
             password: cypherPassword
         })
 
-        const token: string = generateToken({ id })
+        const token: string = generateToken({ id })        
 
         return token
 
     } catch (error) {
-        throw new Error("Estou na camada de signupBusiness");        
+        throw new Error(error.message || error.sqlMessage);        
     }
 
 }

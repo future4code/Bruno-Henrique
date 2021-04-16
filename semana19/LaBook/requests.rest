@@ -29,13 +29,13 @@ Content-Type: application/json
 
 {
     "photo": "https://i.picsum.photos/id/238/200/200.jpg?hmac=O4Jc6lqHVfaKVzLf8bWssNTbWzQoaRUC0TDXod9xDdM",
-    "description": "My city is beautiful =D",
-    "type": "normal"
+    "description": "My city 2 is beautiful =D",
+    "type": "event"
 }
 
 ###
 
-@id = be7dc263-0a96-47eb-a3ee-737b4143a4e7
+@id = 28aa2675-ee16-4da5-9a85-2c207148482f
 
 GET  http://localhost:3003/posts/{{id}}
 Authorization: {{token}}
