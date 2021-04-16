@@ -1,4 +1,4 @@
-import { postCreator } from "../data/postCreator";
+import { PostDatabase } from "../data/PostDatabase";
 import { authenticationData } from "../model/authenticationModel";
 import { convertType, POST_TYPES } from "../model/postModel";
 import { generateId } from "../services/idGenerator"
@@ -8,7 +8,7 @@ export async function createPostBusiness(
    token: string,
    photo: string,
    description: string,
-   type: string): Promise<any> {
+   type: string): Promise<void> {
 
    try {
 
@@ -19,7 +19,7 @@ export async function createPostBusiness(
       }
 
       if (!photo || !description) {
-         console.log("Error no envio")
+         console.log("Erro no envio")
       }
 
       if (type.toLowerCase() !== POST_TYPES.NORMAL &&
@@ -31,7 +31,9 @@ export async function createPostBusiness(
       const id: string = generateId()
       const date: Date = new Date()
 
-      await postCreator({
+      const database = new PostDatabase()
+
+      await database.postCreator({
          id,
          photo,
          description,

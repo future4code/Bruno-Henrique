@@ -1,6 +1,6 @@
-import { signupData } from "../data/signupData";
+import { UserDatabase } from "../data/UserDatabase";
 import { userSignup } from "../model/userModel";
-import { hash } from "../services/hashManager"
+import { HashManager } from "../services/hashManager"
 import { generateId } from "../services/idGenerator";
 import { generateToken } from "../services/tokenGenerator";
 
@@ -13,22 +13,25 @@ export async function signupBusiness(input: userSignup): Promise<string> {
             throw new Error(message)
         }
 
+        const manager = new HashManager()
+        const database = new UserDatabase()
+        
+        const cypherPassword = await manager.hash(input.password);
         const id: string = generateId()
-        const cypherPassword = await hash(input.password);
 
-        await signupData({
+        await database.signup({
             id,
             name: input.name,
             email: input.email,
             password: cypherPassword
         })
 
-        const token: string = generateToken({ id })        
+        const token: string = generateToken({ id })
 
         return token
 
     } catch (error) {
-        throw new Error(error.message || error.sqlMessage);        
+        throw new Error(error.message || error.sqlMessage);
     }
 
 }

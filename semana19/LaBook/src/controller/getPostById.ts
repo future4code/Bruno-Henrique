@@ -8,7 +8,7 @@ export const getPostById = async (req: Request, res: Response): Promise<void> =>
 
         const { id } = req.params
 
-        const post: post = await getPostByIdBusiness(id)
+        const post: post | undefined = await getPostByIdBusiness(id)
 
         res.status(200).send({ message, post })
 

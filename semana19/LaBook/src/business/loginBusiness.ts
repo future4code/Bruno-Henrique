@@ -1,6 +1,6 @@
-import { checkUser } from "../data/checkUser"
+import { UserDatabase } from "../data/UserDatabase"
 import { user, userLogin } from "../model/userModel"
-import { compare } from "../services/hashManager"
+import { HashManager } from "../services/hashManager"
 import { generateToken } from "../services/tokenGenerator"
 
 export async function loginBusiness(input: userLogin): Promise<string> {
@@ -12,22 +12,26 @@ export async function loginBusiness(input: userLogin): Promise<string> {
             throw new Error(message)
         }
 
-        const queryResult: any = await checkUser(input.email)
+        const database = new UserDatabase()
 
-        if (!queryResult[0]) {
+        const queryResult: any = await database.checkUser(input.email)
+
+        if (!queryResult) {
             //res.statusCode = 401
             let message = "Invalid credentials"
             throw new Error(message)
         }
 
         const user: user = {
-            id: queryResult[0].id,
-            name: queryResult[0].name,
-            email: queryResult[0].email,
-            password: queryResult[0].password
+            id: queryResult.id,
+            name: queryResult.name,
+            email: queryResult.email,
+            password: queryResult.password
         }
 
-        const passwordIsCorrect: boolean = await compare(input.password, user.password)
+        const manager = new HashManager()
+
+        const passwordIsCorrect: boolean = await manager.compare(input.password, user.password)
 
         if (!passwordIsCorrect) {
             //res.statusCode = 401
