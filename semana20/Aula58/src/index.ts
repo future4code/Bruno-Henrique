@@ -1,0 +1,1 @@
+export const isEven = (integer: number): any => integer % 2 === 0
