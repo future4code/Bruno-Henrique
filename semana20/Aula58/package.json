@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "tests": "ts-node-dev --transpile-only --ignore-watch node_modules ./tests/index.ts",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/index.ts"
   },
   "keywords": [
