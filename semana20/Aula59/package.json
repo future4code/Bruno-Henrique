@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/index.ts",
-    "test": "node ./node_modules/jest/bin/jest.js"
+    "test": "clear && node ./node_modules/jest/bin/jest.js"
   },
   "keywords": [
     "Labenu",
