@@ -1,0 +1,49 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name": "Rafael Silva",
+    "email": "rafael@labechef.com.br",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "rafael@labechef.com.br",
+    "password": "123456"
+}
+
+###
+
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhYTA4MDlkLWJiOTYtNGJiNi1hNTUwLTMzNmRkMjNjOTZlYiIsImlhdCI6MTYxNzk3NDQ2NywiZXhwIjoxNjE4MDYwODY3fQ.0VbN97AdAa00ykGl-Jh4ZVP_2ZeHgCjbepySJ5lKROk
+
+
+###
+
+GET http://localhost:3003/user/29facc21-ad1e-4abe-b836-d2607229c7c1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhYTA4MDlkLWJiOTYtNGJiNi1hNTUwLTMzNmRkMjNjOTZlYiIsImlhdCI6MTYxNzk3NDQ2NywiZXhwIjoxNjE4MDYwODY3fQ.0VbN97AdAa00ykGl-Jh4ZVP_2ZeHgCjbepySJ5lKROk
+
+
+###
+
+
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5ZmFjYzIxLWFkMWUtNGFiZS1iODM2LWQyNjA3MjI5YzdjMSIsImlhdCI6MTYxNzk5MjQ4MCwiZXhwIjoxNjE4MDc4ODgwfQ.hE1Mvyh0qmC_chZi-4UZT-t-dN3T9gs5jGU9AT36e9w
+
+{
+    "title": "Omelete simples",
+    "description": "Bata os 2 ovos, pode ser na batedeira ou não.Após ter batido bem, coloque-o na frigideira já untada com óleo, acrescente o sal, o presunto picado em quadradinhos e as duas fatias de queijo (não precisa picar o queijo).Coloque os temperos a gosto, espere ficar firme, e vire o omelete.Está pronto um omelete delicioso, bom apetite!"
+}
+
+###
+
+GET http://localhost:3003/recipe/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5ZmFjYzIxLWFkMWUtNGFiZS1iODM2LWQyNjA3MjI5YzdjMSIsImlhdCI6MTYxNzk5MjQ4MCwiZXhwIjoxNjE4MDc4ODgwfQ.hE1Mvyh0qmC_chZi-4UZT-t-dN3T9gs5jGU9AT36e9w
+
+###
