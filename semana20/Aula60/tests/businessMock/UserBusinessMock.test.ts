@@ -1,7 +1,8 @@
 import { UserBusiness } from "../../src/business/UserBusiness"
 import { UserDatabase } from "../../src/data/UserDatabase"
-import { USER_ROLES } from "../../src/model/User"
+import { User, USER_ROLES } from "../../src/model/User"
 import userDatabaseMock from "../dataMock/userDatabaseMock"
+import { normalUserMock } from "../modelMock/userMock"
 import hashGeneratorMock from "../servicesMock/hashGeneratorMock"
 import idGeneratooMock from "../servicesMock/idGeneratooMock"
 import tokenGeneratorMock from "../servicesMock/tokenGeneratorMock"
@@ -151,14 +152,26 @@ describe("Get user by Id", () => {
     test("should return 'User not found' when user is doesnt exist", async () => {
         expect.assertions(2)
         try {
-            await userBusiness.getUserById(
-                "2317"
-            )
+
+            await userBusiness.getUserById("2317")
 
         } catch (error) {
-            console.log(error)
             expect(error.statusCode).toBe(404)
             expect(error.message).toBe('Sorry! User not found')
         }
     })
+
+    test("should return 'success' when user was found", async () => {
+        expect.assertions(1)
+        try {
+
+            const result: any = await userBusiness.getUserById("normalId")
+
+            expect(result).toBe(normalUserMock)
+
+        } catch (error) {
+
+        }
+    })
+
 })

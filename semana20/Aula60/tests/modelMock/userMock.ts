@@ -1,7 +1,7 @@
 import { User, USER_ROLES } from "../../src/model/User";
 
 export const normalUserMock = new User(
-    "id",
+    "normalId",
     "Normal",
     "normal@dev.com",
     "qwerty",
@@ -9,7 +9,7 @@ export const normalUserMock = new User(
 )
 
 export const adminUserMock = new User(
-    "id",
+    "adminId",
     "Admin",
     "admin@dev.com",
     "qwerty",

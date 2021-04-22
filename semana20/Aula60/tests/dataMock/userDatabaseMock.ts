@@ -17,7 +17,12 @@ export class UserDatabaseMock {
     }
 
     public async getUserById(id: string): Promise<User | undefined> {
-        return id ? normalUserMock : undefined
+        if(id === normalUserMock.getId()){
+            return normalUserMock
+        }
+        if(id === adminUserMock.getId()){
+            return adminUserMock
+        }        
     }
 
     public async getAllUsers(): Promise<User[]> {
