@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import userBusiness from "../business/UserBusiness";
+import { User } from "../model/User";
+import tokenGenerator from "../services/tokenGenerator";
 
 export class UserController {
 
@@ -35,6 +37,25 @@ export class UserController {
          const { id } = req.params
 
          const result = await userBusiness.getUserById(id)
+
+         res.status(200).send(result);
+
+      } catch (error) {
+         const { statusCode, message } = error
+         res.status(statusCode || 400).send({ message });
+      }
+   }
+
+   public async getAllUsers(req: Request, res: Response) {
+      try {
+
+         const token = req.headers.authorization!
+
+         const user = tokenGenerator.verify(token)
+         
+         const result = await userBusiness.getAllUsers(user.role)
+
+         res.status(200).send(result);
 
       } catch (error) {
          const { statusCode, message } = error
