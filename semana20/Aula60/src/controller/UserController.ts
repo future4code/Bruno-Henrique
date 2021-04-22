@@ -32,6 +32,9 @@ export class UserController {
 
    public async getUserById(req: Request, res: Response) {
       try {
+         const { id } = req.params
+
+         const result = await userBusiness.getUserById(id)
 
       } catch (error) {
          const { statusCode, message } = error
