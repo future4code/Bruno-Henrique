@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import userBusiness from "../business/UserBusiness";
-import { User } from "../model/User";
 import tokenGenerator from "../services/tokenGenerator";
 
 export class UserController {

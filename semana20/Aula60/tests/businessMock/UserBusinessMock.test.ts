@@ -2,7 +2,7 @@ import { UserBusiness } from "../../src/business/UserBusiness"
 import { UserDatabase } from "../../src/data/UserDatabase"
 import { User, USER_ROLES } from "../../src/model/User"
 import userDatabaseMock from "../dataMock/userDatabaseMock"
-import { normalUserMock } from "../modelMock/userMock"
+import { adminUserMock, normalUserMock } from "../modelMock/userMock"
 import hashGeneratorMock from "../servicesMock/hashGeneratorMock"
 import idGeneratooMock from "../servicesMock/idGeneratooMock"
 import tokenGeneratorMock from "../servicesMock/tokenGeneratorMock"
@@ -147,7 +147,7 @@ describe("Login", () => {
 
 })
 
-describe("Get user by Id", () => {
+describe("Get userById", () => {
 
     test("should return 'User not found' when user is doesnt exist", async () => {
         expect.assertions(2)
@@ -173,5 +173,36 @@ describe("Get user by Id", () => {
 
         }
     })
+
+})
+
+
+describe("Get allUsers", () => {
+
+    test("should return 'You must be admin to access' when role is different from admin", async () => {
+        expect.assertions(2)
+        try {
+
+            await userBusiness.getAllUsers(adminUserMock.getRole())
+
+        } catch (error) {
+            expect(error.statusCode).toBe(401)
+            expect(error.message).toBe('You must be admin to access')
+        }
+    })
+
+    test("should return 'success' when role is admin", async () => {
+        expect.assertions(1)
+        try {
+
+            const result = await userBusiness.getAllUsers("admin")
+
+            expect(result).toEqual([])
+
+        } catch (error) {
+
+        }
+    })
+
 
 })
