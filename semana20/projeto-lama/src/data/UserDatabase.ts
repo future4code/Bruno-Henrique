@@ -1,5 +1,5 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { User, UserRole } from "../model/User";
+import { User } from "../model/User";
 
 export class UserDatabase extends BaseDatabase {
 

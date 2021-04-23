@@ -1,4 +1,3 @@
-
 export class HashManager {
 
     public async hash(text: string): Promise<string> {
@@ -8,7 +7,6 @@ export class HashManager {
     public async compare(text: string, hash: string): Promise<boolean>{
         return text === hash;
     }
-
 }
 
 export default new HashManager()

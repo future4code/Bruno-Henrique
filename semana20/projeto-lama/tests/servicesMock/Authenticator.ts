@@ -1,4 +1,3 @@
-
 export class Authenticator {
 
   public generateToken(input: AuthenticationData): string {
@@ -6,7 +5,7 @@ export class Authenticator {
   }
 
   public getData(token: string): AuthenticationData {
-    
+
     if (!token) throw new Error("Check AuthenticatorMock");
 
     return {
