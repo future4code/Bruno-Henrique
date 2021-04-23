@@ -1,7 +1,7 @@
-import { User } from "../../src/model/User"
-import { adminUserMock, normalUserMock } from "../modelMock/User"
+import { User } from "../../src/model/User";
+import { adminUserMock, normalUserMock } from "../modelMock/UserMock";
 
-export class UserDatabase {
+export class UserDatabaseMock {
 
     public async createUser(
         id: string,
@@ -9,17 +9,17 @@ export class UserDatabase {
         name: string,
         password: string,
         role: string
-    ): Promise<void> { }
+    ): Promise<void> {}
 
     public async getUserByEmail(email: string): Promise<User | undefined> {
-        if (email === normalUserMock.getEmail()) {
+        if(email === normalUserMock.getEmail()){
             return normalUserMock
         }
-        if (email === adminUserMock.getEmail()) {
+
+        if(email === adminUserMock.getEmail()){
             return adminUserMock
         }
     }
-
 }
 
-export default new UserDatabase()
+export default new UserDatabaseMock()
