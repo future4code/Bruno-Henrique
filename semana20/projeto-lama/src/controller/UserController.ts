@@ -4,6 +4,7 @@ import userBusiness from "../business/UserBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
 
 export class UserController {
+
     async signup(req: Request, res: Response) {
         try {
 
@@ -46,3 +47,5 @@ export class UserController {
     }
 
 }
+
+export default new UserController()

@@ -1,4 +1,4 @@
-import { UserInputDTO, LoginInputDTO } from "../model/User";
+import { UserInputDTO, LoginInputDTO, User } from "../model/User";
 import { UserDatabase } from "../data/UserDatabase";
 import { IdGenerator } from "../services/IdGenerator";
 import { HashManager } from "../services/HashManager";
@@ -16,17 +16,41 @@ export class UserBusiness {
     ) { }
 
 
-    async createUser(user: UserInputDTO) {
+    async createUser(input: UserInputDTO) {
 
-        const id = this.idGenerator.generate();
+        try {
 
-        const hashPassword = await this.hashManager.hash(user.password);
+            if (!input.name || !input.email || !input.password || !input.role) {
+                throw new BaseError("Please check if 'name', 'email', 'password' and 'role' were filled! ", 422)
+            }
 
-        await this.userDatabase.createUser(id, user.email, user.name, hashPassword, user.role);
+            if (!input.email.includes("@")) {
+                throw new BaseError("Invalid email", 422)
+            }
 
-        const accessToken = this.authenticator.generateToken({ id, role: user.role });
+            if (input.password.length < 8) {
+                throw new BaseError("Password must be at least 8 characters", 422);
+            }
 
-        return accessToken;
+            const id = this.idGenerator.generate();
+            const hashPassword = await this.hashManager.hash(input.password);
+
+            await this.userDatabase.createUser(id, input.email, input.name, hashPassword, User.stringToUserRole(input.role));
+
+            const accessToken = this.authenticator.generateToken({ id, role: input.role });
+
+            return accessToken;
+
+        } catch (error) {
+
+            if (error.message.includes("key 'email'")) {
+                throw new BaseError("Email already in use", 409)
+            }
+
+            throw new BaseError(error.message, error.statusCode)
+
+        }
+
     }
 
     async getUserByEmail(user: LoginInputDTO) {
