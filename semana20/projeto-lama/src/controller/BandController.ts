@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { BandBusiness } from "../business/BandBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
 import { BandInputDTO } from "../model/Band";
 
@@ -24,4 +25,6 @@ export class BandController {
 
     async bandDetails(req: Request, res: Response) { }
 }
+
+export default new BandController()
 

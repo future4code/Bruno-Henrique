@@ -1,16 +1,12 @@
 import { IdGenerator } from "../services/IdGenerator";
-import { HashManager } from "../services/HashManager";
-import { Authenticator } from "../services/Authenticator";
 import { BandDatabase } from "../data/BandDatabase";
 import { BaseError } from "../error/BaseError";
-import { BandInputDTO } from "../model/Band";
+import { Band, BandInputDTO } from "../model/Band";
 
 export class BandBusiness {
 
     constructor(
         private idGenerator: IdGenerator,
-        private hashManager: HashManager,
-        private authenticator: Authenticator,
         private bandDatabase: BandDatabase
     ) { }
 
@@ -18,7 +14,18 @@ export class BandBusiness {
 
         try {
 
-            
+            if (!input.name || !input.responsible || !input.musicGenre) {
+                throw new BaseError("Please check if all fields were filled!", 422)
+            }
+
+            const id: string = this.idGenerator.generate()
+
+            await this.bandDatabase.registerBand(
+                id,
+                input.name,
+                Band.stringToMusicGenre(input.musicGenre),
+                input.responsible
+            )
 
         } catch (error) {
 
@@ -32,3 +39,8 @@ export class BandBusiness {
     }
 
 }
+
+export default new BandBusiness(
+    new IdGenerator(),
+    new BandDatabase()
+)
