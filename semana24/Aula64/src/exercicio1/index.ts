@@ -1,27 +1,7 @@
-interface hashTable {
-    [key: string]: any
-}
+import { indexCharacters } from "../functions/HandleHashTable"
+import { handleString } from "../functions/HandleString"
 
 const checkOneEditString = (text1: string, text2: string): Boolean => {
-
-    const handleString = (text: string) => {
-        return text
-            .normalize('NFD')
-            .replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, "")
-    }
-
-    const indexCharacters = (text: string): hashTable => {
-        const result: hashTable = {}
-
-        for (let character of text) {
-            if (result[character])
-                result[character]++
-            else
-                result[character] = 1
-        }
-
-        return result
-    }
 
     text1 = handleString(text1)
     text2 = handleString(text2)
@@ -55,7 +35,8 @@ const checkOneEditString = (text1: string, text2: string): Boolean => {
 console.log(checkOneEditString("banana", "anbana"))     //true
 console.log(checkOneEditString("banana", "anbanaa"))    //true
 console.log(checkOneEditString("banana", "panana"))     //true
+console.log(checkOneEditString("banana sub-aquaticas", "bananas sub-aquaticas"))    //true
 
 console.log(checkOneEditString("banana", "abacaxi"))    //false
-console.log(checkOneEditString("banana", "girafas sub-aquaticas"))    //false
+console.log(checkOneEditString("girafas sub-aquaticas", "bananas sub-aquaticas"))    //false
 

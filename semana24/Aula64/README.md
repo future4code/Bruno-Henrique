@@ -9,3 +9,7 @@ Considere que a gente só possa fazer três operações com string: **adicionar 
 
 ### Exercício 2
 Implemente um método que performe uma **compressão de string** usando a contagem dos caracteres repetidos em sequência. Caso o resultado final tenha um tamanho maior do que a string inicial, seu programa deve retornar a string inicial
+
+- normalizar a string recebida;
+- contar os caracteres dessa string;
+- caso caracter repetido em sequencia, somar os 2+ caracteres
