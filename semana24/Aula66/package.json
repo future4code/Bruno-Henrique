@@ -1,0 +1,22 @@
+{
+  "name": "aula66",
+  "version": "1.0.0",
+  "description": "Estrutura de dados",
+  "main": "index.js",
+  "scripts": {
+    "start": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Labenu",
+    "Aula66",
+    "Estrutura de dados"
+  ],
+  "author": "Bruno Silva",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^15.3.0",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  }
+}
