@@ -4,7 +4,8 @@
   "description": "Estrutura de dados",
   "main": "index.js",
   "scripts": {
-    "start": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/",
+    "exercicio1": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/exercicio1/index.ts",
+    "exercicio2": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/exercicio2/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
