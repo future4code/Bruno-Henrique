@@ -11,6 +11,6 @@ test1.addToEnd("Quarto")
 // console.log(test1)
 // console.log(test1.start?.next)
 
-test1.printElements()
+const search = test1.searchValue(test1, "Quarto")
 
-
+console.log(search)
