@@ -7,8 +7,13 @@ export const missingNumber = (array: number[]): number[] | string => {
     let findNumber: number[] = []
 
     normalized.map((item: number, index: number, arrNormalized: number[]) => {
-        if (arrNormalized[index + 1] - arrNormalized[index] > 1) {
-            findNumber.push(item + 1)
+
+        const diff: number = arrNormalized[index + 1] - arrNormalized[index]
+
+        if (diff >= 2) {
+            for (let i = 1; i < diff; i++) {
+                findNumber.push(item + i)
+            }
         }
     })
 
