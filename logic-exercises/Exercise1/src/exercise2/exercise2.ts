@@ -8,5 +8,8 @@ export const findCharacterWithMap = (text: string, character: string) => {
             index.push(idx)
         }
     })
-    return index
+    return {
+        Found: index.length,
+        Index: index
+    }
 }

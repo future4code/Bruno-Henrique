@@ -13,7 +13,7 @@ import { findCharacterWithMap } from "./exercise2/exercise2";
 
 /* Exercicio 2 */
 
-const textData = "Bruno"
+const textData = "teste teste"
 
-console.log(findCharacterWithMap(textData,"o"));
+console.log(findCharacterWithMap(textData, "e"));
 
